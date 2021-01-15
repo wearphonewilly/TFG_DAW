@@ -1,0 +1,36 @@
+
+.title {
+    color: $colorText;
+    font-size: 95px;
+    letter-spacing: 25px;
+    margin-top: -10%;
+}
+
+.subtitle {
+    color: $colorText;
+    font-size: 24px;
+    margin-top: 1%;
+    margin-bottom: 15%;
+}
+
+.divEngloba {
+    .input {
+        min-width: 22%;
+        height: 20%;
+        top: 0%;
+        right: 0%;
+        z-index: 10;
+        border: 1px solid $colorButton;
+        padding: 15px;
+    }
+
+    .input:hover {
+        background-color: $hover;
+    }
+}
+
+#resultCookie {
+    color: $colorText;
+    font-size: 27px;
+    margin-top: 5%;
+}

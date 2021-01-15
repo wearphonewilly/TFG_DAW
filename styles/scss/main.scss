@@ -1,0 +1,13 @@
+@import "colors";
+@import "carta";
+@import "text";
+
+$font: -apple-system, blinkmacsystemfont, sans-serif;
+
+html {
+    background-color: $backgroundHTML;
+}
+
+body {
+    font-family: $font;
+}

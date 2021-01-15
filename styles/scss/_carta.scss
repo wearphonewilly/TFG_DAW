@@ -1,0 +1,20 @@
+.carta {
+    background: $backgroundGradient;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 600px;
+    margin: 7%;
+}
+
+.save {
+    background-color: $backgroundButton;
+    color: $colorButton;
+    border: 1px solid $colorButton;
+    padding: 15px;
+}
+
+.cookies {
+    color: $colorText;
+}

@@ -1,0 +1,63 @@
+.carta {
+  background: linear-gradient(342deg, #994a59 0%, #fa5756 35%, #f49453 65%, #ffa856 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 600px;
+  margin: 7%;
+}
+
+.save {
+  background-color: #d2d3c9;
+  color: black;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.cookies {
+  color: white;
+}
+
+.title {
+  color: white;
+  font-size: 95px;
+  letter-spacing: 25px;
+  margin-top: -10%;
+}
+
+.subtitle {
+  color: white;
+  font-size: 24px;
+  margin-top: 1%;
+  margin-bottom: 15%;
+}
+
+.divEngloba .input {
+  min-width: 22%;
+  height: 20%;
+  top: 0%;
+  right: 0%;
+  z-index: 10;
+  border: 1px solid black;
+  padding: 15px;
+}
+.divEngloba .input:hover {
+  background-color: #96959b64;
+}
+
+#resultCookie {
+  color: white;
+  font-size: 27px;
+  margin-top: 5%;
+}
+
+html {
+  background-color: #532e3a;
+}
+
+body {
+  font-family: -apple-system, blinkmacsystemfont, sans-serif;
+}
+
+/*# sourceMappingURL=output.css.map */
