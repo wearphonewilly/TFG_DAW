@@ -4,6 +4,7 @@
     font-size: 95px;
     letter-spacing: 25px;
     margin-top: -10%;
+    float: left;
 }
 
 .subtitle {
@@ -29,8 +30,3 @@
     }
 }
 
-#resultCookie {
-    color: $colorText;
-    font-size: 27px;
-    margin-top: 5%;
-}

@@ -2,7 +2,6 @@
 
 echo "<script> console.log('holaa'); </script>";
 
-
 ?>
 
 <!DOCTYPE html>

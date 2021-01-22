@@ -3,24 +3,39 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-    <link href="../styles/css/register.css" rel="stylesheet" />
-    <title>Document</title>
+    <link href="../styles/css/output.css" rel="stylesheet" />
+    <title>Register</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 </head>
 
 <body>
-    <div class="v93_26">
-        <div class="v100_12"></div><span class="v100_25">Acepto los términos y condiciones.</span><span
-            class="v100_2">Crear Cuenta</span>
-        <div class="v100_7"></div>
-        <div class="v100_10"></div>
-        <div class="v100_11"></div>
-        <div class="v100_13"></div>
-        <div class="v100_14"></div><span class="v100_17">Registrar</span><span class="v100_18">Login</span>
-        <div class="v100_24"></div>
-        <div class="v101_8"></div><span class="v101_9">Correo electrónico</span>
-        <div class="v101_36"></div><span class="v101_37">Nombre</span><span class="v101_10">Contraseña</span><span
-            class="v101_11">Repetir contraseña</span>
+    <div class="carta">
+
+        <div class="photos">
+            <img src="" alt="">
+        </div>
+
+
+        <div class="divEngloba">
+
+            <h1 class="title"> Register </h1> <br>
+            <span class="iconify" data-icon="ant-design:google-circle-filled" data-inline="false"></span>
+
+            <form action="../php/main.php" method="post">
+                <span>Nombre</span>
+                <input id="emailUser" class="input" type="text" autofocus="" inputmode="email" placeholder="Introduzca el nombre" autocomplete="off" /> <br>
+                <span>Mail</span>
+                <input id="emailUser" class="input" type="email" autofocus="" inputmode="email" placeholder="Introduzca el correo" autocomplete="off" /> <br>
+                <span>Contraseña</span>
+                <input id="passwordUser" class="input" type="password" autofocus="" inputmode="password" placeholder="Contraseña" autocomplete="off" /> <br>        
+                <button id="save" class="save">Register</button>          
+            </form>
+        </div>
     </div>
+
+
 </body>
 
 </html>
