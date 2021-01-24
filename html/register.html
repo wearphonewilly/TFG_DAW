@@ -12,29 +12,32 @@
 
 <body>
     <div class="carta">
+        <div class="row">
 
-        <div class="photos">
-            <img src="" alt="">
-        </div>
+            <div class="col-6 col-s-12" id="imagen2">
+                <img src="../styles/img/login.jpg" alt="">
+            </div>
 
+            <div class="col-6 col-s-3 menu" id="registerForm">
+                <h1 class="title"> Register </h1> <br>
+                <span class="iconify" data-icon="ant-design:google-circle-filled" data-inline="false"></span>
 
-        <div class="divEngloba">
+                <form action="../php/main.php" method="post">
+                    <span>Nombre</span>
+                    <input id="emailUser" class="input" type="text" autofocus="" inputmode="email"
+                        placeholder="Introduzca el nombre" autocomplete="off" /> <br>
+                    <span>Mail</span>
+                    <input id="emailUser" class="input" type="email" autofocus="" inputmode="email"
+                        placeholder="Introduzca el correo" autocomplete="off" /> <br>
+                    <span>Password</span>
+                    <input id="passwordUser" class="input" type="password" autofocus="" inputmode="password"
+                        placeholder="Contraseña" autocomplete="off" /> <br>
+                    <button id="save" class="save">Register</button>
+                </form>
+            </div>
 
-            <h1 class="title"> Register </h1> <br>
-            <span class="iconify" data-icon="ant-design:google-circle-filled" data-inline="false"></span>
-
-            <form action="../php/main.php" method="post">
-                <span>Nombre</span>
-                <input id="emailUser" class="input" type="text" autofocus="" inputmode="email" placeholder="Introduzca el nombre" autocomplete="off" /> <br>
-                <span>Mail</span>
-                <input id="emailUser" class="input" type="email" autofocus="" inputmode="email" placeholder="Introduzca el correo" autocomplete="off" /> <br>
-                <span>Contraseña</span>
-                <input id="passwordUser" class="input" type="password" autofocus="" inputmode="password" placeholder="Contraseña" autocomplete="off" /> <br>        
-                <button id="save" class="save">Register</button>          
-            </form>
         </div>
     </div>
-
 
 </body>
 
