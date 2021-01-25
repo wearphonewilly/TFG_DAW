@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+.row {
+    width: 500px;
+    clear: both;
+}
+
+.row input {
+    width: 100%;
+    clear: both;
+}
+
 .row::after {
     content: "";
     clear: both;
@@ -41,10 +51,12 @@ input {
 
 #imagen2 {
     margin-top: 12%;
+    margin-left: -35%;
 }
 
 #registerForm {
     margin-top: 15%;
+    margin-left: 35%;
 }
 
 
