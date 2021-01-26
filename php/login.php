@@ -37,7 +37,7 @@
             </div>
     
             <div class="col-6 col-s-12" id="imagen">
-                <img src="../styles/img/login.jpg" alt="">
+                <img src="../styles/img/popcorn.jpg" alt="300px" height="400px">
             </div>
         </div>    
     </div>
