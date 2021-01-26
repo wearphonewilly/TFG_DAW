@@ -15,7 +15,7 @@
         <div class="row">
 
             <div class="col-6 col-s-12" id="imagen2">
-                <img src="../styles/img/login.jpg" alt="">
+                <img src="../styles/img/marvel.jpg" alt="400" height="500px">
             </div>
 
             <div class="col-6 col-s-3 menu" id="registerForm">
@@ -24,16 +24,20 @@
 
                 <form action="register.php" method="post">
                     <span>Nombre</span>
-                    <input id="emailUser" class="input" type="text" autofocus=""  placeholder="Introduzca el nombre" autocomplete="off" name="nombre"/> <br>
+                    <input id="emailUser" class="input" type="text" autofocus="" placeholder="Introduzca el nombre"
+                        autocomplete="off" name="nombre" /> <br>
 
                     <span>Username</span>
-                    <input id="emailUser" class="input" type="text" autofocus="" inputmode="email" placeholder="Introduzca el usuario" autocomplete="off" name="usuario"/> <br>
+                    <input id="emailUser" class="input" type="text" autofocus="" inputmode="email"
+                        placeholder="Introduzca el usuario" autocomplete="off" name="usuario" /> <br>
 
                     <span>Mail</span>
-                    <input id="emailUser" class="input" type="email" autofocus="" inputmode="email" placeholder="Introduzca el correo" autocomplete="off" name="correo"/> <br>
+                    <input id="emailUser" class="input" type="email" autofocus="" inputmode="email"
+                        placeholder="Introduzca el correo" autocomplete="off" name="correo" /> <br>
 
                     <span>Password</span>
-                    <input id="passwordUser" class="input" type="password" autofocus="" inputmode="password" placeholder="Contraseña" autocomplete="off" name="contra"/> <br>
+                    <input id="passwordUser" class="input" type="password" autofocus="" inputmode="password"
+                        placeholder="Contraseña" autocomplete="off" name="contra" /> <br>
 
                     <button type="submit" id="save" class="save" name="registro">Register</button>
 

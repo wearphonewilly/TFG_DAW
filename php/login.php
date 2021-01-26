@@ -25,21 +25,25 @@
 
 </head>
 <body>
-
     <div class="carta">
         <div class="row">
+            
             <div class="col-6 col-s-3 menu" id="inputs">
+                <h1 class="title"> Login </h1> <br>
+                <span class="iconify" data-icon="ant-design:google-circle-filled" data-inline="false"></span>
+
                 <form action="login.php" method="post">
                     Username<input type="text" name="usuario" placeholder="Enter your username"> <br>
                     Password<input type="password" name="contra">
                     <input type="submit" name="submit">            
                 </form>               
             </div>
-    
+
             <div class="col-6 col-s-12" id="imagen">
-                <img src="../styles/img/login.jpg" alt="">
+                <img src="../styles/img/popcorn.jpg" alt="400" height="500px">
             </div>
-        </div>    
+
+        </div>
     </div>
 
     <?php

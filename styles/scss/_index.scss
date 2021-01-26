@@ -69,15 +69,19 @@ header a {
 }
 
 #hero {
-    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/field.jpg');
+    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('../img/got.png');
 }
 
 #about {
-    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/beach.jpg');
+    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('https://ichef.bbci.co.uk/news/640/cpsprodpb/CD14/production/_108900525_00069908-acdd-4d4c-bb03-a8deb387bf72.jpg');
 }
 
 #contact {
     background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/canyon.jpg');
+}
+
+#press {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/field.jpg");
 }
 
 .custom-shape-divider-bottom-1611509775 {
@@ -99,4 +103,32 @@ header a {
 
 .custom-shape-divider-bottom-1611509775 .shape-fill {
     fill: #FFFFFF;
+}
+
+// Grids index
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+  }
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.grid-container1 {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.grid-item1 {
+    display: inline-block;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    margin-top: 5%;
 }
