@@ -18,9 +18,6 @@ class DB
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
             echo "NO CONNECTED 🔌";
-        } else {
-            echo "FULL CONNECTED 🔌";
-            //TODO: MIRAR PORQUE FALLA LA CONEXIÓN
         }
     }
 

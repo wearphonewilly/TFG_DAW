@@ -1,7 +1,12 @@
+html {
+    background-color: #532e3a;
+}
+
 body {
-  margin: 0;
-  margin-top: 50px;
-  font-family: sans-serif;
+  margin: 0 !important;
+  margin-top: 50px !important;
+  font-family: -apple-system, blinkmacsystemfont, sans-serif;
+  background-color: #532e3a !important;
 }
 
 header {
@@ -220,8 +225,18 @@ input {
 }
 
 #inputs {
-  margin-top: 28%;
-  margin-left: -30%;
+  margin-top: 21%;
+  margin-left: 40%;
+}
+
+#inputsLogin {
+    margin-top: 21%;
+    margin-left: -31%;
+}
+
+#imagenLogin {
+    margin-top: 12%;
+    margin-left: 30%;
 }
 
 #imagen {
@@ -230,7 +245,7 @@ input {
 
 #imagen2 {
   margin-top: 12%;
-  margin-left: -35%;
+  margin-left: -43%;
 }
 
 #registerForm {
@@ -343,12 +358,6 @@ input {
     width: 100%;
   }
 }
-html {
-  background-color: #532e3a;
-}
 
-body {
-  font-family: -apple-system, blinkmacsystemfont, sans-serif;
-}
 
 /*# sourceMappingURL=output.css.map */

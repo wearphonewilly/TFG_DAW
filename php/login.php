@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,10 +8,14 @@
     <meta name="description" content="Proyecto final de DAW">
 
     <!-- Internal Files -->
-    <link href="../styles/css/output.css" rel="stylesheet" />
+    <link href="../styles/output.css" rel="stylesheet" />
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 
     <script src="../js/index.js" defer></script>
@@ -24,27 +27,32 @@
     <!-- https://colorhunt.co/palette/213161 -->
 
 </head>
+
 <body>
+
     <div class="carta">
         <div class="row">
-            
-            <div class="col-6 col-s-3 menu" id="inputs">
+            <div class="col-6 col-s-3 menu" id="inputsLogin">
                 <h1 class="title"> Login </h1> <br>
                 <span class="iconify" data-icon="ant-design:google-circle-filled" data-inline="false"></span>
 
                 <form action="login.php" method="post">
-                    Username<input type="text" name="usuario" placeholder="Enter your username"> <br>
-                    Password<input type="password" name="contra">
-                    <input type="submit" name="submit">            
-                </form>               
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter username" name="usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" 
+                            name="contra">
+                    </div> <br>
+                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                </form>
             </div>
 
-            <div class="col-6 col-s-12" id="imagen">
-<<<<<<< HEAD
-                <img src="../styles/img/popcorn.jpg" alt="400" height="500px">
-=======
+            <div class="col-6 col-s-12" id="imagenLogin">
                 <img src="../styles/img/popcorn.jpg" alt="300px" height="400px">
->>>>>>> 7557037c62bf9aa7a60d3f8ac45960708db80137
             </div>
 
         </div>
@@ -81,4 +89,5 @@
     ?>
 
 </body>
+
 </html>

@@ -8,46 +8,66 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+    <!-- Internal Files -->
+    <link href="../styles/css/output.css" rel="stylesheet" />
+
+    <!-- SweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <script src="../js/index.js" defer></script>
+
 </head>
 
 <body>
     <div class="carta">
         <div class="row">
 
-            <div class="col-6 col-s-12" id="imagen2">
+            <div class="col-6" id="imagen2">
                 <img src="../styles/img/marvel.jpg" alt="400" height="500px">
             </div>
 
-            <div class="col-6 col-s-3 menu" id="registerForm">
+            <div class="col-6" id="inputs">
                 <h1 class="title"> Register </h1> <br>
                 <span class="iconify" data-icon="ant-design:google-circle-filled" data-inline="false"></span>
 
                 <form action="register.php" method="post">
-                    <span>Nombre</span>
-                    <input id="emailUser" class="input" type="text" autofocus="" placeholder="Introduzca el nombre"
-                        autocomplete="off" name="nombre" /> <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            autofocus="" placeholder="Introduzca el nombre" autocomplete="off" name="nombre">
+                    </div>
 
-                    <span>Username</span>
-                    <input id="emailUser" class="input" type="text" autofocus="" inputmode="email"
-                        placeholder="Introduzca el usuario" autocomplete="off" name="usuario" /> <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            autofocus="" inputmode="email" placeholder="Introduzca el usuario" autocomplete="off"
+                            name="usuario">
+                    </div>
 
-                    <span>Mail</span>
-                    <input id="emailUser" class="input" type="email" autofocus="" inputmode="email"
-                        placeholder="Introduzca el correo" autocomplete="off" name="correo" /> <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mail</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            autofocus="" inputmode="email" placeholder="Introduzca el correo" autocomplete="off"
+                            name="correo">
+                    </div>
 
-                    <span>Password</span>
-                    <input id="passwordUser" class="input" type="password" autofocus="" inputmode="password"
-                        placeholder="Contraseña" autocomplete="off" name="contra" /> <br>
-
-                    <button type="submit" id="save" class="save" name="registro">Register</button>
-
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" autofocus=""
+                            inputmode="password" placeholder="Contraseña" autocomplete="off" name="contra">
+                    </div> <br>
+                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                 </form>
             </div>
 
         </div>
     </div>
-
-
     <?php
 
     require_once("DB.php");
