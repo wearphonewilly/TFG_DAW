@@ -40,7 +40,11 @@
             </div>
 
             <div class="col-6 col-s-12" id="imagen">
+<<<<<<< HEAD
                 <img src="../styles/img/popcorn.jpg" alt="400" height="500px">
+=======
+                <img src="../styles/img/popcorn.jpg" alt="300px" height="400px">
+>>>>>>> 7557037c62bf9aa7a60d3f8ac45960708db80137
             </div>
 
         </div>
