@@ -83,6 +83,10 @@ header a {
   background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/canyon.jpg");
 }
 
+#press {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/field.jpg");
+}
+
 .custom-shape-divider-bottom-1611509775 {
   position: absolute;
   bottom: 0;
@@ -102,6 +106,32 @@ header a {
 
 .custom-shape-divider-bottom-1611509775 .shape-fill {
   fill: #FFFFFF;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid-container1 {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid-item1 {
+  display: inline-block;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  margin-top: 5%;
 }
 
 .carta {
