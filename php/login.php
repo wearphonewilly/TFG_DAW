@@ -8,7 +8,7 @@
     <meta name="description" content="Proyecto final de DAW">
 
     <!-- Internal Files -->
-    <link href="../styles/output.css" rel="stylesheet" />
+    <link href="../styles/css/output.css" rel="stylesheet" />
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
