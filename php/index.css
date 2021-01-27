@@ -1,0 +1,13 @@
+html, body {
+    background-color: blueviolet !important;
+}
+
+.container {
+    background-color: aquamarine !important;
+    margin-top: 5%;
+    border-radius: 13px !important;
+}
+
+#imgReg, #imgLogin {
+    margin-left: 26% !important;
+}
