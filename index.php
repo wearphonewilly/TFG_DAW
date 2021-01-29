@@ -14,10 +14,14 @@
 
     <!-- Internal Files -->
     <link rel="stylesheet" href="styles/css/output.css">
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="./php/index.css">
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 
     <script src="js/index.js" defer></script>
@@ -50,12 +54,6 @@
                     <img src="https://www.tvtime.com/ga-assets/1611172222185/static/69faec5bfe4d46002ed45cf8b3009652/e0765/tvtime-site%252F357d6439-38c2-43a9-bf3b-3dcf76a95613_header-phones%25401.5x.png"
                         class="profile-img">
                     <h1>WatchME</h1>
-                    <div class="custom-shape-divider-bottom-1611509775">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 120"
-                            preserveaspectratio="none">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                        </svg>
-                    </div>
                 </div>
             </div>
         </section>
@@ -95,12 +93,66 @@
                     <div class="grid-item">
                         <h2>Links, press and recognition</h2>
                     </div>
-                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_mashable.svg" alt="Mashable"> </div>
-                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_appstore.svg" alt="AppStore"> </div>
-                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_producthunt.svg" alt="ProductHaunt"> </div>
+                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_mashable.svg"
+                            alt="Mashable"> </div>
+                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_appstore.svg"
+                            alt="AppStore"> </div>
+                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_producthunt.svg"
+                            alt="ProductHaunt"> </div>
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="stats">
+                <div class="content">
+                    <div id="statsMovie" class="inner_content">
+                        <h2>Stats</h2>
+                        <p>We all love them. Here's a few that we find interesting.</p>
+
+                        <div class="inner_stats">
+                            <div class="stat">
+                                <p>617.681</p>
+                                <p>Movies</p>
+                            </div>
+
+                            <div class="stat">
+                                <p>104.400</p>
+                                <p>TV Shows</p>
+                            </div>
+
+                            <div class="stat">
+                                <p>155.461</p>
+                                <p>TV Seasons</p>
+                            </div>
+
+                            <div class="stat">
+                                <p>2.342.320</p>
+                                <p>TV Episodes</p>
+                            </div>
+
+                            <div class="stat">
+                                <p>1.950.298</p>
+                                <p>People</p>
+                            </div>
+
+                            <div class="stat">
+                                <p>2.413.666</p>
+                                <p>Images</p>
+                            </div>
+
+                            <div class="stat">
+                                <p>535</p>
+                                <p>Coffees developemnt</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <img src="./styles/img/sheldon.png" width="321" height="379" id="sheldon">
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="p-b-20 coral-Body--S">

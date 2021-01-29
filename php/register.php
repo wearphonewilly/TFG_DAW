@@ -42,13 +42,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            autofocus="" inputmode="email" placeholder="Introduzca el usuario" autocomplete="off"
-                            name="usuario">
-                    </div>
-
-                    <div class="form-group">
                         <label for="exampleInputEmail1">Mail</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             autofocus="" inputmode="email" placeholder="Introduzca el correo" autocomplete="off"
@@ -71,24 +64,30 @@
 
 
     <?php
-    require_once("DB.php");
+    require_once("./DB.php");
     $conn = DB::getInstance()->getConn();
 
     $name = $_POST['nombre'];
-    $username = $_POST['usuario'];
     $mail = $_POST['correo'];
     $password = $_POST['contra'];
+
+    $name = $conn->real_escape_string($name);
+    $mail = $conn->real_escape_string($mail);
+    $password = $conn->real_escape_string($password);
+
+    // TODO: Encriptar contraseña
     // $passwordCrypted = password_hash($password, PASSWORD_BCRYPT, ['salt' => 'abc']);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($name) && !empty($username) && !empty($mail) && !empty($password)) {
-            $conn -> query("INSERT INTO users (nombre, username, mail, password) VALUES ('$name', '$username', '$mail', '$password')");
+        if (!empty($name) && !empty($mail) && !empty($password)) {
+            $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
+        } else {
+            echo "No ha sido posible hacer el insert";
         }
     }
     ?>
 
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>

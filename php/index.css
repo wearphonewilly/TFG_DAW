@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     background-color: blueviolet !important;
 }
 
@@ -8,6 +9,86 @@ html, body {
     border-radius: 13px !important;
 }
 
-#imgReg, #imgLogin {
+#imgReg,
+#imgLogin {
     margin-left: 26% !important;
+}
+
+
+a.button {
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: #d40242;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: 0.2s all
+}
+
+a.button:hover {
+    background-color: #0a1526;
+    color: #d40242
+}
+
+a.button.white {
+    background-color: #fff;
+    color: #d40242
+}
+
+a.button.white:hover {
+    background-color: #d40242;
+    color: #fff
+}
+
+div.stats {
+    width: 100%;
+    padding: 64px 0;
+    background-color: #fff
+}
+
+div.stats div.content {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+div.stats div.content h2 {
+    font-size: 2em;
+    color: #0a1526
+}
+
+div.stats div.content div.inner_stats {
+    display: flex;
+    flex-wrap: wrap;
+    width: 679px;
+    box-sizing: border-box
+}
+
+div.stats div.content div.inner_stats div.stat {
+    min-width: 25%;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    box-sizing: border-box
+}
+
+div.stats div.content div.inner_stats div.stat p {
+    margin-bottom: 0;
+    font-weight: 300
+}
+
+div.stats div.content div.inner_stats div.stat p:first-of-type {
+    color: #0a1526;
+    font-size: 1.6em;
+    font-weight: 600
+}
+
+@media screen and (max-width: 1014px) {
+    #statsMovie {
+        width: 100%;
+    }
 }
