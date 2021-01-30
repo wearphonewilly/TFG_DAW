@@ -1,12 +1,7 @@
-html {
-    background-color: #532e3a;
-}
-
 body {
-  margin: 0 !important;
-  margin-top: 50px !important;
-  font-family: -apple-system, blinkmacsystemfont, sans-serif;
-  background-color: #532e3a !important;
+  margin: 0;
+  margin-top: 50px;
+  font-family: sans-serif;
 }
 
 header {
@@ -139,22 +134,83 @@ header a {
   margin-top: 5%;
 }
 
-.carta {
-  background: linear-gradient(342deg, #994a59 0%, #fa5756 35%, #f49453 65%, #ffa856 100%);
+a.button {
+  margin-top: 40px;
+  border-radius: 5px;
+  background-color: #d40242;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2em;
+  transition: 0.2s all;
+}
+
+a.button:hover {
+  background-color: #0a1526;
+  color: #d40242;
+}
+
+a.button.white {
+  background-color: #fff;
+  color: #d40242;
+}
+
+a.button.white:hover {
+  background-color: #d40242;
+  color: #fff;
+}
+
+div.stats {
+  width: 100%;
+  padding: 64px 0;
+  background-color: #fff;
+}
+
+div.stats div.content {
+  width: 1000px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  height: 600px;
-  margin: 7%;
-  border-radius: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.save {
-  background-color: #d2d3c9;
-  color: black;
-  border: 1px solid black;
-  padding: 15px;
+div.stats div.content h2 {
+  font-size: 2em;
+  color: #0a1526;
 }
 
+div.stats div.content div.inner_stats {
+  display: flex;
+  flex-wrap: wrap;
+  width: 679px;
+  box-sizing: border-box;
+}
+
+div.stats div.content div.inner_stats div.stat {
+  min-width: 25%;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+div.stats div.content div.inner_stats div.stat p {
+  margin-bottom: 0;
+  font-weight: 300;
+}
+
+div.stats div.content div.inner_stats div.stat p:first-of-type {
+  color: #0a1526;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1014px) {
+  #statsMovie {
+    width: 100%;
+  }
+}
 .title {
   color: white;
   font-size: 95px;
@@ -225,18 +281,8 @@ input {
 }
 
 #inputs {
-  margin-top: 21%;
-  margin-left: 40%;
-}
-
-#inputsLogin {
-    margin-top: 21%;
-    margin-left: -31%;
-}
-
-#imagenLogin {
-    margin-top: 12%;
-    margin-left: 30%;
+  margin-top: 28%;
+  margin-left: -30%;
 }
 
 #imagen {
@@ -245,7 +291,7 @@ input {
 
 #imagen2 {
   margin-top: 12%;
-  margin-left: -43%;
+  margin-left: -35%;
 }
 
 #registerForm {
@@ -358,6 +404,106 @@ input {
     width: 100%;
   }
 }
+#imgReg,
+#imgLogin {
+  margin-left: 26% !important;
+}
 
+.container {
+  margin-top: 5%;
+  border-radius: 13px !important;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+.dot {
+  height: 250px;
+  width: 250px;
+  background-image: url(../img/profile.jpg);
+  background-size: 500px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10%;
+  margin-top: -10%;
+}
+
+.profile-stats {
+  display: inline-block;
+  margin-left: 5%;
+}
+
+.stats {
+  background-color: blue;
+  margin-top: -20%;
+  display: inline-block;
+  width: 50%;
+  margin-top: -49%;
+  margin-left: 200%;
+}
+
+body {
+  font-family: -apple-system, blinkmacsystemfont, sans-serif;
+}
 
 /*# sourceMappingURL=output.css.map */
