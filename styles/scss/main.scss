@@ -2,11 +2,12 @@
 @import "colors";
 @import "text";
 @import "loginRegistro";
+@import "navbar";
 
 $font: -apple-system, blinkmacsystemfont, sans-serif;
 
 html, body {
-    background-color: $backgroundHTML !important;
+    background-color: $backgroundHTML;
 } 
 
 // TODO: Change Background Color Index.html

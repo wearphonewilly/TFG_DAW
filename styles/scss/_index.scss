@@ -128,26 +128,26 @@ header a {
 }
 
 a.button {
-    margin-top: 40px !important;
-    border-radius: 5px !important;
-    background-color: #d40242 !important;
-    display: inline-block !important;
-    padding: 10px 20px !important;
-    color: #fff !important;
-    text-transform: uppercase !important;
-    font-weight: 700 !important;
-    font-size: 1.2em !important;
-    transition: 0.2s all !important;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: #d40242;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: 0.2s all
 }
 
 a.button:hover {
-    background-color: #0a1526 !important;
-    color: #d40242 !important;
+    background-color: #0a1526;
+    color: #d40242
 }
 
 a.button.white {
-    background-color: #fff !important;
-    color: #d40242 !important;
+    background-color: #fff;
+    color: #d40242
 }
 
 a.button.white:hover {
