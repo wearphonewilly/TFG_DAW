@@ -8,7 +8,7 @@
     <meta name="description" content="Proyecto final de DAW">
 
     <!-- Internal Files -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../styles/css/output.css">
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -33,10 +33,11 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px" class="img-fluid" id="imgLogin">
+                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
+                    class="img-fluid" id="imgLogin">
             </div>
 
-            <div class="col">
+            <div class="col" style="margin-top: 5%;">
                 <form action="login.php" method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>

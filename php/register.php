@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="description" content="Proyecto final de DAW">
 
     <!-- Internal Files -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../styles/css/output.css">
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -32,32 +32,32 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col" style="margin-top: 5%;margin-left: 15%;">
                 <form action="register.php" method="post">
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            autofocus="" placeholder="Introduzca el nombre" autocomplete="off" name="nombre">
+                        <input type="text" class="form-control" autofocus="" placeholder="Introduzca el nombre"
+                            autocomplete="off" name="nombre">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mail</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            autofocus="" inputmode="email" placeholder="Introduzca el correo" autocomplete="off"
-                            name="correo">
+                        <input type="email" class="form-control" autofocus="" inputmode="email"
+                            placeholder="Introduzca el correo" autocomplete="off" name="correo">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" autofocus=""
-                            inputmode="password" placeholder="Contraseña" autocomplete="off" name="contra">
+                        <input type="password" class="form-control" autofocus="" inputmode="password"
+                            placeholder="Contraseña" autocomplete="off" name="contra">
                     </div> <br>
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                 </form>
             </div>
             <div class="col">
-                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px" class="img-fluid" id="imgReg">
+                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
+                    class="img-fluid" id="imgReg">
             </div>
         </div>
     </div>

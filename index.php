@@ -13,8 +13,7 @@
     <meta name="robots" content="index" />
 
     <!-- Internal Files -->
-    <link rel="stylesheet" href="styles/css/output.css">
-    <link rel="stylesheet" href="./php/index.css">
+    <link rel="stylesheet" href="./styles/css/output.css"> 
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

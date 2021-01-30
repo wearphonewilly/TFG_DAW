@@ -1,14 +1,3 @@
-html {
-    background-color: #532e3a;
-}
-
-body {
-  margin: 0 !important;
-  margin-top: 50px !important;
-  font-family: -apple-system, blinkmacsystemfont, sans-serif;
-  background-color: #532e3a !important;
-}
-
 header {
   display: flex;
   position: fixed;
@@ -139,22 +128,83 @@ header a {
   margin-top: 5%;
 }
 
-.carta {
-  background: linear-gradient(342deg, #994a59 0%, #fa5756 35%, #f49453 65%, #ffa856 100%);
+a.button {
+  margin-top: 40px !important;
+  border-radius: 5px !important;
+  background-color: #d40242 !important;
+  display: inline-block !important;
+  padding: 10px 20px !important;
+  color: #fff !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  font-size: 1.2em !important;
+  transition: 0.2s all !important;
+}
+
+a.button:hover {
+  background-color: #0a1526 !important;
+  color: #d40242 !important;
+}
+
+a.button.white {
+  background-color: #fff !important;
+  color: #d40242 !important;
+}
+
+a.button.white:hover {
+  background-color: #d40242;
+  color: #fff;
+}
+
+div.stats {
+  width: 100%;
+  padding: 64px 0;
+  background-color: #c3c3c3;
+}
+
+div.stats div.content {
+  width: 1000px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  height: 600px;
-  margin: 7%;
-  border-radius: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.save {
-  background-color: #d2d3c9;
-  color: black;
-  border: 1px solid black;
-  padding: 15px;
+div.stats div.content h2 {
+  font-size: 2em;
+  color: #0a1526;
 }
 
+div.stats div.content div.inner_stats {
+  display: flex;
+  flex-wrap: wrap;
+  width: 679px;
+  box-sizing: border-box;
+}
+
+div.stats div.content div.inner_stats div.stat {
+  min-width: 25%;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+div.stats div.content div.inner_stats div.stat p {
+  margin-bottom: 0;
+  font-weight: 300;
+}
+
+div.stats div.content div.inner_stats div.stat p:first-of-type {
+  color: #0a1526;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1014px) {
+  #statsMovie {
+    width: 100%;
+  }
+}
 .title {
   color: white;
   font-size: 95px;
@@ -183,18 +233,9 @@ header a {
   background-color: #96959b64;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  width: 500px;
-  clear: both;
-}
-
 .row input {
-  width: 100%;
-  clear: both;
+  width: 50% !important;
+  clear: both !important;
 }
 
 .row::after {
@@ -206,10 +247,6 @@ header a {
 [class*=col-] {
   float: left;
   padding: 15px;
-}
-
-html {
-  font-family: "Lucida Sans", sans-serif;
 }
 
 .header {
@@ -224,33 +261,15 @@ input {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#inputs {
-  margin-top: 21%;
-  margin-left: 40%;
+.container {
+  background-color: aquamarine !important;
+  margin-top: 5%;
+  border-radius: 13px !important;
 }
 
-#inputsLogin {
-    margin-top: 21%;
-    margin-left: -31%;
-}
-
-#imagenLogin {
-    margin-top: 12%;
-    margin-left: 30%;
-}
-
-#imagen {
-  margin-left: 30%;
-}
-
-#imagen2 {
-  margin-top: 12%;
-  margin-left: -43%;
-}
-
-#registerForm {
-  margin-top: 15%;
-  margin-left: 35%;
+#imgReg,
+#imgLogin {
+  margin-left: 26% !important;
 }
 
 /* For mobile phones: */
@@ -358,6 +377,14 @@ input {
     width: 100%;
   }
 }
+html, body {
+  background-color: #532e3a !important;
+}
 
+body {
+  font-family: -apple-system, blinkmacsystemfont, sans-serif;
+  margin: 0;
+  margin-top: 50px;
+}
 
 /*# sourceMappingURL=output.css.map */

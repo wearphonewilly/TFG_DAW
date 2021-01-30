@@ -1,17 +1,18 @@
 @import "index";
 @import "colors";
-@import "carta";
 @import "text";
 @import "loginRegistro";
 
 $font: -apple-system, blinkmacsystemfont, sans-serif;
 
-html {
-    background-color: $backgroundHTML;
+html, body {
+    background-color: $backgroundHTML !important;
 } 
 
 // TODO: Change Background Color Index.html
 
 body {
     font-family: $font;
+    margin: 0;
+    margin-top: 50px;
 }

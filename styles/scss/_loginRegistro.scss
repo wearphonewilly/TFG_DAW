@@ -1,15 +1,6 @@
-* {
-    box-sizing: border-box;
-}
-
-.row {
-    width: 500px;
-    clear: both;
-}
-
 .row input {
-    width: 100%;
-    clear: both;
+    width: 50% !important;
+    clear: both !important;
 }
 
 .row::after {
@@ -21,10 +12,6 @@
 [class*="col-"] {
     float: left;
     padding: 15px;
-}
-
-html {
-    font-family: "Lucida Sans", sans-serif;
 }
 
 .header {
@@ -40,25 +27,16 @@ input {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#inputs {
-    margin-top: 28%;
-    margin-left: -30%;
+.container {
+    background-color: aquamarine !important;
+    margin-top: 5%;
+    border-radius: 13px !important;
 }
 
-#imagen {
-    margin-left: 30%;
+#imgReg,
+#imgLogin {
+    margin-left: 26% !important;
 }
-
-#imagen2 {
-    margin-top: 12%;
-    margin-left: -35%;
-}
-
-#registerForm {
-    margin-top: 15%;
-    margin-left: 35%;
-}
-
 
 /* For mobile phones: */
 [class*="col-"] {
