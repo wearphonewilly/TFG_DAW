@@ -15,6 +15,9 @@
     <!-- Google Adsense -->
     <script data-ad-client="ca-pub-8809544288885617" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="PVQ2i5gpT36bP1TWZCLA9-X2PgQaR_XISt0w8Mv4ERA" />
+
     <!-- Internal Files -->
     <link rel="stylesheet" href="./styles/css/index.css">
 
