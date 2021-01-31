@@ -13,7 +13,7 @@
     <meta name="robots" content="index" />
 
     <!-- Internal Files -->
-    <link rel="stylesheet" href="./styles/css/output.css"> 
+    <link rel="stylesheet" href="./styles/css/index.css">
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -107,7 +107,7 @@
                 <div class="content">
                     <div id="statsMovie" class="inner_content">
                         <h2>Stats</h2>
-                        <p>We all love them. Here's a few that we find interesting.</p>
+                        <p>We all love them. Heres a few that we find interesting.</p>
 
                         <div class="inner_stats">
                             <div class="stat">

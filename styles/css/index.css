@@ -28,11 +28,15 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-    background-size: cover; /* Add this line */
-    background-position: center center; /* Add this line */
-    background-repeat: no-repeat; /* Add this line */
-    background-attachment: fixed; /* Add this line */
+
+    background-size: cover;
+    /* Add this line */
+    background-position: center center;
+    /* Add this line */
+    background-repeat: no-repeat;
+    /* Add this line */
+    background-attachment: fixed;
+    /* Add this line */
 }
 
 #hero .profile-img {
@@ -63,15 +67,15 @@ header a {
 }
 
 #hero {
-    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('../img/got.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('../img/got.png');
 }
 
 #about {
-    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('https://ichef.bbci.co.uk/news/640/cpsprodpb/CD14/production/_108900525_00069908-acdd-4d4c-bb03-a8deb387bf72.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('https://ichef.bbci.co.uk/news/640/cpsprodpb/CD14/production/_108900525_00069908-acdd-4d4c-bb03-a8deb387bf72.jpg');
 }
 
 #contact {
-    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url('https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/canyon.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('https://codetheweb.blog/assets/img/posts/steps-to-creating-a-website/canyon.jpg');
 }
 
 #press {
@@ -99,13 +103,11 @@ header a {
     fill: #FFFFFF;
 }
 
-// Grids index
-
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
     padding: 10px;
-  }
+}
 
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
@@ -128,26 +130,26 @@ header a {
 }
 
 a.button {
-    margin-top: 40px;
-    border-radius: 5px;
-    background-color: #d40242;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.2em;
-    transition: 0.2s all
+    margin-top: 40px !important;
+    border-radius: 5px !important;
+    background-color: #d40242 !important;
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    font-size: 1.2em !important;
+    transition: 0.2s all !important;
 }
 
 a.button:hover {
-    background-color: #0a1526;
-    color: #d40242
+    background-color: #0a1526 !important;
+    color: #d40242 !important;
 }
 
 a.button.white {
-    background-color: #fff;
-    color: #d40242
+    background-color: #fff !important;
+    color: #d40242 !important;
 }
 
 a.button.white:hover {

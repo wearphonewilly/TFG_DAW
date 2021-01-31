@@ -1,4 +1,3 @@
-@import "index";
 @import "colors";
 @import "text";
 @import "loginRegistro";
@@ -7,7 +6,7 @@
 $font: -apple-system, blinkmacsystemfont, sans-serif;
 
 html, body {
-    background-color: $backgroundHTML;
+    background-color: $backgroundHTML !important;
 } 
 
 // TODO: Change Background Color Index.html
