@@ -12,6 +12,9 @@
     <meta name="copyright" content="Propietario del copyright" />
     <meta name="robots" content="index" />
 
+    <!-- Google Adsense -->
+    <script data-ad-client="ca-pub-8809544288885617" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <!-- Internal Files -->
     <link rel="stylesheet" href="./styles/css/index.css">
 
