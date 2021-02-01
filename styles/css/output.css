@@ -60,14 +60,17 @@ input {
   border-radius: 13px !important;
 }
 
-#imgReg,
-#imgLogin {
-  margin-left: 26% !important;
-}
-
 #registerForm {
   margin-top: 15%;
   margin-left: 35%;
+}
+
+#imgRegistro {
+  margin-top: 2% !important;
+}
+
+.col-lg-7 {
+  width: 130% !important;
 }
 
 /* For mobile phones: */
@@ -280,7 +283,6 @@ html, body {
 body {
   font-family: -apple-system, blinkmacsystemfont, sans-serif;
   margin: 0;
-  margin-top: 50px;
 }
 
 /*# sourceMappingURL=output.css.map */

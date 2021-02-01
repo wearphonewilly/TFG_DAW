@@ -32,12 +32,12 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col" style=" margin-top: 5%; margin-bottom: 5%;">
                 <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
                     class="img-fluid" id="imgLogin">
             </div>
 
-            <div class="col" style="margin-top: 5%;">
+            <div class="col" style="margin-top: 12%;">
                 <form action="login.php" method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>

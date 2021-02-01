@@ -33,14 +33,17 @@ input {
     border-radius: 13px !important;
 }
 
-#imgReg,
-#imgLogin {
-    margin-left: 26% !important;
-}
-
 #registerForm {
     margin-top: 15%;
     margin-left: 35%;
+}
+
+#imgRegistro {
+    margin-top: 2% !important;
+}
+
+.col-lg-7 {
+    width: 130% !important;
 }
 
 /* For mobile phones: */

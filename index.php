@@ -13,7 +13,8 @@
     <meta name="robots" content="index" />
 
     <!-- Google Adsense -->
-    <script data-ad-client="ca-pub-8809544288885617" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-8809544288885617" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="PVQ2i5gpT36bP1TWZCLA9-X2PgQaR_XISt0w8Mv4ERA" />
@@ -98,12 +99,18 @@
                     <div class="grid-item">
                         <h2>Links, press and recognition</h2>
                     </div>
-                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_mashable.svg"
-                            alt="Mashable"> </div>
-                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_appstore.svg"
-                            alt="AppStore"> </div>
-                    <div class="grid-item1"> <img src="https://mustapp.com/static/images/landing/link_producthunt.svg"
-                            alt="ProductHaunt"> </div>
+                    <div class="grid-item1">
+                        <img src="https://mustapp.com/static/images/landing/link_mashable.svg" alt="Mashable">
+                    </div>
+                    
+                    <div class="grid-item1"> 
+                        <img src="https://mustapp.com/static/images/landing/link_appstore.svg" alt="AppStore"> 
+                    </div>
+                    
+                    <div class="grid-item1"> 
+                        <img src="https://mustapp.com/static/images/landing/link_producthunt.svg" alt="ProductHaunt"> 
+                    </div>
+
                 </div>
             </div>
         </section>

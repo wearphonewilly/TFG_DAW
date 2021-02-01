@@ -11,3 +11,12 @@ function sweetalert2()
     }); 
     </script>";
 }
+
+
+function notyf()
+{
+    echo  "<script> 
+          var notyf = new Notyf();
+          notyf.success('Your changes have been successfully saved!');
+          </script>";
+}
