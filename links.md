@@ -14,6 +14,7 @@ $var = "Hola Pepe";
 echo "<script> alert('".$var."'); </script>";
 
 ## API
+http://www.serialdust.es/
 https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
 
 ### Movies

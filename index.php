@@ -66,17 +66,16 @@
 
 
         <section id="about">
-            <div class="section-inner">
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <h2>Qué es WatchME??</h2>
-                    </div>
-                    <div class="grid-item">
-                        <h4 id="queEsWatchME">Es una web creada por la comunidad para los fans de las películas y las
-                            series</h4>
-                    </div>
+            <div class="row mb-3">
+                <div class="col-6"  style="margin-top: 10% !important;">
+                    <h1 id="titulo">Tus películas y series al día</h1>
+                    <h2 id="descripcion"> <i> ¿Cómo va eso? </i> Aquí podrás llevar un seguimiento de todas ellas. </h2>
+                </div>
+                <div class="col-6">
+                    <img src="./styles/img/joey.png" alt="Lamp" width="300" height="400">
                 </div>
             </div>
+
         </section>
 
         <section id="contact">
@@ -102,13 +101,13 @@
                     <div class="grid-item1">
                         <img src="https://mustapp.com/static/images/landing/link_mashable.svg" alt="Mashable">
                     </div>
-                    
-                    <div class="grid-item1"> 
-                        <img src="https://mustapp.com/static/images/landing/link_appstore.svg" alt="AppStore"> 
+
+                    <div class="grid-item1">
+                        <img src="https://mustapp.com/static/images/landing/link_appstore.svg" alt="AppStore">
                     </div>
-                    
-                    <div class="grid-item1"> 
-                        <img src="https://mustapp.com/static/images/landing/link_producthunt.svg" alt="ProductHaunt"> 
+
+                    <div class="grid-item1">
+                        <img src="https://mustapp.com/static/images/landing/link_producthunt.svg" alt="ProductHaunt">
                     </div>
 
                 </div>

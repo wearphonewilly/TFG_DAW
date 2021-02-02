@@ -22,13 +22,16 @@ echo "<script> console.log('holaa'); </script>";
         <a href="./main.php" class="active">Home</a>
         <a href="#series">Series</a>
         <a href="#peliculas">Peliculas</a>
-        <a href="#"><i class="fa fa-fw fa-search"></i> Buscar</a>
         <a href="#about">About</a>
-        <a href="./profile.php">Profile</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+        <a href="#contact">Contact</a>
+        <div class="search-container">
+            <form action="./search.php" method="post">
+                <input type="text" placeholder="Search.." name="busqueda" class="search-input">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
     </div>
+
 </body>
 
 </html>
