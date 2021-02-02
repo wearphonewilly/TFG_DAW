@@ -18,25 +18,7 @@
 
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="PVQ2i5gpT36bP1TWZCLA9-X2PgQaR_XISt0w8Mv4ERA" />
-
-    <!-- Internal Files -->
     <link rel="stylesheet" href="./styles/css/index.css">
-
-    <!-- SweetAlert 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-
-    <script src="js/index.js" defer></script>
-
-    <!-- Referencia Diseno -->
-    <!-- https://dribbble.com/shots/6286426-Email-Subscription-Webpage-Design/attachments/6286426-Email-Subscription-Webpage-Design?mode=media -->
-
-    <!-- Paleta de colores -->
-    <!-- https://colorhunt.co/palette/213161 -->
 
 </head>
 
@@ -53,125 +35,74 @@
         </nav>
     </header>
 
-    <main>
-        <section id="hero">
-            <div class="section-inner">
-                <div class="custom-shape-divider-top-1611509350">
-                    <img src="https://www.tvtime.com/ga-assets/1611172222185/static/69faec5bfe4d46002ed45cf8b3009652/e0765/tvtime-site%252F357d6439-38c2-43a9-bf3b-3dcf76a95613_header-phones%25401.5x.png"
-                        class="profile-img">
-                    <h1>WatchME</h1>
-                </div>
-            </div>
-        </section>
 
+    <section class="intro">
+        <div class="content">
+            <h1>WatchME</h1>
+        </div>
 
-        <section id="about">
-            <div class="row mb-3">
-                <div class="col-6"  style="margin-top: 10% !important;">
-                    <h1 id="titulo">Tus películas y series al día</h1>
-                    <h2 id="descripcion"> <i> ¿Cómo va eso? </i> Aquí podrás llevar un seguimiento de todas ellas. </h2>
-                </div>
-                <div class="col-6">
-                    <img src="./styles/img/joey.png" alt="Lamp" width="300" height="400">
-                </div>
-            </div>
+        <div class="content">
+            <img src="https://www.tvtime.com/ga-assets/1611956427563/static/69faec5bfe4d46002ed45cf8b3009652/e0765/tvtime-site%252F357d6439-38c2-43a9-bf3b-3dcf76a95613_header-phones%25401.5x.png"
+                class="profile-img" style="width: 30%; margin-left: 50%;">
+        </div>
+    </section>
 
-        </section>
+    <section>
+        <div class="content">
+            <h1 id="titulo">Tus películas y series al día</h1>
+            <h2 id="descripcion"> <i> ¿Cómo va eso? </i> Aquí podrás llevar un seguimiento de todas ellas. </h2>
+        </div>
+        <div class="content">
+            <img src="./styles/img/joey.png" alt="Lamp" width="300" height="400">
+        </div>
+    </section>
 
-        <section id="contact">
-            <div class="section-inner">
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <h2>Porqué necesito WatchME??</h2>
-                    </div>
-                    <div class="grid-item">
-                        <p>Because the best recommendations come not from critics or strangers, but the people you know,
-                            trust and share the same taste with. Because Must socializes your movie experience</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section>
+        <div class="content">
+            <h2>Porqué necesito WatchME??</h2>
+        </div>
+        <div class="content">
+            <p>Because the best recommendations come not from critics or strangers, <br>but the people you know,
+                trust and share the same taste with. <br> Because Must socializes your movie experience</p>
+        </div>
+    </section>
 
-        <section id="press">
-            <div class="section-inner">
-                <div class="grid-container1">
-                    <div class="grid-item">
-                        <h2>Links, press and recognition</h2>
-                    </div>
-                    <div class="grid-item1">
-                        <img src="https://mustapp.com/static/images/landing/link_mashable.svg" alt="Mashable">
-                    </div>
+    <section>
+        <!-- TODO Underrevision (no se si poner press)-->
+        <h2>Links, press and recognition</h2>
 
-                    <div class="grid-item1">
-                        <img src="https://mustapp.com/static/images/landing/link_appstore.svg" alt="AppStore">
-                    </div>
+        <div class="content">
+            <h1>See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
+        </div>
+        <div class="content">
+            <h1>See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
+        </div>
+        <div class="content">
+            <h1>See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
+        </div>
 
-                    <div class="grid-item1">
-                        <img src="https://mustapp.com/static/images/landing/link_producthunt.svg" alt="ProductHaunt">
-                    </div>
+    </section>
 
-                </div>
-            </div>
-        </section>
+    <section>
+        <div class="content">
+            <h1>STATS </h1>
+            <h2>Movies 617.681 </h2>
+            <h2>TV Shows 104.400 </h2>
+            <h2>TV Seasons 155.461</h2>
+            <h2>TV Episodes 2.342.320 </h2>
+            <h2>Coffees development 535</h2>
+        </div>
+        <div class="content">
+            <img src="./styles/img/sheldon.png" width="321" height="379" id="sheldon" style="margin-left: 25%;">
+        </div>
 
-        <section>
-            <div class="stats">
-                <div class="content">
-                    <div id="statsMovie" class="inner_content">
-                        <h2>Stats</h2>
-                        <p>We all love them. Heres a few that we find interesting.</p>
-
-                        <div class="inner_stats">
-                            <div class="stat">
-                                <p>617.681</p>
-                                <p>Movies</p>
-                            </div>
-
-                            <div class="stat">
-                                <p>104.400</p>
-                                <p>TV Shows</p>
-                            </div>
-
-                            <div class="stat">
-                                <p>155.461</p>
-                                <p>TV Seasons</p>
-                            </div>
-
-                            <div class="stat">
-                                <p>2.342.320</p>
-                                <p>TV Episodes</p>
-                            </div>
-
-                            <div class="stat">
-                                <p>1.950.298</p>
-                                <p>People</p>
-                            </div>
-
-                            <div class="stat">
-                                <p>2.413.666</p>
-                                <p>Images</p>
-                            </div>
-
-                            <div class="stat">
-                                <p>535</p>
-                                <p>Coffees developemnt</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <img src="./styles/img/sheldon.png" width="321" height="379" id="sheldon">
-                </div>
-            </div>
-        </section>
-
-    </main>
+    </section>
 
     <footer class="p-b-20 coral-Body--S">
         Made with ❤️ by <a href="https://instagram.com/iwilly_cf" target="_blank" class="coral-Link">Willy</a>
-        <a href="#" target="_blank" class="coral-Link">Support the project</a>
     </footer>
 
-</body>
 
+</body>
 
 </html>

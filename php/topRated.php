@@ -1,13 +1,14 @@
-
-<pre>
 <?php
 
-$callApi = file_get_contents('https://api.themoviedb.org/3/tv/85271/season/1?api_key=f269df40fe8fe735f1ed701a4bfba1df');
-$callApi = json_decode($callApi, true)['episodes'];
-print_r($callApi);
+$json = file_get_contents("https://api.themoviedb.org/3/movie/top_rated?api_key=f269df40fe8fe735f1ed701a4bfba1df");
+$result = json_decode($json, true);
 
-foreach ($callApi as $movie) {
+if (is_array($result) || is_object($result)) {
+    foreach ($result['results'] as $value) {
+        $poster = $value['poster_path'];
+        echo "<img src=\"https://image.tmdb.org/t/p/w500$poster\">";
+
+        $titulo = $value['title'];
+        echo "<h3>' . $titulo . '</h3>";
+    }
 }
-
-?>
-</pre>
