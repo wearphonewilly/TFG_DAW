@@ -27,14 +27,12 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html" class="btnIndex">WatchMELOGO</a></li>
-                <li><a href="./php/login.php" target="_blank" rel="noopener noreferrer" class="btn"> Login</a></li>
-                <li><a href="./php/register.php" target="_blank" rel="noopener noreferrer" class="btn"> Registro</a>
-                </li>
+                <li> <a href="index.php">watchMeLogo</a></li>
+                <li style="float:right"> <a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></li>
+                <li style="float:right"> <a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a></li>
             </ul>
         </nav>
     </header>
-
 
     <section class="intro">
         <div class="content">
