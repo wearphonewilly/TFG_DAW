@@ -46,38 +46,33 @@
     <section>
         <div class="content">
             <h1 id="titulo">Tus películas y series al día</h1>
-            <h2 id="descripcion"> <i> ¿Cómo va eso? </i> Aquí podrás llevar un seguimiento de todas ellas. </h2>
+            <h2 id="descripcion"> <i> <b>¿Cómo va eso? </b> </i> Aquí podrás llevar un seguimiento de todas ellas. </h2>
         </div>
         <div class="content">
-            <img src="./styles/img/joey.png" alt="Lamp" width="300" height="400">
+            <img src="./styles/img/joey.png" alt="Joey de Friends" width="300" height="400">
         </div>
     </section>
 
     <section>
         <div class="content">
-            <h2>Porqué necesito WatchME??</h2>
-            <p><i>Porque le voy a hacer una oferta que no podrá rechazar </i> <br> Aquí tenemos el listado de películas <br>y series más completo de todo internet</p>
+            <h2>¿Porqué necesito WatchME?</h2>
+            <p><i> <b> Porque le voy a hacer una oferta que no podrá rechazar. </b></i> <br> Aquí tenemos el listado de películas y series más completo<br> de todo internet</p>
         </div>
         <div class="content">
-            <img src="./styles/img/padrino.png" alt="Lamp" width="400" height="400">
+            <img src="./styles/img/padrino.png" alt="El Padrino" width="400" height="400">
         </div>
 
     </section>
 
     <section>
-        <!-- TODO Underrevision (no se si poner press)-->
-        <h2>Links, press and recognition</h2>
-
         <div class="content">
-            <h1>See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
+            <!-- <h2>¿Tienes problemas para elegir una película para la primera cita?</h2> -->
+            <h2>¿Tienes problemas para escoger una película?</h2>
+            <p><i> <b> Mamá dice que la vida es como una caja de bombones, <br> nunca sabes el que te va a tocar </b> </i> Nuestro sistema seleccionará una por ti</p>
         </div>
         <div class="content">
-            <h1>See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
+            <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400">
         </div>
-        <div class="content">
-            <h1>See the <a href="http://caniuse.com/#feat=viewport-units">browser support.</a></h1>
-        </div>
-
     </section>
 
     <section>
