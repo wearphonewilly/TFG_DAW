@@ -62,7 +62,7 @@
                                 placeholder="Contraseña" autocomplete="off" name="contra">
                         </div>
                     </div> <br>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7" style="margin-bottom: 5%;">
                         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </div>
                 </form>

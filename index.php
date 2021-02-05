@@ -24,15 +24,13 @@
 
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li> <a href="index.php">watchMeLogo</a></li>
-                <li style="float:right"> <a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></li>
-                <li style="float:right"> <a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li> <a href="index.php">watchMeLogo</a></li>
+            <li style="float:right"> <a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></li>
+            <li style="float:right"> <a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a></li>
+        </ul>
+    </nav>
 
     <section class="intro">
         <div class="content">
@@ -97,7 +95,7 @@
     </section>
 
     <footer class="p-b-20 coral-Body--S">
-        Made with ❤️ by <a href="https://instagram.com/iwilly_cf" target="_blank" class="coral-Link">Willy</a>
+        Made with ❤️ by <a href="https://instagram.com/iwilly_cf" target="_blank" class="coral-Link" rel="noopener noreferrer">Willy</a>
     </footer>
 
 
