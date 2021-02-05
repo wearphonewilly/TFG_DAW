@@ -56,11 +56,12 @@
     <section>
         <div class="content">
             <h2>Porqué necesito WatchME??</h2>
+            <p><i>Porque le voy a hacer una oferta que no podrá rechazar </i> <br> Aquí tenemos el listado de películas <br>y series más completo de todo internet</p>
         </div>
         <div class="content">
-            <p>Because the best recommendations come not from critics or strangers, <br>but the people you know,
-                trust and share the same taste with. <br> Because Must socializes your movie experience</p>
+            <img src="./styles/img/padrino.png" alt="Lamp" width="400" height="400">
         </div>
+
     </section>
 
     <section>
