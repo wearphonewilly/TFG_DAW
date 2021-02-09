@@ -1,6 +1,9 @@
-.row input {
-    width: 50% !important;
-    clear: both !important;
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (min-width: 415px) {
+    .row input {
+        width: 50% !important;
+        clear: both !important;
+    }
 }
 
 .row::after {
@@ -36,6 +39,13 @@ input {
 #registerForm {
     margin-top: 15%;
     margin-left: 35%;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 414px) {
+    #loginForm {
+        margin-left: 24%;
+    }
 }
 
 #imgRegistro {

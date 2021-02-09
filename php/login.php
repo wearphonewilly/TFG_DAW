@@ -21,13 +21,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="sweetalert2.all.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <script src="../js/index.js" defer></script>
 
     <!-- Referencia Diseno -->
     <!-- https://dribbble.com/shots/6286426-Email-Subscription-Webpage-Design/attachments/6286426-Email-Subscription-Webpage-Design?mode=media -->
@@ -47,7 +44,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
         </div>
 
         <div class="col" style="margin-top: 12%;">
-            <form action="login.php" method="post">
+            <form action="login.php" method="post" id="loginForm">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
