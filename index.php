@@ -85,7 +85,7 @@
             <h2>Coffees development 535</h2>
         </div>
         <div class="content">
-            <img src="./styles/img/sheldon.png" width="321" height="379" id="sheldon" style="margin-left: 25%;">
+            <img src="./styles/img/sheldon.png" alt="Sheldon Cooper" width="321" height="379" id="sheldon" style="margin-left: 25%;">
         </div>
 
     </section>

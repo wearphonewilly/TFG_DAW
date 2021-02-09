@@ -67,16 +67,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
 <?php
 require_once("DB.php");
-require_once('jsphp.php');
+require_once('./jsphp.php');
 
 $conn = DB::getInstance()->getConn();
 $username = $_POST['usuario'];
 $password = $_POST['contra'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($username) && !empty($password)) {
+    if (!empty($username) || !empty($password)) {
         $sql = "SELECT name FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
-        var_dump($sql);
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -85,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             sweetalert2();
         }
+    } else {
+        sweetalert2();
     }
 }
 ?>
