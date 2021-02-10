@@ -32,6 +32,16 @@ echo "<script> console.log('holaa'); </script>";
         </div>
     </div>
 
+    <?php
+
+    require_once('./api.php');
+
+    seriesPopulares();
+
+    onAir();
+
+    ?>
+
 </body>
 
 </html>
