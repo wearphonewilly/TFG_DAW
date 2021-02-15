@@ -11,9 +11,8 @@ function seriesPopulares()
         foreach ($seriesPopulares['results'] as $value) {
             $poster = $value['poster_path'];
             $titulo = $value['name'];
-            echo "<div>    
-            <h3> $titulo </h3><img src=\"https://image.tmdb.org/t/p/w500$poster\">
-            </div>";
+            $id = $value['id'];
+            echo "<div class=\"arousel__elemento\"> <a> <img src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
         }
     }
 }
@@ -26,9 +25,8 @@ function onAir()
         foreach ($seriesPopulares['results'] as $value) {
             $poster = $value['poster_path'];
             $titulo = $value['name'];
-            echo "<div>    
-            <h3> $titulo </h3><img src=\"https://image.tmdb.org/t/p/w500$poster\">
-            </div>";
+            $id = $value['id'];
+            echo "<div class=\"arousel__elemento\"> <img src=\"https://image.tmdb.org/t/p/w500$poster\">  <p> $titulo </p>  </div>";
         }
     }
 }
