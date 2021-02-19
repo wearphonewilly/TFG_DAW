@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-    header('Location: index.php?');
+    header('Location: main.php');
 }
 
 ?>
@@ -13,7 +13,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>WatchME</title>
+    <title>WatchME Login</title>
     <meta name="description" content="Proyecto final de DAW">
 
     <!-- Internal Files -->
@@ -32,35 +32,43 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     <!-- Paleta de colores -->
     <!-- https://colorhunt.co/palette/213161 -->
 
+    <style>
+        b {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col" style=" margin-top: 5%; margin-bottom: 5%;">
-            <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
-                 class="img-fluid" id="imgLogin">
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col" style=" margin-top: 5%; margin-bottom: 5%;">
+                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
+                    class="img-fluid" id="imgLogin">
+            </div>
 
-        <div class="col" style="margin-top: 12%;">
-            <form action="login.php" method="post" id="loginForm">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="Enter username" name="usuario">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                           name="contra">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            </form>
+            <div class="col" style="margin-top: 12%;">
+                <form action="login.php" method="post" id="loginForm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter username" name="usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                            name="contra">
+                    </div>
+
+                    <br>
+
+                    <button type="submit" class="btn btn-primary" name="submit" id="submit">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 <?php
 require_once("DB.php");
@@ -78,6 +86,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result->num_rows > 0) {
             header('Location: main.php');
             var_dump($result);
+            session_start();
+            // Guardar datos de sesión
+            $_SESSION["username"] = $username;
+            $_SESSION["password"] = $password;
+
+            echo "Sesión iniciada y establecido nombre de usuario!" . "<br>";
         } else {
             sweetalert2();
         }
@@ -91,6 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
 </script>
+
+<script src="../js/index.js"></script>
 
 </body>
 

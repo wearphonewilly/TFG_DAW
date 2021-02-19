@@ -222,11 +222,11 @@ input {
 }
 
 .carousel__anterior {
-  left: -30px;
+  left: 30px;
 }
 
 .carousel__siguiente {
-  right: -30px;
+  right: 6px;
 }
 
 .carousel__lista {
@@ -267,16 +267,6 @@ input {
     width: 100%;
   }
 }
-section {
-  width: 100%;
-  padding: 0 7%;
-  display: table;
-  margin: 0;
-  max-width: none;
-  background-color: #373B44;
-  height: 100vh;
-}
-
 html, body {
   background-color: #532e3a !important;
 }
