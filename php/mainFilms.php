@@ -26,9 +26,9 @@ echo "<script> console.log('holaa'); </script>";
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="./main.php" class="active">Home</a>
+        <a href="./mainFilms.php" >Home</a>
         <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./mainFilms.php" class="active">Peliculas</a>
         <a href="#">Mi Lista</a>
         <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -50,12 +50,12 @@ echo "<script> console.log('holaa'); </script>";
                 <i class="fas fa-chevron-left"></i>
             </button>
 
-            <h2>Series Populares</h2>
+            <h2>Peliculas Populares</h2>
 
             <div class="carousel__lista__seriesPopulares">
 
                 <?php
-                    seriesPopulares();
+                    popularFilms();
                 ?>
 
             </div>
@@ -74,12 +74,12 @@ echo "<script> console.log('holaa'); </script>";
                 <i class="fas fa-chevron-left"></i>
             </button>
 
-            <h2>Series On Air</h2>
+            <h2>Peliculas On Air</h2>
 
             <div class="carousel__lista__onAir">
 
                 <?php
-                    onAir();
+                    upcomingFilms();
                 ?>
 
             </div>
