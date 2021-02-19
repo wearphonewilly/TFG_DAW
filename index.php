@@ -39,7 +39,7 @@
         </div>
 
         <div class="content">
-            <img src="https://www.tvtime.com/ga-assets/1611956427563/static/69faec5bfe4d46002ed45cf8b3009652/e0765/tvtime-site%252F357d6439-38c2-43a9-bf3b-3dcf76a95613_header-phones%25401.5x.png"
+            <img src="https://www.tvtime.com/ga-assets/1613689346313/static/856f2c017361a8e67a87ad516cc3b2a9/e0765/af8a4630-850c-409e-8cd8-8ae9a79edb9b_Header-Phones-TVT.png"
                 class="profile-img" style="width: 30%; margin-left: 50%;">
         </div>
     </section>
