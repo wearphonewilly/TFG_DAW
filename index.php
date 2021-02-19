@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>WatchME</title>
     <meta name="description"
         content="WatchMe es un proyecto para llevar un seguimiento de las series y peliculas que ves en las diferentes plataformas de contenido">
-    <meta name="keywords" content="netflix, series, peliculas" />
+    <meta name="keywords" content="netflix, series, peliculas, watchMe" />
     <meta name="author" content="Willy" />
     <meta name="copyright" content="Propietario del copyright" />
     <meta name="robots" content="index" />
@@ -18,6 +17,8 @@
 
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="PVQ2i5gpT36bP1TWZCLA9-X2PgQaR_XISt0w8Mv4ERA" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="./styles/css/index.css">
 
 </head>

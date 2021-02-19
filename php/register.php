@@ -4,8 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>WatchME</title>
-    <meta name="description" content="Proyecto final de DAW">
+    <title>WatchME Register</title>
+    <meta name="description"
+        content="WatchMe es un proyecto para llevar un seguimiento de las series y peliculas que ves en las diferentes plataformas de contenido">
+    <meta name="keywords" content="netflix, series, peliculas, watchMe" />
+    <meta name="author" content="Willy" />
+    <meta name="copyright" content="Propietario del copyright" />
+    <meta name="robots" content="index" />
+
 
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/output.css">
@@ -88,7 +94,6 @@
         if (!empty($name) && !empty($mail) && !empty($password)) {
             $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
             echo "Ir al login";
-            notyf(); //TODO Hay que mirar si funciona el alert este
         } else {
             sweetalert2();
         }

@@ -14,7 +14,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>WatchME Login</title>
-    <meta name="description" content="Proyecto final de DAW">
+    <meta name="description"
+        content="WatchMe es un proyecto para llevar un seguimiento de las series y peliculas que ves en las diferentes plataformas de contenido">
+    <meta name="keywords" content="netflix, series, peliculas, watchMe" />
+    <meta name="author" content="Willy" />
+    <meta name="copyright" content="Propietario del copyright" />
+    <meta name="robots" content="index" />
+
 
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/output.css">

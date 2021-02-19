@@ -1,4 +1,5 @@
-<?php 
+<?php
+
     echo "<script> console.log('holaa'); </script>";
 ?>
 
