@@ -8,27 +8,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/navbar.css">
-    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="../styles/css/search.css">
 </head>
 
 <body>
 
     <div class="topnav" id="myTopnav">
         <a href="./main.php">Home</a>
-        <a href="./search.php">Movies</a>
-        <a href="./search.php">TV Shows</a>
-        <a href="./search.php">Sports</a>
-        <a href="./search.php">Kids</a>
-        <a href="./search.php">Library</a>
         <a href="./search.php" class="active">Search</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+        <a href="./search.php" class="change" style="margin-left:35%">Movies</a>
     </div>
 
     <section id="buscador">
 
-        <form action="./search.php" method="post" styles="border-radius: 5%;">
+        <form action="./search.php" method="post" style="border-radius: 5%;">
             <input type="text" placeholder="Buscar..." name="busqueda" class="search-input" id="busqueda">
             <button type="submit" id="searchButton">Buscar<i class="fa fa-search"></i></button>
         </form>
@@ -36,7 +29,7 @@
     </section>
 
 
-    <section>
+    <section id="categoriasSection">
 
         <div id="categorias" class="grid-container">
         <?php

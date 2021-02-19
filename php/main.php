@@ -21,42 +21,16 @@ echo "<script> console.log('holaa'); </script>";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
-    <style>
-        #img-main {
-            height: 300px;
-        }
-        #onAir {
-            margin-top: 5%;
-        }
-    </style>
 </head>
 
 <body>
 
-
-    <!-- 
-    <div id="myTopnav">
-        <ul class="menu-bar">
-            <a href="./main.php">Watch Now</a>
-            <a href="./search.php">Movies</a>
-            <a href="./search.php">TV Shows</a>
-            <a href="./search.php">Sports</a>
-            <a href="./search.php">Kids</a>
-            <a href="./search.php">Library</a>
-            <a href="./search.php">Search</a>
-        </ul>
-    </div>
-
-    -->
-
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">Home</a>
-        <a href="./search.php">Movies</a>
-        <a href="./search.php">TV Shows</a>
-        <a href="./search.php">Sports</a>
-        <a href="./search.php">Kids</a>
-        <a href="./search.php">Library</a>
-        <a href="./search.php">Search</a>
+        <a href="#">Series</a>
+        <a href="#">Peliculas</a>
+        <a href="#">Mi Lista</a>
+        <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -75,6 +49,8 @@ echo "<script> console.log('holaa'); </script>";
             <button aria-label="Anterior" class="carousel__anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
+
+            <h2>Series Populares</h2>
 
             <div class="carousel__lista__seriesPopulares">
 
@@ -97,6 +73,8 @@ echo "<script> console.log('holaa'); </script>";
             <button aria-label="Anterior" class="carousel__anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
+
+            <h2>Series On Air</h2>
 
             <div class="carousel__lista__onAir">
 

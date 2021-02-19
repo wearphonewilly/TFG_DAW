@@ -267,6 +267,19 @@ input {
     width: 100%;
   }
 }
+#img-main {
+  height: 300px;
+}
+
+#onAir {
+  margin-top: 5%;
+}
+
+h2 {
+  margin-left: 2%;
+  color: white;
+}
+
 html, body {
   background-color: #532e3a !important;
 }
