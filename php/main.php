@@ -25,6 +25,9 @@ echo "<script> console.log('holaa'); </script>";
         #img-main {
             height: 300px;
         }
+        #onAir {
+            margin-top: 5%;
+        }
     </style>
 </head>
 
@@ -73,7 +76,7 @@ echo "<script> console.log('holaa'); </script>";
                 <i class="fas fa-chevron-left"></i>
             </button>
 
-            <div class="carousel__lista">
+            <div class="carousel__lista__seriesPopulares">
 
                 <?php
                     seriesPopulares();
@@ -89,13 +92,13 @@ echo "<script> console.log('holaa'); </script>";
         <div role="tablist" class="carousel__indicadores"></div>
     </div>
 
-    <div class="carousel">
+    <div class="carousel" id="onAir">
         <div class="carousel__contenedor">
             <button aria-label="Anterior" class="carousel__anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
 
-            <div class="carousel__lista">
+            <div class="carousel__lista__onAir">
 
                 <?php
                     onAir();
@@ -108,7 +111,7 @@ echo "<script> console.log('holaa'); </script>";
             </button>
         </div>
 
-        <div role="tablist" class="carousel__indicadores"></div>
+        <div role="tablist" class="carousel__indicadores__onAir"></div>
     </div>
 
 

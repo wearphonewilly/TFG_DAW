@@ -26,7 +26,7 @@ function onAir()
             $poster = $value['poster_path'];
             $titulo = $value['name'];
             $id = $value['id'];
-            echo "<div class=\"carousel__elemento\"> <img src=\"https://image.tmdb.org/t/p/w500$poster\">  <p> $titulo </p>  </div>";
+            echo "<div class=\"carousel__elemento\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">  <p> $titulo </p>  </div>";
         }
     }
 }
