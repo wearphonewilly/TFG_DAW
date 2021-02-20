@@ -29,6 +29,7 @@ echo "<script> console.log('holaa'); </script>";
         <a href="./mainFilms.php" >Home</a>
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php" class="active">Peliculas</a>
+        <a href="./search.php">Buscar</a>
         <a href="#">Mi Lista</a>
         <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">

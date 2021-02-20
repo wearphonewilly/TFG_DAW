@@ -32,8 +32,8 @@ window.addEventListener('load', function () {
         slidesToScroll: 1,
         dots: '.carousel__indicadores__onAir',
         arrows: {
-            prev: '.carousel__anterior',
-            next: '.carousel__siguiente'
+            prev: '.carousel__anterior__onAir',
+            next: '.carousel__siguiente__onAir'
         },
         responsive: [{
             // screens greater than >= 775px

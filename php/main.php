@@ -29,6 +29,7 @@ echo "<script> console.log('holaa'); </script>";
         <a href="./main.php" class="active">Home</a>
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
         <a href="#">Mi Lista</a>
         <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -70,7 +71,7 @@ echo "<script> console.log('holaa'); </script>";
 
     <div class="carousel" id="onAir">
         <div class="carousel__contenedor">
-            <button aria-label="Anterior" class="carousel__anterior">
+            <button aria-label="Anterior" class="carousel__anterior__onAir">
                 <i class="fas fa-chevron-left"></i>
             </button>
 
@@ -84,7 +85,7 @@ echo "<script> console.log('holaa'); </script>";
 
             </div>
 
-            <button aria-label="Siguiente" class="carousel__siguiente">
+            <button aria-label="Siguiente" class="carousel__siguiente__onAir">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>

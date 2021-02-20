@@ -280,6 +280,130 @@ h2 {
   color: white;
 }
 
+img {
+  height: 80px;
+}
+
+.grid-container, .grid-container-busqueda {
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  margin: 0 auto;
+}
+
+.grid-container > div, .grid-container-busqueda > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+#busqueda {
+  width: 90%;
+  font-size: 30px;
+  padding: 2px !important;
+  margin-left: 2%;
+}
+
+#buscador, #categoriasSection {
+  margin-top: 3%;
+}
+
+#searchButton {
+  padding: 10px;
+  height: 35px;
+}
+
+#divBusqueda {
+  margin-left: 15%;
+  margin-right: 5%;
+}
+
+#profileImg {
+  height: 300px;
+  width: 95%;
+  margin: 2% 5%;
+}
+
+.dot {
+  height: 150px;
+  width: 150px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2% 5%;
+}
+
+.stats {
+  float: right;
+  margin-top: -10%;
+  margin-right: 5%;
+  color: white;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+  margin-right: 2%;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 html, body {
   background-color: #532e3a !important;
 }

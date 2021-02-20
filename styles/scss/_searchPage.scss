@@ -2,7 +2,7 @@ img {
     height: 80px;
 }
 
-.grid-container {
+.grid-container, .grid-container-busqueda {
     display: grid;
     grid-gap: 10px;
     padding: 10px;
@@ -10,7 +10,7 @@ img {
     margin: 0 auto;
 }
 
-.grid-container>div {
+.grid-container>div, .grid-container-busqueda>div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
@@ -31,4 +31,9 @@ img {
 #searchButton {
     padding: 10px;
     height: 35px;
+}
+
+#divBusqueda {
+    margin-left: 15%;
+    margin-right: 5%;
 }

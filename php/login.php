@@ -1,5 +1,6 @@
 <?php
 session_start();
+var_dump(session_start());
 
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     header('Location: main.php');
