@@ -12,7 +12,7 @@ function seriesPopulares()
             $poster = $value['poster_path'];
             $titulo = $value['name'];
             $id = $value['id'];
-            echo "<div class=\"carousel__elemento\"> <a> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
+            echo "<div class=\"carousel__elemento\"> <a href=\"serie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
         }
     }
 }
@@ -26,7 +26,7 @@ function onAir()
             $poster = $value['poster_path'];
             $titulo = $value['name'];
             $id = $value['id'];
-            echo "<div class=\"carousel__elemento\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">  <p> $titulo </p>  </div>";
+            echo "<div class=\"carousel__elemento\"> <a href=\"serie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">  <p> $titulo </p> </a> </div>";
         }
     }
 }
@@ -40,7 +40,7 @@ function popularFilms()
             $poster = $value['poster_path'];
             $titulo = $value['name'];
             $id = $value['id'];
-            echo "<div class=\"carousel__elemento\"> <a> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
+            echo "<div class=\"carousel__elemento\"> <a href=\"movie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
         }
     }
 }
@@ -54,7 +54,7 @@ function upcomingFilms()
             $poster = $value['poster_path'];
             $titulo = $value['name'];
             $id = $value['id'];
-            echo "<div class=\"carousel__elemento\"> <a> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
+            echo "<div class=\"carousel__elemento\"> <a href=\"movie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
         }
     }
 }
