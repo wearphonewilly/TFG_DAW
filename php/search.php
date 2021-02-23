@@ -28,7 +28,7 @@
     <section id="buscador">
 
         <form action="./search.php" method="post" style="border-radius: 5%;">
-            <input type="text" placeholder="Buscar..." name="busqueda" class="search-input" id="busqueda">
+            <input type="text" placeholder="Título de la serie o película" name="busqueda" class="search-input" id="busqueda">
             <button type="submit" id="searchButton">Buscar<i class="fa fa-search"></i></button>
         </form>
 

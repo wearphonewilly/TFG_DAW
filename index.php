@@ -12,7 +12,7 @@
     <meta name="robots" content="index" />
 
     <!-- Google Adsense -->
-    <script data-ad-client="ca-pub-8809544288885617" async
+    <!--<script data-ad-client="ca-pub-8809544288885617" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!-- Google Search Console -->
@@ -67,14 +67,14 @@
 
     </section>
 
-    <section>
-        <div class="content">
+    <section class="row">
+        <div class="col-md-12">
             <!-- <h2>¿Tienes problemas para elegir una película para la primera cita?</h2> -->
             <h2>¿Tienes problemas para escoger una película?</h2>
             <p><i> <b> Mamá dice que la vida es como una caja de bombones, <br> nunca sabes el que te va a tocar </b>
                 </i> Nuestro sistema seleccionará una por ti</p>
         </div>
-        <div class="content">
+        <div class="col-md-12">
             <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400">
         </div>
     </section>

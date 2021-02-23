@@ -36,3 +36,7 @@ Upcoming: https://api.themoviedb.org/3/tv/upcoming?api_key=f269df40fe8fe735f1ed7
 Serie: https://api.themoviedb.org/3/search/tv?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&page=1&query=bruja%20escarlata&include_adult=false (serie de wandavision en castellano)
 
 Generos: https://api.themoviedb.org/3/genre/tv/list?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es
+
+
+Imagenes
+https://www.flaticon.com/free-icon/video_1179069?term=films&related_id=1179069
