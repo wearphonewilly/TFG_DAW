@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -21,22 +22,74 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/css/index.css">
 
+    <style>
+        .custom-shape-divider-top-1614097386 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-top-1614097386 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 309px;
+        }
+
+        .custom-shape-divider-top-1614097386 .shape-fill {
+            fill: #f6f6f6;
+        }
+
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: black;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        button {
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            letter-spacing: 5px;
+            font-size: 40pt;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <nav>
-        <ul>
-            <li> <a href="index.php">watchMeLogo</a></li>
-            <li style="float:right"> <a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></li>
-            <li style="float:right"> <a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a>
-            </li>
-        </ul>
-    </nav>
-
     <section class="intro">
+
+        <div class="custom-shape-divider-top-1614097386">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
         <div class="content">
             <h1>WatchME</h1>
+            <button id="loginBtn"><a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></button>
+            <button id="registerBtn"><a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a></button>
         </div>
 
         <div class="content">
@@ -57,7 +110,7 @@
 
     <section>
         <div class="content">
-            <h2>¿Porqué necesito WatchME?</h2>
+            <h2 id="titulo2">¿Porqué necesito WatchME?</h2>
             <p><i> <b> Porque le voy a hacer una oferta que no podrá rechazar. </b></i> <br> Aquí tenemos el listado de
                 películas y series más completo<br> de todo internet</p>
         </div>
@@ -67,14 +120,14 @@
 
     </section>
 
-    <section class="row">
-        <div class="col-md-12">
+    <section>
+        <div class="content">
             <!-- <h2>¿Tienes problemas para elegir una película para la primera cita?</h2> -->
-            <h2>¿Tienes problemas para escoger una película?</h2>
+            <h2 id="titulo">¿Tienes problemas para escoger una película?</h2>
             <p><i> <b> Mamá dice que la vida es como una caja de bombones, <br> nunca sabes el que te va a tocar </b>
                 </i> Nuestro sistema seleccionará una por ti</p>
         </div>
-        <div class="col-md-12">
+        <div class="content">
             <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400">
         </div>
     </section>
@@ -100,7 +153,7 @@
             rel="noopener noreferrer">Willy</a>
     </footer>
 
-    <!-- Hotjar Tracking Code for http://estas-viendo.herokuapp.com -->
+    <!-- Hotjar Tracking Code for http://estas-viendo.herokuapp.com 
     <script>
         (function (h, o, t, j, a, r) {
             h.hj = h.hj || function () {
@@ -116,7 +169,7 @@
             r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
             a.appendChild(r);
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
+    </script> -->
 </body>
 
 </html>
