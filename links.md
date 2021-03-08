@@ -17,6 +17,11 @@ sass --watch styles/scss/main.scss styles/css/output.css
 $var = "Hola Pepe";
 echo "<script> alert('".$var."'); </script>";
 
+## Background color section
+
+#EE5477
+
+
 ## API
 http://www.serialdust.es/
 https://developers.themoviedb.org/3/tv-episodes/get-tv-episode-details
