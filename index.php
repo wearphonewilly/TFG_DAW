@@ -22,12 +22,15 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/css/index.css">
 
+<<<<<<< HEAD
     <!-- Scripts -->
     <script src="./js/index.js" defer></script>
 
     <!-- Font Awesome -->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
+=======
+>>>>>>> 96cf8feae1e7abaa8d2e65fe72c270dcc3e4329e
     <style>
         .custom-shape-divider-top-1614097386 {
             position: absolute;
@@ -112,8 +115,12 @@
         <div class="content">
             <h1>WatchME</h1>
             <button id="loginBtn"><a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></button>
+<<<<<<< HEAD
             <button id="registerBtn"><a href="./php/register.php" target="_blank"
                     rel="noopener noreferrer">Register</a></button>
+=======
+            <button id="registerBtn"><a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a></button>
+>>>>>>> 96cf8feae1e7abaa8d2e65fe72c270dcc3e4329e
         </div>
 
         <div class="content">
