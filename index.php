@@ -22,15 +22,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/css/index.css">
 
-<<<<<<< HEAD
     <!-- Scripts -->
     <script src="./js/index.js" defer></script>
 
     <!-- Font Awesome -->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-=======
->>>>>>> 96cf8feae1e7abaa8d2e65fe72c270dcc3e4329e
     <style>
         .custom-shape-divider-top-1614097386 {
             position: absolute;
@@ -96,8 +93,21 @@
             width: 50px;
             border-radius: 50%;
         }
-    </style>
 
+        #loginBtn,
+        #registerBtn {
+            padding: 16px 32px;
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1;
+            color: white;
+            background-color: #275efe;
+            border: none;
+            outline: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -107,25 +117,18 @@
         <div class="custom-shape-divider-top-1614097386">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                 preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
             </svg>
         </div>
         <div class="content">
             <h1>WatchME</h1>
             <button id="loginBtn"><a href="./php/login.php" target="_blank" rel="noopener noreferrer">Login</a></button>
-<<<<<<< HEAD
             <button id="registerBtn"><a href="./php/register.php" target="_blank"
                     rel="noopener noreferrer">Register</a></button>
-=======
-            <button id="registerBtn"><a href="./php/register.php" target="_blank" rel="noopener noreferrer">Register</a></button>
->>>>>>> 96cf8feae1e7abaa8d2e65fe72c270dcc3e4329e
         </div>
 
         <div class="content">
-            <img src="https://www.tvtime.com/ga-assets/1613689346313/static/856f2c017361a8e67a87ad516cc3b2a9/e0765/af8a4630-850c-409e-8cd8-8ae9a79edb9b_Header-Phones-TVT.png"
-                class="profile-img" style="width: 30%; margin-left: 50%;">
+            <img src="./styles/img/tvTime.png" class="profile-img" style="width: 30%; margin-left: 36%;">
         </div>
     </section>
 
@@ -168,11 +171,11 @@
     <section>
         <div class="content">
             <h1>STATS </h1>
-            <h2>Movies 617.681 </h2>
-            <h2>TV Shows 104.400 </h2>
-            <h2>TV Seasons 155.461</h2>
-            <h2>TV Episodes 2.342.320 </h2>
-            <h2>Coffees development 535</h2>
+            <h3>Movies 617.681 </h3>
+            <h3>TV Shows 104.400 </h3>
+            <h3>TV Seasons 155.461</h3>
+            <h3>TV Episodes 2.342.320 </h3>
+            <h3>Coffees development 535</h3>
         </div>
         <div class="content">
             <img src="./styles/img/sheldon.png" alt="Sheldon Cooper" width="321" height="379" id="sheldon"
@@ -183,7 +186,7 @@
 
     <footer class="p-b-20 coral-Body--S">
         Made with ❤️ by <a href="https://instagram.com/iwilly_cf" target="_blank" class="coral-Link"
-            rel="noopener noreferrer">Willy</a>
+            rel="noopener noreferrer" style="color: white;">Willy</a>
     </footer>
 
     <!-- Hotjar Tracking Code for http://estas-viendo.herokuapp.com 
