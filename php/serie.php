@@ -1,14 +1,90 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-$idSerie = $_GET['id'];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Main</title>
+    <link rel="stylesheet" href="../styles/css/navbar.css">
+    <link rel="stylesheet" href="../styles/css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+</head>
 
-$serie = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-$serie = json_decode($serie, true);
-if (is_array($serie) || is_object($serie)) {
-    foreach ($serie['results'] as $value) {
-        $poster = $value['poster_path'];
-        $titulo = $value['name'];
-        $id = $value['id'];
-        echo "<div class=\"carousel__elemento\"> <a href=\"movie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php" class="active">Home</a>
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="#">Mi Lista</a>
+        <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <br>
+
+    <?php
+
+    $idSerie = $_GET['id'];
+
+    $serie = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $serie = json_decode($serie, true);
+    print_r($serie);
+    echo "<br><br><br><br><br>";
+    $titulo = $serie['name'];
+    print_r($serie['overview']);
+    print_r($serie['original_name']);
+    $poster = $serie['backdrop_path'];
+    $posterPath = $serie['poster_path'];
+
+    echo "<div class=\"serie\"> 
+            <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$poster\">   
+            <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$posterPath\">   
+            <p> $titulo </p>
+        </div>";
+
+    $cantidadTemporadas = $serie['number_of_seasons'];
+    echo "<br>";
+
+    ?>
+    <form action="" method="post">
+        <label for="temporada">Temporada</label>
+        <select name="temporada">
+
+        <?php
+        for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
+            echo "<option value=\"$i\">Temporada $i</option>";
+        }
+        ?>
+
+        </select>
+
+        <input type="submit" name="submit" value="Choose options">
+    </form>
+
+    <?php
+    if (!empty($_POST['temporada'])) {
+        $selected = $_POST['temporada'];
+        var_dump($selected);
+        var_dump($idSerie);
+        echo "<br>";
+        $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+        $temporadaViendo = json_decode($temporadaViendo, true);
+        print_r($temporadaViendo);
     }
-}
+
+    ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/navbar.js"></script>
+
+</body>
+
+</html>

@@ -7,7 +7,7 @@
     <title>WatchME</title>
     <meta name="description"
         content="WatchMe es un proyecto para llevar un seguimiento de las series y peliculas que ves en las diferentes plataformas de contenido">
-    <meta name="keywords" content="netflix, series, peliculas, watchMe" />
+    <meta name="keywords" content="netflix, series, peliculas, watchMe, estas-viendo, estas-viendo-me" />
     <meta name="author" content="Willy" />
     <meta name="copyright" content="Propietario del copyright" />
     <meta name="robots" content="index" />
