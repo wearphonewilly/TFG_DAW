@@ -34,13 +34,15 @@
 
     $serie = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $serie = json_decode($serie, true);
-    print_r($serie);
-    echo "<br><br><br><br><br>";
+    // print_r($serie);
     $titulo = $serie['name'];
     print_r($serie['overview']);
     print_r($serie['original_name']);
     $poster = $serie['backdrop_path'];
     $posterPath = $serie['poster_path'];
+
+    // TODO: Arreglar imagen de fondo
+    echo "<body style=\"background-image:\" = url(\"https://image.tmdb.org/t/p/w500/$poster\");";
 
     echo "<div class=\"serie\"> 
             <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$poster\">   
@@ -54,7 +56,7 @@
     ?>
     <form action="" method="post">
         <label for="temporada">Temporada</label>
-        <select name="temporada">
+        <select id="selectTemporada" name="temporada">
 
         <?php
         for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
@@ -64,18 +66,73 @@
 
         </select>
 
-        <input type="submit" name="submit" value="Choose options">
+        <input type="submit" name="submit" id="temporada" value="Temporada">
+
+        <!--<div id="episodesdiv">
+            <div id="seasons">
+                <div class="season activeSeason">
+                    <p class="activeSeasonName">Temporada 1</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber activeSeasonNumber"> 23 </p>
+                    </div>
+                </div>
+                <div class="season">
+                    <p class="">Temporada 2</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber"> 23 </p>
+                    </div>
+                </div>
+                <div class="season">
+                    <p class="">Temporada 3</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber"> 23 </p>
+                    </div>
+                </div>
+                <div class="season">
+                    <p class="">Temporada 4</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber"> 23 </p>
+                    </div>
+                </div>
+                <div class="season">
+                    <p class="">Temporada 5</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber"> 22 </p>
+                    </div>
+                </div>
+                <div class="season">
+                    <p class="">Temporada 6</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber"> 19 </p>
+                    </div>
+                </div>
+                <div class="season">
+                    <p class="">Temporada 7</p>
+                    <div class="seasonright">
+                        <p class="episodesnumber"> 5 </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </form>
 
     <?php
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
+        echo "<script> console.log(document.getElementById('selectTemporada').value); </script>";
         var_dump($selected);
         var_dump($idSerie);
         echo "<br>";
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
-        print_r($temporadaViendo);
+        // print_r($temporadaViendo);
+        foreach ($temporadaViendo['episodes'] as $value) {
+            print_r($value['episode_number']); //Printamos numero de episodio
+            print_r($value['name']); // Printamos resumen episodio
+            $id = $value['id']; // Printamos id episodio
+            echo "<div> <a href=\"episodio.php?id=$id\"> </div>";
+            echo "<br>";
+        }
     }
 
     ?>
