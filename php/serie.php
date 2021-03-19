@@ -10,6 +10,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+    padding: 25px 30px;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    width: 400px;
+    border-radius: 3px;
+    margin: 20px;
+}
+
+        .wrapper .content ul li .text {
+    color: #111;
+    padding-left: 10px;
+}
+
+    </style>
+
 </head>
 
 <body>
@@ -52,15 +78,19 @@
 
     $cantidadTemporadas = $serie['number_of_seasons'];
     echo "<br>";
-
     ?>
+
+    <!-- Use an element to toggle between a like/dislike icon -->
+    <i onclick="likeFunction(this)" class="fa fa-thumbs-up"></i>
+
     <form action="" method="post">
         <label for="temporada">Temporada</label>
         <select id="selectTemporada" name="temporada">
 
-        <?php
+            <?php
         for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
             echo "<option value=\"$i\">Temporada $i</option>";
+            // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
         }
         ?>
 
@@ -127,11 +157,10 @@
         $temporadaViendo = json_decode($temporadaViendo, true);
         // print_r($temporadaViendo);
         foreach ($temporadaViendo['episodes'] as $value) {
-            print_r($value['episode_number']); //Printamos numero de episodio
-            print_r($value['name']); // Printamos resumen episodio
-            $id = $value['id']; // Printamos id episodio
-            echo "<div> <a href=\"episodio.php?id=$id\"> </div>";
-            echo "<br>";
+            $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
+            $nombreEpisodio = $value['name']; // Printamos resumen episodio
+            $idEpisodio = $value['id']; // Printamos id episodio
+            echo "<div> <li> <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> <i id=\"removeBtn\" class=\"icon fa fa-trash\"></i> </li> </div>";
         }
     }
 
@@ -140,7 +169,6 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
-    <script src="../js/navbar.js"></script>
 
 </body>
 
