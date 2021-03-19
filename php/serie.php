@@ -7,6 +7,7 @@
     <title>Series Main</title>
     <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
+    <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
@@ -14,17 +15,14 @@
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php" class="active">Home</a>
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="#">Mi Lista</a>
-        <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+<ul class="menu-bar">
+        <li><a href="./main.php">Home</a></li>
+        <li> <a href="./main.php">Series</a></li>
+        <li><a href="./mainFilms.php">Peliculas</a></li>
+        <li><a href="./search.php">Buscar</a></li>
+        <li><a href="./miLista.php">Mi Lista</a></li>
+        <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a></li>
+    </ul>
 
     <br>
 
@@ -52,8 +50,11 @@
 
     $cantidadTemporadas = $serie['number_of_seasons'];
     echo "<br>";
-
     ?>
+
+    <!-- Use an element to toggle between a like/dislike icon -->
+    <i onclick="likeFunction(this)" class="fa fa-thumbs-up"></i>
+
     <form action="" method="post">
         <label for="temporada">Temporada</label>
         <select id="selectTemporada" name="temporada">
@@ -61,6 +62,7 @@
         <?php
         for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
             echo "<option value=\"$i\">Temporada $i</option>";
+            // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
         }
         ?>
 
@@ -127,11 +129,10 @@
         $temporadaViendo = json_decode($temporadaViendo, true);
         // print_r($temporadaViendo);
         foreach ($temporadaViendo['episodes'] as $value) {
-            print_r($value['episode_number']); //Printamos numero de episodio
-            print_r($value['name']); // Printamos resumen episodio
-            $id = $value['id']; // Printamos id episodio
-            echo "<div> <a href=\"episodio.php?id=$id\"> </div>";
-            echo "<br>";
+            $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
+            $nombreEpisodio = $value['name']; // Printamos resumen episodio
+            $idEpisodio = $value['id']; // Printamos id episodio
+            echo "<div> <li> <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> <i id=\"removeBtn\" class=\"icon fa fa-trash\"></i> </li> </div>";
         }
     }
 
@@ -140,7 +141,6 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
-    <script src="../js/navbar.js"></script>
 
 </body>
 

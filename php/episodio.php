@@ -30,6 +30,19 @@
 
     <h2>Lorem Ipsum</h2>
 
+    <?php 
+
+    $idSerie = $_GET['idSerie'];
+    $idTemporada = $_GET['idTemporada'];
+    $idEpisodio = $_GET['idEpisodio'];
+    var_dump($idSerie, $idEpisodio);
+
+    $episodioSeleccionado = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $idTemporada . '/episode' . $idEpisodio . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $episodioSeleccionado = json_decode($episodioSeleccionado, true);
+
+    print_r($episodioSeleccionado);
+
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>

@@ -7,3 +7,7 @@ function myFunction() {
         x.className = "topnav";
     }
 }
+
+function likeFunction(x) {
+    x.classList.toggle("fa-thumbs-down");
+} 

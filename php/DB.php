@@ -4,15 +4,15 @@ class DB
 {
 
 
-    private $servername   = 'eu-cdbr-west-03.cleardb.net';
+    /* private $servername   = 'eu-cdbr-west-03.cleardb.net';
     private $username = 'bfe19f2ecd2f36';
     private $password = '8c97ee4d';
-    private $db       = 'heroku_a22259b35601486';
+    private $db       = 'heroku_a22259b35601486'; */
 
-    /* private $servername = 'localhost';
+    private $servername = 'localhost';
     private $username = 'root';
-    private $password = 'root';
-    private $db = 'watchMe'; */
+    private $password = '';
+    private $db = 'heroku_a22259b35601486';
     private $conn;
     private static $instance;
 
