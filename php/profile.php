@@ -14,8 +14,12 @@ var_dump($_SESSION['username']);
     <title>Profile</title>
     <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+=======
+    <link rel="stylesheet" href="../styles/pug/dist/apple.css">
+>>>>>>> 3c3c5ab16033bbd00975feb0d4ae220cb74d6db2
 </head>
 
 <body>

@@ -11,6 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+    padding: 25px 30px;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    width: 400px;
+    border-radius: 3px;
+    margin: 20px;
+}
+
+        .wrapper .content ul li .text {
+    color: #111;
+    padding-left: 10px;
+}
+
+    </style>
+
 </head>
 
 <body>
@@ -59,7 +85,7 @@
         <label for="temporada">Temporada</label>
         <select id="selectTemporada" name="temporada">
 
-        <?php
+            <?php
         for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
             echo "<option value=\"$i\">Temporada $i</option>";
             // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
