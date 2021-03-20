@@ -32,6 +32,7 @@ Popular: https://api.themoviedb.org/3/movie/popular?api_key=f269df40fe8fe735f1ed
 Upcoming: https://api.themoviedb.org/3/movie/upcoming?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es
 Buscar peli: https://api.themoviedb.org/3/search/movie?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&query=malditos%20bastardos&page=1&include_adult=false
 Generos: https://api.themoviedb.org/3/genre/movie/list?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es
+Genero Especifico: https://api.themoviedb.org/3/discover/movie?api_key=f269df40fe8fe735f1ed701a4bfba1df&with_genres=28
 
 ### TV
 Top Rated: https://api.themoviedb.org/3/tv/top_rated?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es

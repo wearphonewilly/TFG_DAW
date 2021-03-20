@@ -21,7 +21,11 @@ echo "<script> console.log('holaa'); </script>";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../styles/css/apple.css">
+=======
     <link rel="stylesheet" href="../styles/pug/dist/apple.css">
+>>>>>>> 3c3c5ab16033bbd00975feb0d4ae220cb74d6db2
 </head>
 
 <body>
@@ -43,8 +47,9 @@ echo "<script> console.log('holaa'); </script>";
         <li><a href="./mainFilms.php">Peliculas</a></li>
         <li><a href="./search.php">Buscar</a></li>
         <li><a href="./miLista.php">Mi Lista</a></li>
-    </ul>  
-
+        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
+    </ul>
+    
     <br>
 
     <?php

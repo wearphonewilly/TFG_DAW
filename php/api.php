@@ -38,7 +38,7 @@ function popularFilms()
     if (is_array($pelisPopulares) || is_object($pelisPopulares)) {
         foreach ($pelisPopulares['results'] as $value) {
             $poster = $value['poster_path'];
-            $titulo = $value['name'];
+            $titulo = $value['title'];
             $id = $value['id'];
             echo "<div class=\"carousel__elemento\"> <a href=\"movie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
         }
@@ -52,7 +52,7 @@ function upcomingFilms()
     if (is_array($pelisFuturas) || is_object($pelisFuturas)) {
         foreach ($pelisFuturas['results'] as $value) {
             $poster = $value['poster_path'];
-            $titulo = $value['name'];
+            $titulo = $value['title'];
             $id = $value['id'];
             echo "<div class=\"carousel__elemento\"> <a href=\"movie.php?id=$id\"> <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500$poster\">   <p> $titulo </p> </a> </div>";
         }

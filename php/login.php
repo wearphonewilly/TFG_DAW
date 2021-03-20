@@ -1,7 +1,4 @@
 <?php
-session_start();
-var_dump(session_start());
-
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     header('Location: main.php');
 }
@@ -57,7 +54,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             </div>
 
             <div class="col" style="margin-top: 12%;">
-                <form action="login.php" method="post" id="loginForm">
+                <form action="" method="post" id="loginForm">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -88,15 +85,19 @@ $password = $_POST['contra'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($username) || !empty($password)) {
         $sql = "SELECT name FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
+        $sqlID = "SELECT id FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
+        var_dump($sqlID);
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            header('Location: main.php');
             var_dump($result);
             session_start();
             // Guardar datos de sesión
             $_SESSION["username"] = $username;
-            $_SESSION["password"] = $password;
+            $_SESSION["id"] = $sqlID;
+            var_dump($_SESSION['username']);
+            var_dump($_SESSION['id']);
+            //header('Location: main.php');
 
             echo "Sesión iniciada y establecido nombre de usuario!" . "<br>";
         } else {

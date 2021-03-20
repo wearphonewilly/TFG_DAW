@@ -8,11 +8,13 @@
     <title>Busqueda</title>
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/navbar.css">
+    <link rel="stylesheet" href="../styles/css/apple.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
-    <div class="topnav" id="myTopnav">
+    <!-- <div class="topnav" id="myTopnav">
         <a href="./mainFilms.php">Home</a>
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>
@@ -22,14 +24,24 @@
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
-    </div>
+    </div> -->
+
+    <ul class="menu-bar">
+        <li><a href="./main.php">Home</a></li>
+        <li> <a href="./main.php">Series</a></li>
+        <li><a href="./mainFilms.php">Peliculas</a></li>
+        <li><a href="./search.php">Buscar</a></li>
+        <li><a href="./miLista.php">Mi Lista</a></li>
+        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
+    </ul>
+
 
 
     <section id="buscador">
 
-        <form action="./search.php" method="post" style="border-radius: 5%;">
+        <form action="./search.php" method="post">
             <input type="text" placeholder="Título de la serie o película" name="busqueda" class="search-input" id="busqueda">
-            <button type="submit" id="searchButton">Buscar<i class="fa fa-search"></i></button>
+            <button type="submit" id="searchButton">Buscar  <i class="fa fa-search"></i></button>
         </form>
 
     </section>
@@ -45,7 +57,8 @@
             if (is_array($categoriasSeries) || is_object($categoriasSeries)) {
                 foreach ($categoriasSeries['genres'] as $value) {
                     $titulo = $value['name'];
-                    echo "<div class=\"item\"> <h3> $titulo </h3> </div>";
+                    $category_id = $value['id'];
+                    echo "<div class=\"item\"> <h3> <a href=\"categoria.php?id=$category_id\">  $titulo </h3> </div>";
                 }
             }
             ?>
