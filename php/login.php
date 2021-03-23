@@ -1,7 +1,4 @@
 <?php
-session_start();
-var_dump(session_start());
-
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     header('Location: main.php');
 }
@@ -57,7 +54,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             </div>
 
             <div class="col" style="margin-top: 12%;">
-                <form action="login.php" method="post" id="loginForm">
+                <form action="" method="post" id="loginForm">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

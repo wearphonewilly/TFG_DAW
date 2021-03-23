@@ -1,7 +1,7 @@
 <?php
+session_start();
 
-    echo "<script> console.log('holaa'); </script>";
-    var_dump(session_id());
+var_dump($_SESSION['username']);
 ?>
 
 
@@ -14,7 +14,12 @@
     <title>Profile</title>
     <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../styles/css/apple.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+=======
     <link rel="stylesheet" href="../styles/pug/dist/apple.css">
+>>>>>>> 3c3c5ab16033bbd00975feb0d4ae220cb74d6db2
 </head>
 
 <body>
@@ -46,16 +51,8 @@
         <li><a href="./mainFilms.php">Peliculas</a></li>
         <li><a href="./search.php">Buscar</a></li>
         <li><a href="./miLista.php">Mi Lista</a></li>
-        <div class="dropdown">
-            <li><a href="./profile.php" style="float:right" class="active"><i class="fa fa-user"></i> Perfil </a></li>
-            <div class="dropdown-content">
-                <a href="../index.php">Logout</a>
-                <?php
-                    session_destroy();
-                ?>
-            </div>
-        </div>
-    </ul>  
+        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
+    </ul>
 
     <img src="../styles/img/img1.jpg" alt="Valoración de las diferentes series" id="profileImg">
 
