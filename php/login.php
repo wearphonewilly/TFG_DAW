@@ -87,16 +87,24 @@ $password = $_POST['contra'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($username) || !empty($password)) {
-        $sql = "SELECT name FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
-        $result = $conn->query($sql);
+        /* $sql = "SELECT name FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
+        $sqlID = "SELECT id FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'"; */
 
+        $sql = "SELECT nombre, id FROM watchme.users WHERE nombre = '$username' AND password = '$password'";
+        var_dump($sql);
+        $result = $conn->query($sql);
+        var_dump($result);
+        echo "adios";
         if ($result->num_rows > 0) {
-            header('Location: main.php');
             var_dump($result);
             session_start();
+            echo "aaaaa";
+            var_dump($result->num_rows);
+            echo "aaaaa";
             // Guardar datos de sesión
             $_SESSION["username"] = $username;
-            $_SESSION["password"] = $password;
+            $_SESSION["id"] = $sqlID;
+            // header('Location: main.php');
 
             echo "Sesión iniciada y establecido nombre de usuario!" . "<br>";
         } else {

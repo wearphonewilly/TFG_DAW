@@ -78,7 +78,7 @@ CREATE TABLE `temporada` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
