@@ -14,36 +14,11 @@ var_dump($_SESSION['username']);
     <title>Profile</title>
     <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-=======
-    <link rel="stylesheet" href="../styles/pug/dist/apple.css">
->>>>>>> 3c3c5ab16033bbd00975feb0d4ae220cb74d6db2
 </head>
 
 <body>
-
-    <!--<div class="topnav" id="myTopnav">
-        <a href="./main.php">Home</a>
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="#">Mi Lista</a>
-        <div class="dropdown">
-            <a href="./profile.php" style="float:right" class="active"><i class="fa fa-user"></i> Perfil </a>
-            <div class="dropdown-content">
-                <a href="../index.php">Logout</a>
-                <?php
-                    //session_destroy();
-                ?> 
-            </div>
-        </div>
-
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div> -->
 
     <ul class="menu-bar">
         <li><a href="./main.php">Home</a></li>

@@ -1,11 +1,3 @@
-<?php
-
-session_start();
-
-var_dump($_SESSION['username']);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,9 +26,29 @@ var_dump($_SESSION['username']);
 
     <!-- Aquí tendremos la lista de peliculas y series del usuario del usuario -->
     <?php
+    require_once("DB.php");
+    $conn = DB::getInstance()->getConn();
 
+    session_start();
     $usuario = $_SESSION['username'];
     var_dump($usuario);
+
+    $sql = "SELECT * FROM watchme.serie WHERE user_id = '1'";
+
+    $result = $conn->query($sql);
+    var_dump($result);
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        echo "<br>";
+        while ($row = $result->fetch_assoc()) {
+            print_r($row);
+        }
+    } else {
+        sweetalert2();
+    }
 
     ?>
     

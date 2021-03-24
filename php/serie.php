@@ -66,7 +66,7 @@
     $posterPath = $serie['poster_path'];
 
     // TODO: Arreglar imagen de fondo
-    echo "<body style=\"background-image:\" = url(\"https://image.tmdb.org/t/p/w500/$poster\");";
+    echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
     echo "<div class=\"serie\"> 
             <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$poster\">   

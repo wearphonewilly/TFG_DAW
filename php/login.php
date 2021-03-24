@@ -78,6 +78,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 require_once("DB.php");
 require_once('./jsphp.php');
 
+session_start();
+
 $conn = DB::getInstance()->getConn();
 $username = $_POST['usuario'];
 $password = $_POST['contra'];
@@ -93,15 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         var_dump($result);
         echo "adios";
         if ($result->num_rows > 0) {
-            var_dump($result);
-            session_start();
-            echo "aaaaa";
-            var_dump($result->num_rows);
-            echo "aaaaa";
             // Guardar datos de sesión
-            $_SESSION["username"] = $username;
-            $_SESSION["id"] = $sqlID;
-            // header('Location: main.php');
+            while ($row = $result->fetch_assoc()) {
+                $_SESSION["username"] = $row ['nombre'];
+                $_SESSION["id"] =  $row ['id'];
+            }
+
+            header('Location: main.php');
 
             echo "Sesión iniciada y establecido nombre de usuario!" . "<br>";
         } else {
