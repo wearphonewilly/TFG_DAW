@@ -1,23 +1,30 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Mar 23, 2021 at 11:39 AM
--- Server version: 5.7.26
--- PHP Version: 7.4.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 25-03-2021 a las 12:52:31
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `watchMe`
+-- Base de datos: `watchme`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `capitulo`
+-- Estructura de tabla para la tabla `capitulo`
 --
 
 CREATE TABLE `capitulo` (
@@ -31,7 +38,7 @@ CREATE TABLE `capitulo` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peliculas`
+-- Estructura de tabla para la tabla `peliculas`
 --
 
 CREATE TABLE `peliculas` (
@@ -50,20 +57,30 @@ CREATE TABLE `peliculas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `serie`
+-- Estructura de tabla para la tabla `serie`
 --
 
 CREATE TABLE `serie` (
   `user_id` int(11) NOT NULL,
   `serie_id` int(11) NOT NULL,
   `serie_vista` tinyint(1) NOT NULL,
-  `serie_quiero` tinyint(1) NOT NULL
+  `serie_quiero` tinyint(1) NOT NULL,
+  `titulo` varchar(200) NOT NULL,
+  `posterPath` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `serie`
+--
+
+INSERT INTO `serie` (`user_id`, `serie_id`, `serie_vista`, `serie_quiero`, `titulo`, `posterPath`) VALUES
+(1, 88396, 1, 0, 'Falcon y el Soldado de Invierno', '/uVJbiVuxNCjE9BVjj0yKsbNZ9Dt.jpg'),
+(13, 60735, 1, 0, 'The Flash', '/nRoiIu64HbX9abKHm9w8FvW6Z99.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temporada`
+-- Estructura de tabla para la tabla `temporada`
 --
 
 CREATE TABLE `temporada` (
@@ -73,7 +90,7 @@ CREATE TABLE `temporada` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -84,31 +101,36 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `nombre`, `mail`, `password`) VALUES
 (1, 'willy', 'willy@gmail.com', 'admin'),
 (11, 'Oriol', 'ocortes@gmail.com', 'jajaja'),
 (12, 'Myje', 'my@gmai.com', 'admin1'),
-(13, 'juan', 'mail@mail.com', 'jaaj');
+(13, 'juan', 'mail@mail.com', 'admin');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

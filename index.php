@@ -24,10 +24,7 @@
 
     <!-- Scripts -->
     <script src="./js/index.js" defer></script>
-
-    <!-- Font Awesome -->
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- For ^ up-->
 </head>
 
 <body>
@@ -75,7 +72,7 @@
             <img src="./styles/img/joey.png" alt="Joey de Friends" width="300" height="400">
         </div>
 
-        <button onclick="topFunction()" id="myBtn" title="Go to top" class='fas fa-angle-up'> </button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"> <i class="fa fa-arrow-up"></i> </button>
     </section>
 
     <section>

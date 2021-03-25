@@ -8,18 +8,8 @@
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
 
-    <style type="text/css">
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+    <style>
         .wrapper {
             padding: 25px 30px;
             background: #FFF;
@@ -64,7 +54,7 @@
     $posterPath = $serie['poster_path'];
 
     // TODO: Revisar si me gusta así
-    echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
+    // echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
     echo "<div class=\"serie\"> 
             <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$poster\">   
@@ -76,8 +66,25 @@
     echo "<br>";
     ?>
 
-    <!-- Use an element to toggle between a like/dislike icon -->
-    <i onclick="likeFunction(this)" class="fa fa-thumbs-up"></i>
+
+    <form action="" method="post">
+        <input type="submit" name="btnVista" value="VISTA" />
+    </form>
+    
+    <?php
+    require_once("./DB.php");
+    require_once('jsphp.php');
+    $conn = DB::getInstance()->getConn();
+    session_start();
+    $user_id = $_SESSION['id'];
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, serie_vista, serie_quiero, titulo, posterPath) VALUES ('$user_id', '$idSerie', '1', '0', '$titulo', '$posterPath')");
+    }
+    
+    ?>
+
+
 
     <form action="" method="post">
         <label for="temporada">Temporada</label>
@@ -94,52 +101,6 @@
 
         <input type="submit" name="submit" id="temporada" value="Temporada">
 
-        <!--<div id="episodesdiv">
-            <div id="seasons">
-                <div class="season activeSeason">
-                    <p class="activeSeasonName">Temporada 1</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber activeSeasonNumber"> 23 </p>
-                    </div>
-                </div>
-                <div class="season">
-                    <p class="">Temporada 2</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber"> 23 </p>
-                    </div>
-                </div>
-                <div class="season">
-                    <p class="">Temporada 3</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber"> 23 </p>
-                    </div>
-                </div>
-                <div class="season">
-                    <p class="">Temporada 4</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber"> 23 </p>
-                    </div>
-                </div>
-                <div class="season">
-                    <p class="">Temporada 5</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber"> 22 </p>
-                    </div>
-                </div>
-                <div class="season">
-                    <p class="">Temporada 6</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber"> 19 </p>
-                    </div>
-                </div>
-                <div class="season">
-                    <p class="">Temporada 7</p>
-                    <div class="seasonright">
-                        <p class="episodesnumber"> 5 </p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </form>
 
     <?php
@@ -161,9 +122,6 @@
     }
 
     ?>
-
-    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
-    <script src="../js/app.js"></script>
 
 </body>
 

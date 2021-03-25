@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Lista</title>
-    <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
@@ -30,18 +29,12 @@
     $conn = DB::getInstance()->getConn();
 
     session_start();
-    $usuario = $_SESSION['username'];
-    var_dump($usuario);
+    $idUser = $_SESSION['id'];
 
-    $sql = "SELECT * FROM watchme.serie WHERE user_id = '1'";
-
-    $result = $conn->query($sql);
-    var_dump($result);
-
+    $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // output data of each row
         echo "<br>";
         while ($row = $result->fetch_assoc()) {
             print_r($row);
@@ -51,7 +44,6 @@
     }
 
     ?>
-    
 
 </body>
 </html>

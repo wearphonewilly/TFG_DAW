@@ -47,3 +47,13 @@ Generos: https://api.themoviedb.org/3/genre/tv/list?api_key=f269df40fe8fe735f1ed
 
 Imagenes
 https://www.flaticon.com/free-icon/video_1179069?term=films&related_id=1179069
+
+
+## SEO
+Composer + Packagist
+SEOstats: https://github.com/eyecatchup/SEOstats
+SEO-OnPage: https://packagist.org/packages/melbahja/seo
+
+## SLIDER
+
+https://github.com/nolimits4web/Swiper/blob/master/demos/060-pagination-fraction.html
