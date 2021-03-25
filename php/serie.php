@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series Main</title>
-    <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,26 +21,25 @@
         }
 
         .wrapper {
-    padding: 25px 30px;
-    background: #FFF;
-    box-shadow: 0 2px 5px rgba(0,0,0,.3);
-    width: 400px;
-    border-radius: 3px;
-    margin: 20px;
-}
+            padding: 25px 30px;
+            background: #FFF;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+            width: 400px;
+            border-radius: 3px;
+            margin: 20px;
+        }
 
         .wrapper .content ul li .text {
-    color: #111;
-    padding-left: 10px;
-}
-
+            color: #111;
+            padding-left: 10px;
+        }
     </style>
 
 </head>
 
 <body>
 
-<ul class="menu-bar">
+    <ul class="menu-bar">
         <li><a href="./main.php">Home</a></li>
         <li> <a href="./main.php">Series</a></li>
         <li><a href="./mainFilms.php">Peliculas</a></li>
@@ -65,7 +63,7 @@
     $poster = $serie['backdrop_path'];
     $posterPath = $serie['poster_path'];
 
-    // TODO: Arreglar imagen de fondo
+    // TODO: Revisar si me gusta así
     echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
     echo "<div class=\"serie\"> 
@@ -85,7 +83,7 @@
         <label for="temporada">Temporada</label>
         <select id="selectTemporada" name="temporada">
 
-            <?php
+        <?php
         for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
             echo "<option value=\"$i\">Temporada $i</option>";
             // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
@@ -165,7 +163,6 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
 
 </body>

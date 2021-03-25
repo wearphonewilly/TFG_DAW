@@ -1,12 +1,6 @@
 <?php
 
-echo "<script> console.log('holaa'); </script>";
-/* if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit;
-} else {
-    echo "Hola";
-} */
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +10,6 @@ echo "<script> console.log('holaa'); </script>";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peliculas Main</title>
-    <link rel="stylesheet" href="../styles/css/navbar.css">
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -105,7 +98,6 @@ echo "<script> console.log('holaa'); </script>";
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
-    <script src="../js/navbar.js"></script>
 
 </body>
 
