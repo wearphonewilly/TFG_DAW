@@ -51,6 +51,27 @@
     }
     ?>
 
+    <form action="" method="post">
+        <input type="submit" name="btnVista" value="VISTA" />
+    </form>
+
+    <?php
+    require_once("./DB.php");
+    require_once('jsphp.php');
+    $conn = DB::getInstance()->getConn();
+    session_start();
+    $user_id = $_SESSION['id'];
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
+        var_dump($user_id);
+        $result = $conn -> query("INSERT INTO watchme.peliculas (pelicula_id, title, overview_film, poster_path_film, genres_ids_film, homepage_film, adult, user_id, peli_vista, peli_quiero) VALUES ('$idPeli', '$titulo', '$sinopsis', '$posterPath', '$categorias', '1', '$user_id', '1', '0')");
+        var_dump($result);
+    } else {
+        sweetalert2();
+    }
+
+    ?>
+
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>

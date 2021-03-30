@@ -8,9 +8,8 @@ class DB
     private $db       = 'heroku_a22259b35601486'; */
 
     private $servername = 'localhost';
-    /* private $username = 'willyRoot';
-    private $password = ''; */
-    private $username = 'root';
+    private $username = 'willyRoot';
+    // private $username = 'root';
     private $password = '';
     private $db = 'watchMe';
     private $conn;

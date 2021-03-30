@@ -27,11 +27,11 @@ section:nth-of-type(2n) {
 }
 
 h1 {
-  font-size: 40pt;
+  font-size: 60pt;
   display: block;
   color: white;
   font-weight: 300;
-  letter-spacing: 5px;
+  letter-spacing: 10px;
 }
 
 h3 {
@@ -161,7 +161,7 @@ button {
 
 #loginBtn,
 #registerBtn {
-  padding: 16px 32px;
+  padding: 16px 36px;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -172,6 +172,10 @@ button {
   outline: none;
   overflow: hidden;
   cursor: pointer;
+}
+
+#registerBtn {
+  margin-left: 37px;
 }
 
 /* Mouse scroll down button */

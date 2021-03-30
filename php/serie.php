@@ -7,24 +7,8 @@
     <title>Series Main</title>
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/apple.css">
+    <link rel="stylesheet" href="episode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        .wrapper {
-            padding: 25px 30px;
-            background: #FFF;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-            width: 400px;
-            border-radius: 3px;
-            margin: 20px;
-        }
-
-        .wrapper .content ul li .text {
-            color: #111;
-            padding-left: 10px;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -66,11 +50,10 @@
     echo "<br>";
     ?>
 
-
     <form action="" method="post">
         <input type="submit" name="btnVista" value="VISTA" />
     </form>
-    
+
     <?php
     require_once("./DB.php");
     require_once('jsphp.php');
@@ -81,34 +64,25 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, serie_vista, serie_quiero, titulo, posterPath) VALUES ('$user_id', '$idSerie', '1', '0', '$titulo', '$posterPath')");
     }
-    
+
     ?>
-
-
 
     <form action="" method="post">
         <label for="temporada">Temporada</label>
         <select id="selectTemporada" name="temporada">
-
-        <?php
-        for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
-            echo "<option value=\"$i\">Temporada $i</option>";
-            // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
-        }
-        ?>
-
+            <?php
+            for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
+                echo "<option value=\"$i\">Temporada $i</option>";
+                // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
+            }
+            ?>
         </select>
-
         <input type="submit" name="submit" id="temporada" value="Temporada">
-
     </form>
 
     <?php
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
-        echo "<script> console.log(document.getElementById('selectTemporada').value); </script>";
-        var_dump($selected);
-        var_dump($idSerie);
         echo "<br>";
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
@@ -117,11 +91,32 @@
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
-            echo "<div> <li> <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> <i id=\"removeBtn\" class=\"icon fa fa-trash\"></i> </li> </div>";
+            // echo "<div> <li> <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> <i id=\"removeBtn\" class=\"icon fa fa-trash\"></i> </li> </div>";
+
+            // TODO: Guardar todos los episodios en un array para poder mostrarlos como en el todo del ordenadors
+            echo "<div class=\"wrapper\"> 
+
+            <div class=\"notifications\">
+                <div class=\"notifications__item\">
+    
+                    <div class=\"notifications__item__content\">
+                        <span class=\"notifications__item__title\">$nombreEpisodio</span>
+                        <span class=\"notifications__item__message\">$numeroEpisodio</span>
+                    </div>
+    
+                    <div>
+                        <div class=\"notifications__item__option archive js-option\">
+                            <i class=\"fa fa-folder\"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>";
         }
     }
 
     ?>
+
+    <script src="../js/episodeChecked.js"> </script>
 
 </body>
 

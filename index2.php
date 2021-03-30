@@ -24,19 +24,42 @@
 
     <!-- Scripts -->
     <script src="./js/index.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- For ^ up-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- For ^ up-->
+
+    <style>
+        .custom-shape-divider-bottom-1616709810 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1616709810 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 153px;
+            transform: rotateY(180deg);
+        }
+
+        .custom-shape-divider-bottom-1616709810 .shape-fill {
+            fill: #FE4B74;
+        }
+    </style>
 </head>
 
 <body>
 
     <section class="intro">
 
-        <div class="custom-shape-divider-top-1614097386">
+        <div class="custom-shape-divider-bottom-1616709810">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                 preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
             </svg>
         </div>
         <div class="content">
@@ -47,11 +70,10 @@
         </div>
 
         <div class="content">
-            <img src="./styles/img/tvTime.png" class="profile-img" style="width: 40%; margin-left: 29%;">
+            <img src="./styles/img/tvTime.png" class="profile-img" style="width: 55%; margin-left: 36%;">
         </div>
 
-        <div class="mouse_scroll">
-
+        <!-- <div class="mouse_scroll">
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
@@ -60,7 +82,7 @@
                 <span class="m_scroll_arrows doi"></span>
                 <span class="m_scroll_arrows trei"></span>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <section>
@@ -92,7 +114,7 @@
             <!-- <h2>¿Tienes problemas para elegir una película para la primera cita?</h2> -->
             <h2 id="titulo">¿Tienes problemas para escoger una película?</h2>
             <p><i> <b> Mamá dice que la vida es como una caja de bombones, <br> nunca sabes el que te va a tocar </b>
-                </i> &nbsp Nuestro sistema seleccionará una por ti</p>
+                </i> Nuestro sistema seleccionará una por ti</p>
         </div>
         <div class="content">
             <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400">

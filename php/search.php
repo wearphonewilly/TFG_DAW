@@ -13,18 +13,6 @@
 
 <body>
 
-    <!-- <div class="topnav" id="myTopnav">
-        <a href="./mainFilms.php">Home</a>
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php" class="active">Buscar</a>
-        <a href="#">Mi Lista</a>
-        <a href="./profile.php" style="float:right"><i class="fa fa-fw fa-user"></i> Perfil </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div> -->
-
     <ul class="menu-bar">
         <li><a href="./main.php">Home</a></li>
         <li> <a href="./main.php">Series</a></li>
@@ -33,8 +21,6 @@
         <li><a href="./miLista.php">Mi Lista</a></li>
         <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
     </ul>
-
-
 
     <section id="buscador">
 
@@ -57,7 +43,8 @@
                 foreach ($categoriasSeries['genres'] as $value) {
                     $titulo = $value['name'];
                     $category_id = $value['id'];
-                    echo "<div class=\"item\"> <h3> <a href=\"categoria.php?id=$category_id\">  $titulo </h3> </div>";
+                    echo "<div class=\"item\"> 
+                            <h3> <a id=\"a-search\" href=\"categoria.php?id=$category_id\">  $titulo </h3> </div>";
                 }
             }
             ?>
@@ -83,7 +70,10 @@
             foreach ($busquedaUser['results'] as $value) {
                 $poster = $value['poster_path'];
                 $titulo = $value['original_title'];
-                echo "<div id=\"divBusqueda\"> <h3> $titulo </h3> <img id=\"'imgPrincipal'\" src=\"https://image.tmdb.org/t/p/w500$poster\"> </div>";
+                echo "<div id=\"divBusqueda\"> 
+                        <h3> $titulo </h3> 
+                        <img id=\"'imgPrincipal'\" src=\"https://image.tmdb.org/t/p/w500$poster\"> 
+                    </div>";
             }
             echo "<script> document.getElementById('categorias').style.display = \"none\"; </script>";
         }

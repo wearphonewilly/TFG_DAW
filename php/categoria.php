@@ -1,7 +1,5 @@
 <?php
-
-var_dump($_SESSION['username']);
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +10,10 @@ var_dump($_SESSION['username']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
     <link rel="stylesheet" href="../styles/css/output.css">
+    <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
-    <link rel="stylesheet" href="../styles/css/apple.css">
 </head>
 
 <body>
@@ -43,7 +41,12 @@ var_dump($_SESSION['username']);
                     $poster = $value['poster_path'];
                     $titulo = $value['title'];
                     $id = $value['id'];
-                    echo "<div class=\"carousel__elemento\"> <a href=\"movie.php?id=$id\"> <img src=\"https://image.tmdb.org/t/p/w500$poster\" style=\"height: 200px;\">  <p style=\"color: black;\"> $titulo </p> </a> </div>";
+                    echo "<div class=\"carousel__elemento\"> 
+                            <a href=\"movie.php?id=$id\"> 
+                                <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$poster\">  
+                                <p id=\"p-category\"> $titulo </p> 
+                            </a>
+                        </div>";
                 }
             }
             ?>

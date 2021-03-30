@@ -16,6 +16,7 @@ sass --watch styles/scss/main.scss styles/css/output.css
 ## Shortcuts
 $var = "Hola Pepe";
 echo "<script> alert('".$var."'); </script>";
+https://css-tricks.com/snippets/htaccess/use-php-inside-javascript/
 
 ## Background color section
 
@@ -57,3 +58,5 @@ SEO-OnPage: https://packagist.org/packages/melbahja/seo
 ## SLIDER
 
 https://github.com/nolimits4web/Swiper/blob/master/demos/060-pagination-fraction.html
+https://github.com/nolimits4web/Swiper/blob/master/demos/210-infinite-loop-with-slides-per-group.html
+https://swiperjs.com/demos#slides-per-view

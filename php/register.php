@@ -91,8 +91,9 @@
     // $passwordCrypted = password_hash($password, PASSWORD_BCRYPT, ['salt' => 'abc']);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($name) && !empty($mail) && !empty($password)) {
-            $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
+        if (!empty($name) || !empty($mail) || !empty($password)) {
+            // $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
+            $result = $conn -> query("INSERT INTO watchme.users (nombre, mail, password) VALUES ('$name', '$mail', '$password')");
             echo "Ir al login";
         } else {
             sweetalert2();
@@ -100,10 +101,9 @@
     }
     ?>
 
-
-    <alert src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </alert>
+    </script>
 
     <!-- Notyf -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
