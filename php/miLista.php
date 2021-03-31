@@ -23,9 +23,11 @@
         <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
     </ul>
 
+    <h3>Series en progreso</h3>
+
     <!-- Aquí tendremos la lista de peliculas y series del usuario del usuario -->
     <div id="categorias" class="grid-container">
-
+        
         <?php
         require_once("DB.php");
         $conn = DB::getInstance()->getConn();
@@ -37,7 +39,6 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<br>";
             while ($row = $result->fetch_assoc()) {
                 $id = $row ['serie_id'];
                 $titulo = $row ['titulo'];
@@ -52,30 +53,34 @@
         } else {
             sweetalert2();
         }
+        ?>
+    </div>
+
+    <h3>Peliculas vistas</h3>
+    <div id="categorias" class="grid-container">
+        
+        <?php
+        require_once("DB.php");
+        $conn = DB::getInstance()->getConn();
+
+        session_start();
+        $idUser = $_SESSION['id'];
 
         $sql = "SELECT * FROM watchme.peliculas WHERE user_id = $idUser";
         $result = $conn->query($sql);
 
-        echo "hola";
         if ($result->num_rows > 0) {
-            echo "<br>";
             while ($row = $result->fetch_assoc()) {
                 $id = $row ['pelicula_id'];
                 $titulo = $row ['title'];
-                $sinopsis = $row ['overview_film'];
                 $posterPath = $row['poster_path_film'];
-                $generos = $row['genres_ids_film'];
-                $homepage_film = $row['homepage_film'];
-                $adult = $row['adult'];
-                $peliVista = $row['peli_vista'];
-                $peliQuiero = $row['peli_quiero'];
 
-                echo "<div class=\"serie\">
-                <h3> $titulo </h3>
-                <p> $sinopsis </p>
-                <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$poster\">   
-                <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$posterPath\">
-                <br> ";
+                echo "<div class=\"carousel__elemento\"> 
+                        <a href=\"movie.php?id=$id\"> 
+                            <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$posterPath\">  
+                            <p id=\"p-category\"> $titulo </p> 
+                        </a>
+                    </div>";
             }
         } else {
             sweetalert2();

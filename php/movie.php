@@ -36,7 +36,14 @@
     $sinopsis = $pelicula['overview'];
     $poster = $pelicula['backdrop_path'];
     $posterPath = $pelicula['poster_path'];
-    $categorias = $pelicula['genres'];
+    $categorias = array_values($pelicula['genres']);
+    $peliAdultos = $pelicula['adult'];
+    var_dump($peliAdultos);
+    if ($peliAdultos) {
+        $peliAdultos = 1;
+    } else {
+        $peliAdultos = 0;
+    }
 
     echo "<div class=\"serie\">
             <h3> $titulo </h3>
@@ -64,7 +71,9 @@
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         var_dump($user_id);
-        $result = $conn -> query("INSERT INTO watchme.peliculas (pelicula_id, title, overview_film, poster_path_film, genres_ids_film, homepage_film, adult, user_id, peli_vista, peli_quiero) VALUES ('$idPeli', '$titulo', '$sinopsis', '$posterPath', '$categorias', '1', '$user_id', '1', '0')");
+        $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis','$posterPath','a$categorias','$peliAdultos','$user_id','1','0')";
+        var_dump($queryInsert);
+        $result = $conn -> query($queryInsert);
         var_dump($result);
     } else {
         sweetalert2();
