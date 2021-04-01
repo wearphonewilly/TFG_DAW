@@ -91,16 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $sql = "SELECT nombre, id FROM watchme.users WHERE nombre = '$username' AND password = '$password'";
         $result = $conn->query($sql);
+
         if ($result->num_rows > 0) {
             // Guardar datos de sesión
             while ($row = $result->fetch_assoc()) {
                 $_SESSION['username'] = $row ['nombre'];
                 $_SESSION['id'] =  $row ['id'];
             }
-
             header('Location: main.php');
-
-            echo "Sesión iniciada y establecido nombre de usuario!" . "<br>";
         } else {
             sweetalert2();
         }

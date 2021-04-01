@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
 </head>
 
@@ -38,7 +37,7 @@
     $posterPath = $pelicula['poster_path'];
     $categorias = array_values($pelicula['genres']);
     $peliAdultos = $pelicula['adult'];
-    var_dump($peliAdultos);
+
     if ($peliAdultos) {
         $peliAdultos = 1;
     } else {
@@ -62,6 +61,11 @@
         <input type="submit" name="btnVista" value="VISTA" />
     </form>
 
+    <form action="" method="post">
+        <input type="submit" name="btnQuiero" value="QUIERO" />
+    </form>
+
+
     <?php
     require_once("./DB.php");
     require_once('jsphp.php');
@@ -69,14 +73,20 @@
     session_start();
     $user_id = $_SESSION['id'];
 
-    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        var_dump($user_id);
-        $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis','$posterPath','a$categorias','$peliAdultos','$user_id','1','0')";
-        var_dump($queryInsert);
+    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
+        $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis','$posterPath','a$categorias','$peliAdultos','$user_id','0','1')";
         $result = $conn -> query($queryInsert);
-        var_dump($result);
-    } else {
-        sweetalert2();
+    } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
+        $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
+            $result = $conn -> query($sqlUpdate);
+        } else {
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis','$posterPath','a$categorias','$peliAdultos','$user_id','1','0')";
+            $result = $conn -> query($queryInsert);
+        }
     }
 
     ?>

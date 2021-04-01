@@ -69,7 +69,7 @@
             <h2 id="descripcion"> <i> <b>¿Cómo va eso? </b> </i> Aquí podrás llevar un seguimiento de todas ellas. </h2>
         </div>
         <div class="content">
-            <img src="./styles/img/joey.png" alt="Joey de Friends" width="300" height="400">
+            <img src="./styles/img/joey.png" alt="Joey de Friends" width="300" height="400" loading="lazy">
         </div>
 
         <button onclick="topFunction()" id="myBtn" title="Go to top"> <i class="fa fa-arrow-up"></i> </button>
@@ -82,7 +82,7 @@
                 películas y series más completo<br> de todo internet</p>
         </div>
         <div class="content">
-            <img src="./styles/img/padrino.png" alt="El Padrino" width="400" height="400">
+            <img src="./styles/img/padrino.png" alt="El Padrino" width="400" height="400" loading="lazy">
         </div>
 
     </section>
@@ -95,7 +95,7 @@
                 </i> &nbsp Nuestro sistema seleccionará una por ti</p>
         </div>
         <div class="content">
-            <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400">
+            <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400" loading="lazy">
         </div>
     </section>
 
@@ -109,8 +109,7 @@
             <h3>Coffees development 535</h3>
         </div>
         <div class="content">
-            <img src="./styles/img/sheldon.png" alt="Sheldon Cooper" width="321" height="379" id="sheldon"
-                style="margin-left: 25%;">
+            <img src="./styles/img/sheldon.png" alt="Sheldon Cooper" width="321" height="379" id="sheldon" style="margin-left: 25%;" loading="lazy">
         </div>
 
     </section>
