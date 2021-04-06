@@ -56,7 +56,7 @@
         ?>
     </div>
 
-    <h3>Peliculas vistas</h3>
+    <h3>Peliculas quiero</h3>
     <div id="categorias" class="grid-container">
         
         <?php
@@ -66,7 +66,7 @@
         session_start();
         $idUser = $_SESSION['id'];
 
-        $sql = "SELECT * FROM watchme.peliculas WHERE user_id = $idUser";
+        $sql = "SELECT * FROM watchme.peliculas WHERE user_id = $idUser AND peli_quiero = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

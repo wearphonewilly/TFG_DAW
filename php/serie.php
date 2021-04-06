@@ -36,6 +36,7 @@
     print_r($serie['original_name']);
     $poster = $serie['backdrop_path'];
     $posterPath = $serie['poster_path'];
+    $tiempoSerie = $serie['episode_run_time'];
 
     // TODO: Revisar si me gusta así
     // echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
@@ -87,30 +88,35 @@
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
         // print_r($temporadaViendo);
+        $episodiosArray = [];
+
         foreach ($temporadaViendo['episodes'] as $value) {
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
-            // echo "<div> <li> <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> <i id=\"removeBtn\" class=\"icon fa fa-trash\"></i> </li> </div>";
 
-            // TODO: Guardar todos los episodios en un array para poder mostrarlos como en el todo del ordenadors
-            echo "<div class=\"wrapper\"> 
+            // Guardamos todos los episodios de una temporada en un array
+            // array_push($episodiosArray, $nombreEpisodio, $idEpisodio);
 
-            <div class=\"notifications\">
-                <div class=\"notifications__item\">
-    
-                    <div class=\"notifications__item__content\">
-                        <span class=\"notifications__item__title\">$nombreEpisodio</span>
-                        <span class=\"notifications__item__message\">$numeroEpisodio</span>
-                    </div>
-    
-                    <div>
-                        <div class=\"notifications__item__option archive js-option\">
-                            <i class=\"fa fa-folder\"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>";
+            $episodiosArray += array($idEpisodio => $nombreEpisodio);
+        }
+
+        echo "<div> 
+        <li> 
+            <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> "; ?>
+            <form action="" method="post">
+                <input type="submit" name="btnEpisodioVisto" value="EpisodioVisto"/>
+            </form>
+        <?php echo "</li> </div>";
+
+        print_r($episodiosArray);
+        var_dump($_POST['btnEpisodioVisto']);
+        echo "hola";
+        if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnEpisodioVisto'])) {
+            $queryInsert = "INSERT INTO `capitulo`(`capitulo_id`, `temporada_id`, `user_id`, `vista`, `episode_run_time`) VALUES ('$idEpisodio','$cantidadTemporadas','$user_id', '1', '1') " ;
+            $result = $conn -> query($queryInsert);
+            var_dump($result);
+            echo "prubea";
         }
     }
 

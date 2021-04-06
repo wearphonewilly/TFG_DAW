@@ -37,6 +37,7 @@
     $posterPath = $pelicula['poster_path'];
     $categorias = array_values($pelicula['genres']);
     $peliAdultos = $pelicula['adult'];
+    $tiempoPeli = $pelicula['runtime'];
 
     if ($peliAdultos) {
         $peliAdultos = 1;
@@ -73,9 +74,18 @@
     session_start();
     $user_id = $_SESSION['id'];
 
+    // Control el vista y quiero de las peliculas
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
-        $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis','$posterPath','a$categorias','$peliAdultos','$user_id','0','1')";
-        $result = $conn -> query($queryInsert);
+        $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$idPeli'";
+            $result = $conn -> query($sqlUpdate);
+        } else {
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `runtime`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis', '$tiempoPeli' , '$posterPath','a$categorias','$peliAdultos','$user_id','0','1') " ;
+            $result = $conn -> query($queryInsert);
+        }
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
         $result = $conn->query($sql);
@@ -84,7 +94,7 @@
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
         } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis','$posterPath','a$categorias','$peliAdultos','$user_id','1','0')";
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `runtime`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis', '$tiempoPeli' , '$posterPath','a$categorias','$peliAdultos','$user_id','1','0') " ;
             $result = $conn -> query($queryInsert);
         }
     }

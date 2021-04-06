@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-var_dump($_SESSION['username']);
 ?>
 
 
@@ -28,7 +27,7 @@ var_dump($_SESSION['username']);
         <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
     </ul>
 
-    <img src="../styles/img/img1.jpg" alt="Valoración de las diferentes series" id="profileImg">
+    <img src="../styles/img/marvel.jpg" alt="Valoración de las diferentes series" id="profileImg">
 
     <div class="profile-stats">
         <span class="dot"></span>
@@ -41,6 +40,69 @@ var_dump($_SESSION['username']);
         <p>Total tiempo viendo Peliculas: </p>
     </div>
 
+    <h2>Series Vistas</h2>
+    <div id="categorias" class="grid-container">
+        
+        <?php
+        require_once("DB.php");
+        $conn = DB::getInstance()->getConn();
+
+        session_start();
+        $idUser = $_SESSION['id'];
+
+        $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser AND serie_vista = 1";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $id = $row ['serie_id'];
+                $titulo = $row ['titulo'];
+                $poster = $row ['posterPath'];
+                echo "<div class=\"carousel__elemento\"> 
+                        <a href=\"movie.php?id=$id\"> 
+                            <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$poster\">  
+                            <p id=\"p-category\"> $titulo </p> 
+                        </a>
+                    </div>";
+            }
+        } else {
+            sweetalert2();
+        }
+        ?>
+    </div>
+
+
+    <h2>Peliculas Vistas</h2>
+    <div id="categorias" class="grid-container">
+        <?php
+        require_once("DB.php");
+        $conn = DB::getInstance()->getConn();
+
+        session_start();
+        $idUser = $_SESSION['id'];
+
+        $sql = "SELECT * FROM watchme.peliculas WHERE user_id = $idUser AND peli_vista = 1";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $id = $row ['pelicula_id'];
+                $titulo = $row ['title'];
+                $posterPath = $row['poster_path_film'];
+
+                echo "<div class=\"carousel__elemento\"> 
+                        <a href=\"movie.php?id=$id\"> 
+                            <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$posterPath\">  
+                            <p id=\"p-category\"> $titulo </p> 
+                        </a>
+                    </div>";
+            }
+        } else {
+            sweetalert2();
+        }
+        ?>
+
+    </div>
 
 </body>
 
