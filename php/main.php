@@ -64,7 +64,7 @@ session_start();
                 <i class="fas fa-chevron-left"></i>
             </button>
 
-            <h2>Series On Air</h2>
+            <h2>Series en Emisión</h2>
 
             <div class="carousel__lista__onAir">
 
