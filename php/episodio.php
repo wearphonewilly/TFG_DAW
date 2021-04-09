@@ -11,14 +11,17 @@
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li> <a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Home</a>
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <br>
 
@@ -41,7 +44,7 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
-
+    <script src="../js/navbar.js.js"></script>
 </body>
 
 </html>

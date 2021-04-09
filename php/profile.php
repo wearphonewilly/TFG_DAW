@@ -18,14 +18,17 @@ session_start();
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li> <a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Home</a>
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <img src="../styles/img/marvel.jpg" alt="Valoración de las diferentes series" id="profileImg">
 
@@ -42,7 +45,7 @@ session_start();
 
     <h2>Series Vistas</h2>
     <div id="categorias" class="grid-container">
-        
+
         <?php
         require_once("DB.php");
         $conn = DB::getInstance()->getConn();
@@ -104,6 +107,7 @@ session_start();
 
     </div>
 
-</body>
+    <script src="../js/navbar.js.js"></script>
 
+</body>
 </html>

@@ -14,20 +14,24 @@
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li><a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Home</a>
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./calendario.php">Calendario</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <h3>Series en progreso</h3>
 
     <!-- Aquí tendremos la lista de peliculas y series del usuario del usuario -->
     <div id="categorias" class="grid-container">
-        
+
         <?php
         require_once("DB.php");
         $conn = DB::getInstance()->getConn();
@@ -42,7 +46,7 @@
             while ($row = $result->fetch_assoc()) {
                 $id = $row ['serie_id'];
                 $titulo = $row ['titulo'];
-                $poster = $row ['posterPath'];
+                $poster = $row ['poster_path'];
                 echo "<div class=\"carousel__elemento\"> 
                         <a href=\"movie.php?id=$id\"> 
                             <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$poster\">  
@@ -58,7 +62,7 @@
 
     <h3>Peliculas quiero</h3>
     <div id="categorias" class="grid-container">
-        
+
         <?php
         require_once("DB.php");
         $conn = DB::getInstance()->getConn();
@@ -87,6 +91,8 @@
         }
         ?>
     </div>
+
+    <script src="../js/navbar.js.js"></script>
 
 </body>
 </html>

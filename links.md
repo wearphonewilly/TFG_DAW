@@ -60,3 +60,8 @@ SEO-OnPage: https://packagist.org/packages/melbahja/seo
 https://github.com/nolimits4web/Swiper/blob/master/demos/060-pagination-fraction.html
 https://github.com/nolimits4web/Swiper/blob/master/demos/210-infinite-loop-with-slides-per-group.html
 https://swiperjs.com/demos#slides-per-view
+
+
+## Calendario
+
+https://obedalvarado.pw/blog/fullcalendar-con-php-y-mysql/

@@ -19,20 +19,24 @@
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li> <a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Home</a>
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"s></i>
+        </a>
+    </div>
 
     <section id="buscador">
 
         <form action="./search.php" method="post">
-            <input type="text" placeholder="Título de la serie o película" name="busqueda" class="search-input" id="busqueda">
-            <button type="submit" id="searchButton">Buscar  <i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Título de la serie o película" name="busqueda" class="search-input"
+                id="busqueda">
+            <button type="submit" id="searchButton">Buscar <i class="fa fa-search"></i></button>
         </form>
 
     </section>
@@ -62,7 +66,7 @@
 
         <div class="grid-container-busqueda">
 
-        <?php
+            <?php
 
         $busquedaQuery = $_POST["busqueda"];
 
@@ -88,6 +92,8 @@
 
         </div>
     </section>
-</body>
 
+    <script src="../js/navbar.js.js"></script>
+
+</body>
 </html>

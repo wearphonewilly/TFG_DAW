@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,14 +18,17 @@ session_start();
 <body>
     <div class="wrapper">
 
-        <ul class="menu-bar">
-            <li><a href="./main.php">Home</a></li>
-            <li> <a href="./main.php">Series</a></li>
-            <li><a href="./mainFilms.php">Peliculas</a></li>
-            <li><a href="./search.php">Buscar</a></li>
-            <li><a href="./miLista.php">Mi Lista</a></li>
-            <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i></a></li>
-        </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Home</a><
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
         <main class="content">
         <section class="panel">
@@ -83,6 +82,7 @@ session_start();
             </section>
         </main>
 
+        <script src="../js/navbar.js.js"></script>
         <!-- Swiper JS -->
         <script src="../js/swiper.min.js"></script>
         <script src="../js/slider.js"></script>

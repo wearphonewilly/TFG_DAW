@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pelicula </title>
     <link rel="stylesheet" href="../styles/css/output.css">
-    <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
 </head>
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li> <a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <!--<ul class="menu-bar">
+        <a href="./main.php">Home</a><
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+    </ul> -->
 
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Home</a>
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <br>
 
     <?php
@@ -83,7 +91,7 @@
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
         } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `runtime`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis', '$tiempoPeli' , '$posterPath','a$categorias','$peliAdultos','$user_id','0','1') " ;
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
             $result = $conn -> query($queryInsert);
         }
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
@@ -94,7 +102,7 @@
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
         } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `title`, `overview_film`, `runtime`, `poster_path_film`, `genres_ids_film`, `adult`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli','$titulo','$sinopsis', '$tiempoPeli' , '$posterPath','a$categorias','$peliAdultos','$user_id','1','0') " ;
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
             $result = $conn -> query($queryInsert);
         }
     }
@@ -104,7 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/navbar.js.js"></script>
 
 </body>
-
 </html>
