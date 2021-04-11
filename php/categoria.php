@@ -18,10 +18,10 @@ session_start();
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="./main.php">Home</a>
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>
         <a href="./search.php">Buscar</a>
+        <a href="./calendario.php">Calendario</a>
         <a href="./miLista.php">Mi Lista</a>
         <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -36,7 +36,7 @@ session_start();
             <?php
             $category_id = $_GET['id'];
 
-            $seriesPopulares = file_get_contents('https://api.themoviedb.org/3/discover/movie?api_key=f269df40fe8fe735f1ed701a4bfba1df&with_genres='.$category_id);
+            $seriesPopulares = file_get_contents('https://api.themoviedb.org/3/discover/movie?api_key=f269df40fe8fe735f1ed701a4bfba1df&with_genres=' . $category_id);
             $seriesPopulares = json_decode($seriesPopulares, true);
             if (is_array($seriesPopulares) || is_object($seriesPopulares)) {
                 foreach ($seriesPopulares['results'] as $value) {

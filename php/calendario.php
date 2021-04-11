@@ -525,15 +525,17 @@
 </head>
 
 <body>
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li><a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./calendario.php">Calendario</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil   <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./calendario.php">Calendario</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <div id="calendar"></div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>

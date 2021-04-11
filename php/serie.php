@@ -14,10 +14,10 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="./main.php">Home</a>
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>
         <a href="./search.php">Buscar</a>
+        <a href="./calendario.php">Calendario</a>
         <a href="./miLista.php">Mi Lista</a>
         <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -122,7 +122,7 @@
     <form action="" method="post">
         <input type="submit" name="btnEpisodioVisto" value="EpisodioVisto" />
     </form>
-    <?php echo "</li> </div>";
+        <?php echo "</li> </div>";
 
         print_r($episodiosArray);
         var_dump($_POST['btnEpisodioVisto']);

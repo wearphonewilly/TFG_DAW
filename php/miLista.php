@@ -15,7 +15,6 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <a href="./main.php">Home</a>
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>
         <a href="./search.php">Buscar</a>

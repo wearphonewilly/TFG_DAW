@@ -19,15 +19,15 @@
     <div class="wrapper">
 
         <div class="topnav" id="myTopnav">
-            <a href="./main.php">Home</a>
             <a href="./main.php">Series</a>
-                <a href="./mainFilms.php">Peliculas</a>
-                <a href="./search.php">Buscar</a>
-                <a href="./miLista.php">Mi Lista</a>
-                <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
+            <a href="./mainFilms.php">Peliculas</a>
+            <a href="./search.php">Buscar</a>
+            <a href="./calendario.php">Calendario</a>
+            <a href="./miLista.php">Mi Lista</a>
+            <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </div>
 
         <main class="content">
@@ -37,7 +37,7 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
 
-                            <?php
+                        <?php
 
                         $seriesPopulares = file_get_contents('https://api.themoviedb.org/3/movie/popular?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
                         $seriesPopulares = json_decode($seriesPopulares, true);
