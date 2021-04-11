@@ -54,6 +54,10 @@
         <input type="submit" name="btnVista" value="VISTA" />
     </form>
 
+    <form action="" method="post">
+        <input type="submit" name="btnQuiero" value="QUIERO" />
+    </form>
+
     <?php
     require_once("./DB.php");
     require_once('jsphp.php');
@@ -62,9 +66,10 @@
     $user_id = $_SESSION['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, serie_vista, serie_quiero, titulo, posterPath) VALUES ('$user_id', '$idSerie', '1', '0', '$titulo', '$posterPath')");
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '1', '0')");
+    } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0', '1')");
     }
-
     ?>
 
     <form action="" method="post">
@@ -87,18 +92,53 @@
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
         // print_r($temporadaViendo);
+
+        $episode = $temporadaViendo['episodes'];
+        print_r(sizeof($episode));
+
+        $authArray = array();
+
+
         foreach ($temporadaViendo['episodes'] as $value) {
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
-            echo "<div> <li> <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> <i id=\"removeBtn\" class=\"icon fa fa-trash\"></i> </li> </div>";
+            $idTemporada = $value['season_number']; // Printamos idTemporada
+            $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
+            array_push($authArray, $pila);
+            echo "<div> 
+            <li id='$idEpisodio'> 
+                <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> 
+                <a onclick=\"checked($idEpisodio, $idTemporada)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
+            </li> 
+            </div>";
+
         }
+
+        // print_r($authArray);
     }
 
     ?>
 
+    <script>
+        function checked(idEpisodio, idTemporada) {
+            document.getElementById(idEpisodio).style.display = "none"; 
+            console.log('click', idEpisodio, idTemporada);
+            let hola = 'sad';
+            console.log('hola', hola);
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                }
+            };
+            request.open("GET", "ajax_request.php?ide="+idEpisodio, true);
+            request.send();
+        }
+    </script>
+
     <script src="../js/episodeChecked.js"> </script>
-    <script src="../js/navbar.js.js"></script>
+    <script src="../js/navbar.js"></script>
 
 </body>
 

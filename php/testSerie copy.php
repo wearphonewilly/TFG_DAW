@@ -13,17 +13,14 @@
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php">Calendario</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+    <ul class="menu-bar">
+        <li><a href="./main.php">Home</a></li>
+        <li> <a href="./main.php">Series</a></li>
+        <li><a href="./mainFilms.php">Peliculas</a></li>
+        <li><a href="./search.php">Buscar</a></li>
+        <li><a href="./miLista.php">Mi Lista</a></li>
+        <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a></li>
+    </ul>
 
     <br>
 
@@ -39,9 +36,7 @@
     print_r($serie['original_name']);
     $poster = $serie['backdrop_path'];
     $posterPath = $serie['poster_path'];
-    $tiempoSerie = $serie['episode_run_time'];
-    $nextEpisode = $serie['next_episode_to_air']['air_date'];
-    //$temporadas = $serie['seasons']; //TODO: Guardar en un array para que el usuario pueda escoger que temporada quiere filtrar
+
     // TODO: Revisar si me gusta así
     // echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
@@ -52,16 +47,7 @@
         </div>";
 
     $cantidadTemporadas = $serie['number_of_seasons'];
-    var_dump($cantidadTemporadas);
     echo "<br>";
-
-    $temporadas = [];
-    foreach ($serie['seasons'] as $value) {
-        $temporadaID = $value['id'];
-    }
-    var_dump($temporadas);
-    var_dump($nextEpisode);
-
     ?>
 
     <form action="" method="post">
@@ -88,7 +74,7 @@
 
     <form action="" method="post">
         <label for="temporada">Temporada</label>
-        <select id="selectTemporada" name="temporada" onchange="this.form.submit">
+        <select id="selectTemporada" name="temporada">
             <?php
             for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
                 echo "<option value=\"$i\">Temporada $i</option>";
@@ -100,50 +86,78 @@
     </form>
 
     <?php
-
-    var_dump($selected = $_POST['temporada']);
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
         echo "<br>";
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
         // print_r($temporadaViendo);
-        $episodiosArray = [];
+
+        $episode = $temporadaViendo['episodes'];
+        print_r(sizeof($episode));
+
+        $authArray = array();
+
 
         foreach ($temporadaViendo['episodes'] as $value) {
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
+            $idTemporada = $value['season_number']; // Printamos idTemporada
+            $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
+            array_push($authArray, $pila);
+            echo "<div> 
+            <li> 
+                <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> 
+                <a onclick=\"checked($idEpisodio)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
+            </li> 
+            </div>";
 
-            // Guardamos todos los episodios de una temporada en un array
-            // array_push($episodiosArray, $nombreEpisodio, $idEpisodio);
 
-            $episodiosArray += array($idEpisodio => $nombreEpisodio);
+            ?>
+
+        <form action="" method="post">
+            <input type="submit" name="btnVistoEpisodio">
+        </form>
+            <?php
+            require_once("./DB.php");
+            require_once('jsphp.php');
+            $conn = DB::getInstance()->getConn();
+            session_start();
+            $user_id = $_SESSION['id'];
+            $idSerie = $_GET['id'];
+
+            var_dump(intval($user_id));
+            var_dump($idEpisodio);
+            $query = "INSERT INTO watchme.capitulo (capitulo_id, temporada_id, serie_id, user_id, vista, episode_run_time) VALUES ($idEpisodio, $idTemporada, $idSerie, $user_id, '1', '0')";
+            var_dump($query);
+            var_dump($conn->query($query));
+            var_dump(isset($_POST['btnVistoEpisodio']));
+            if (isset($_POST['btnVistoEpisodio'])) {
+                $result = $conn -> query();
+                var_dump($result);
+            }
         }
 
-        echo "<div> 
-        <li> 
-            <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> "; ?>
-    <form action="" method="post">
-        <input type="submit" name="btnEpisodioVisto" value="EpisodioVisto" />
-    </form>
-        <?php echo "</li> </div>";
-
-        print_r($episodiosArray);
-        var_dump($_POST['btnEpisodioVisto']);
-        echo "hola";
-        if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnEpisodioVisto'])) {
-            $queryInsert = "INSERT INTO `capitulo`(`capitulo_id`, `temporada_id`, `user_id`, `vista`, `episode_run_time`) VALUES ('$idEpisodio','$cantidadTemporadas','$user_id', '1', '1') " ;
-            $result = $conn -> query($queryInsert);
-            var_dump($result);
-            echo "prubea";
-        }
+        // print_r($authArray);
     }
 
     ?>
 
+    <script type="text/javascript">
+    
+    function checked(id) {
+        console.log('click', id);
+        let hola = 'sad';
+        console.log('hola', hola);
+        var variable1 = id;
+        console.log(variable1);
+    }
+    
+    </script>
+
     <script src="../js/episodeChecked.js"> </script>
-    <script src="../js/navbar.js.js"></script>
+    <script src="../js/navbar.js"></script>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 09, 2021 at 02:21 PM
+-- Generation Time: Apr 11, 2021 at 11:29 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -23,17 +23,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `capitulo` (
   `capitulo_id` int(11) NOT NULL,
   `temporada_id` int(11) NOT NULL,
+  `serie_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `vista` tinyint(1) NOT NULL,
   `episode_run_time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `capitulo`
---
-
-INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `user_id`, `vista`, `episode_run_time`) VALUES
-(1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -55,7 +49,9 @@ CREATE TABLE `peliculas` (
 --
 
 INSERT INTO `peliculas` (`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES
+(412656, 109, '/idQDWn8Yhl4zXLwpyHKlr3NXYO9.jpg', 1, 1, 0),
 (527774, 90, '/yHpNgjEXzZ557YiZ2r3VrKid788.jpg', 1, 0, 1),
+(587807, 101, '/orzPlWUbf0S5HeWmpP3TeHvduwn.jpg', 1, 0, 1),
 (791373, 242, '/rkuvJnamPl3xW9wKJsIS6qkmOCW.jpg', 1, 1, 0);
 
 -- --------------------------------------------------------
@@ -77,6 +73,7 @@ CREATE TABLE `serie` (
 --
 
 INSERT INTO `serie` (`user_id`, `serie_id`, `poster_path`, `serie_vista`, `serie_quiero`) VALUES
+(1, 1, 'AAAA$posterPath', 1, 0),
 (1, 60735, '/nRoiIu64HbX9abKHm9w8FvW6Z99.jpg', 1, 0),
 (1, 71712, '/bdlGjwPWpE45CKbcP4i3A7du9CP.jpg', 1, 0);
 
@@ -125,7 +122,9 @@ INSERT INTO `users` (`id`, `nombre`, `mail`, `password`) VALUES
 --
 ALTER TABLE `capitulo`
   ADD PRIMARY KEY (`capitulo_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `serie_id` (`serie_id`),
+  ADD KEY `temporada_id` (`temporada_id`);
 
 --
 -- Indexes for table `peliculas`
@@ -173,7 +172,9 @@ ALTER TABLE `users`
 -- Constraints for table `capitulo`
 --
 ALTER TABLE `capitulo`
-  ADD CONSTRAINT `capitulo_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `capitulo_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `serie_id` FOREIGN KEY (`serie_id`) REFERENCES `serie` (`serie_id`),
+  ADD CONSTRAINT `temporada_id` FOREIGN KEY (`temporada_id`) REFERENCES `temporada` (`temporada_id`);
 
 --
 -- Constraints for table `peliculas`
