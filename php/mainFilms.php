@@ -38,20 +38,12 @@
                         <div class="swiper-wrapper">
 
                         <?php
-
-                        $seriesPopulares = file_get_contents('https://api.themoviedb.org/3/movie/popular?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-                        $seriesPopulares = json_decode($seriesPopulares, true);
-                        foreach ($seriesPopulares['results'] as $value) {
-                            $poster = $value['poster_path'];
-                            $titulo = $value['title'];
-                            $id = $value['id'];
-                            echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$poster\"> <h3 class=\"hometitle\"> $titulo </h3> </a>  </div>";
-                        }
-
+                        require_once("./api.php");
+                        popularFilms();
                         ?>
 
-                            <div class="nextdirection most-next"><img src="../styles/img/right-arrow.svg"> </div>
-                            <div class="leftdirection most-prev"><img src="../styles/img/left-arrow.svg"> </div>
+                        <div class="nextdirection top-next"><img src="../styles/img/right-arrow.svg"> </div>
+                        <div class="leftdirection top-prev"><img src="../styles/img/left-arrow.svg"> </div>
                         </div>
                     </div>
             </section>
@@ -63,15 +55,8 @@
                         <div class="swiper-wrapper">
 
                             <?php
-
-                            $seriesPopulares = file_get_contents('https://api.themoviedb.org/3/movie/upcoming?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-                            $seriesPopulares = json_decode($seriesPopulares, true);
-                            foreach ($seriesPopulares['results'] as $value) {
-                                $poster = $value['poster_path'];
-                                $titulo = $value['title'];
-                                $id = $value['id'];
-                                echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$poster\"> <h3 class=\"hometitle\"> $titulo </h3> </a>  </div>";
-                            }
+                            require_once("./api.php");
+                            upcomingFilms();
                             ?>
 
                         </div>
@@ -82,7 +67,7 @@
             </section>
         </main>
 
-        <script src="../js/navbar.js.js"></script>
+        <script src="../js/navbar.js"></script>
 
         <!-- Swiper JS -->
         <script src="../js/swiper.min.js"></script>

@@ -92,7 +92,6 @@
             <?php
             for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
                 echo "<option value=\"$i\">Temporada $i</option>";
-                // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
             }
             ?>
         </select>
@@ -101,49 +100,66 @@
 
     <?php
 
-    var_dump($selected = $_POST['temporada']);
+    // var_dump($selected = $_POST['temporada']);
+
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
         echo "<br>";
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
-        // print_r($temporadaViendo);
+
         $episodiosArray = [];
 
         foreach ($temporadaViendo['episodes'] as $value) {
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
+            $idTemporada = $value['season_number']; // Printamos idTemporada
 
-            // Guardamos todos los episodios de una temporada en un array
-            // array_push($episodiosArray, $nombreEpisodio, $idEpisodio);
-
+            $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
+            array_push($authArray, $pila);
             $episodiosArray += array($idEpisodio => $nombreEpisodio);
         }
 
-        echo "<div> 
-        <li> 
-            <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> "; ?>
-    <form action="" method="post">
-        <input type="submit" name="btnEpisodioVisto" value="EpisodioVisto" />
-    </form>
-        <?php echo "</li> </div>";
+        //Descargarnos de la base de datos que episodios hemos visto de esta serie
+        $sql = "SELECT capitulo_id FROM capitulo WHERE `serie_id` = $idSerie AND temporada_id = $idTemporada";
+        $result = $conn->query($sql);
 
-        print_r($episodiosArray);
-        var_dump($_POST['btnEpisodioVisto']);
-        echo "hola";
-        if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnEpisodioVisto'])) {
-            $queryInsert = "INSERT INTO `capitulo`(`capitulo_id`, `temporada_id`, `user_id`, `vista`, `episode_run_time`) VALUES ('$idEpisodio','$cantidadTemporadas','$user_id', '1', '1') " ;
-            $result = $conn -> query($queryInsert);
-            var_dump($result);
-            echo "prubea";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                $capitulo_id = intval($row['capitulo_id']);
+                var_dump($capitulo_id);
+
+                //Comparamos con los valores del episodeArray
+                if (array_key_exists($capitulo_id, $episodiosArray)) {
+                    unset($episodiosArray[$capitulo_id]);
+                }
+            }
+        } else {
+            echo "ERROR";
+        }
+
+        // Printamos el array de los restantes en una tabla
+        foreach ($episodiosArray as $key => $value) {
+            // echo "$key is at $value";
+            $idEpisodio = $key;
+            echo "<div> 
+            <li id='$idEpisodio'> 
+                <a href=\"\"> $value </a>
+                <a onclick=\"checked($idEpisodio, $idTemporada, $user_id, $idSerie)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
+            </li> 
+            </div>";
         }
     }
 
     ?>
 
     <script src="../js/episodeChecked.js"> </script>
-    <script src="../js/navbar.js.js"></script>
+    <script src="../js/navbar.js"></script>
 
 </body>
 </html>

@@ -13,14 +13,17 @@
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li> <a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a></li>
-    </ul>
+    <div class="topnav" id="myTopnav">
+        <a href="./main.php">Series</a>
+        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./search.php">Buscar</a>
+        <a href="./calendario.php">Calendario</a>
+        <a href="./miLista.php">Mi Lista</a>
+        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <br>
 
@@ -36,7 +39,9 @@
     print_r($serie['original_name']);
     $poster = $serie['backdrop_path'];
     $posterPath = $serie['poster_path'];
-
+    $tiempoSerie = $serie['episode_run_time'];
+    $nextEpisode = $serie['next_episode_to_air']['air_date'];
+    //$temporadas = $serie['seasons']; //TODO: Guardar en un array para que el usuario pueda escoger que temporada quiere filtrar
     // TODO: Revisar si me gusta así
     // echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
@@ -47,7 +52,16 @@
         </div>";
 
     $cantidadTemporadas = $serie['number_of_seasons'];
+    var_dump($cantidadTemporadas);
     echo "<br>";
+
+    $temporadas = [];
+    foreach ($serie['seasons'] as $value) {
+        $temporadaID = $value['id'];
+    }
+    var_dump($temporadas);
+    var_dump($nextEpisode);
+
     ?>
 
     <form action="" method="post">
@@ -74,7 +88,7 @@
 
     <form action="" method="post">
         <label for="temporada">Temporada</label>
-        <select id="selectTemporada" name="temporada">
+        <select id="selectTemporada" name="temporada" onchange="this.form.submit">
             <?php
             for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
                 echo "<option value=\"$i\">Temporada $i</option>";
@@ -86,60 +100,73 @@
     </form>
 
     <?php
+
+    // var_dump($selected = $_POST['temporada']);
+
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
         echo "<br>";
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
-        // print_r($temporadaViendo);
 
-        $episode = $temporadaViendo['episodes'];
-        print_r(sizeof($episode));
-
-        $authArray = array();
-
+        $episodiosArray = [];
 
         foreach ($temporadaViendo['episodes'] as $value) {
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
             $idTemporada = $value['season_number']; // Printamos idTemporada
+
             $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
             array_push($authArray, $pila);
-            echo "<div> 
-            <li id='$idEpisodio'> 
-                <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> 
-                <a onclick=\"checked($idEpisodio, $idTemporada)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
-            </li> 
-            </div>";
-
+            $episodiosArray += array($idEpisodio => $nombreEpisodio);
         }
 
-        // print_r($authArray);
+        // print_r($episodiosArray);
+
+        //Descargarnos de la base de datos que episodios hemos visto de esta serie
+
+        $sql = "SELECT capitulo_id FROM capitulo WHERE `serie_id` = $idSerie AND temporada_id = $idTemporada";
+        // var_dump($sql);
+        $result = $conn->query($sql);
+        var_dump($result);
+        // print_r($episodiosArray);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                $capitulo_id = intval($row['capitulo_id']);
+                var_dump($capitulo_id);
+
+                //Comparamos con los valores del episodeArray
+                if (array_key_exists($capitulo_id, $episodiosArray)) {
+                    unset($episodiosArray[$capitulo_id]);
+                }
+            }
+        } else {
+            echo "ERROR";
+        }
+
+        // Printamos el array de los restantes en una tabla
+        foreach ($episodiosArray as $key => $value) {
+            // echo "$key is at $value";
+            $idEpisodio = $key;
+            echo "<div> 
+            <li id='$idEpisodio'> 
+                <a href=\"\"> $value </a>
+                <a onclick=\"checked($idEpisodio, $idTemporada, $user_id, $idSerie)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
+            </li> 
+            </div>";
+        }
     }
 
     ?>
-
-    <script>
-        function checked(idEpisodio, idTemporada) {
-            document.getElementById(idEpisodio).style.display = "none"; 
-            console.log('click', idEpisodio, idTemporada);
-            let hola = 'sad';
-            console.log('hola', hola);
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    alert(this.responseText);
-                }
-            };
-            request.open("GET", "ajax_request.php?ide="+idEpisodio, true);
-            request.send();
-        }
-    </script>
 
     <script src="../js/episodeChecked.js"> </script>
     <script src="../js/navbar.js"></script>
 
 </body>
-
 </html>

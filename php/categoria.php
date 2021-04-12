@@ -55,7 +55,7 @@ session_start();
 
         </div>
     </section>
-    <script src="../js/navbar.js.js"></script>
+    <script src="../js/navbar.js"></script>
 
 </body>
 </html>
