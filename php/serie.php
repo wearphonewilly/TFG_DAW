@@ -41,7 +41,6 @@
     $posterPath = $serie['poster_path'];
     $tiempoSerie = $serie['episode_run_time'];
     $nextEpisode = $serie['next_episode_to_air']['air_date'];
-    //$temporadas = $serie['seasons']; //TODO: Guardar en un array para que el usuario pueda escoger que temporada quiere filtrar
     // TODO: Revisar si me gusta así
     // echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
@@ -80,10 +79,11 @@
     $user_id = $_SESSION['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '1', '0')");
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0001-01-01', '1', '0')");
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0', '1')");
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0001-01-01', '0', '1')");
     }
+
     ?>
 
     <form action="" method="post">
@@ -99,8 +99,6 @@
     </form>
 
     <?php
-
-    // var_dump($selected = $_POST['temporada']);
 
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
@@ -121,18 +119,18 @@
             $episodiosArray += array($idEpisodio => $nombreEpisodio);
         }
 
+
+        $sqlUpdateSerie = "UPDATE `serie` SET `proximoEpisodio`= '$nextEpisode' , `serie_vista`= 0,`serie_quiero`= 0 WHERE `serie_id`='$idSerie'";
+        var_dump($sqlUpdateSerie);
+        $resultUpdate = $conn->query($sqlUpdateSerie);
+        var_dump($resultUpdate);
         //Descargarnos de la base de datos que episodios hemos visto de esta serie
         $sql = "SELECT capitulo_id FROM capitulo WHERE `serie_id` = $idSerie AND temporada_id = $idTemporada";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "<br>";
-                echo "<br>";
-                echo "<br>";
-                echo "<br>";
                 $capitulo_id = intval($row['capitulo_id']);
-                var_dump($capitulo_id);
 
                 //Comparamos con los valores del episodeArray
                 if (array_key_exists($capitulo_id, $episodiosArray)) {
@@ -140,7 +138,7 @@
                 }
             }
         } else {
-            echo "ERROR";
+            echo "Todavía no has visto ningún episodio de esta serie";
         }
 
         // Printamos el array de los restantes en una tabla

@@ -8,7 +8,7 @@ $idTemporada = $_REQUEST['idt'];
 $user_id = $_REQUEST['id'];
 $idSerie = $_REQUEST['ids'];
 
-$query = "INSERT INTO watchme.capitulo (capitulo_id, temporada_id, serie_id, user_id, vista, episode_run_time) VALUES ($idEpisodio, $idTemporada, $idSerie, $user_id, '1', '010')";
+$query = "INSERT INTO watchme.capitulo (capitulo_id, temporada_id, serie_id, user_id, vista) VALUES ($idEpisodio, $idTemporada, $idSerie, $user_id, '1')";
 $result = $conn -> query($query);
 echo $query;
 echo $result;

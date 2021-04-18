@@ -24,6 +24,7 @@ CREATE TABLE `capitulo` (
   `capitulo_id` int(11) NOT NULL,
   `temporada_id` int(11) NOT NULL,
   `serie_id` int(11) NOT NULL,
+  `fechaPublicacion` DATE NOT NULL,
   `user_id` int(11) NOT NULL,
   `vista` tinyint(1) NOT NULL,
   `episode_run_time` int(11) NOT NULL
