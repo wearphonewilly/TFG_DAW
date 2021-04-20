@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 12, 2021 at 11:21 PM
+-- Generation Time: Apr 18, 2021 at 05:48 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -24,26 +24,30 @@ CREATE TABLE `capitulo` (
   `capitulo_id` int(11) NOT NULL,
   `temporada_id` int(11) NOT NULL,
   `serie_id` int(11) NOT NULL,
-  `fechaPublicacion` DATE NOT NULL,
   `user_id` int(11) NOT NULL,
-  `vista` tinyint(1) NOT NULL,
-  `episode_run_time` int(11) NOT NULL
+  `vista` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `capitulo`
 --
 
-INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `vista`, `episode_run_time`) VALUES
-(64383, 1, 1416, 1, 1, 0),
-(64384, 1, 1416, 1, 1, 0),
-(64390, 1, 1416, 1, 1, 0),
-(64391, 1, 1416, 1, 1, 10),
-(977122, 1, 60735, 1, 1, 10),
-(1005650, 1, 60735, 1, 1, 10),
-(1010679, 1, 60735, 1, 1, 10),
-(1010680, 1, 60735, 1, 1, 10),
-(1879417, 16, 1416, 1, 1, 10);
+INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `vista`) VALUES
+(1160784, 1, 63174, 1, 1),
+(1160786, 1, 63174, 1, 1),
+(1160787, 1, 63174, 1, 1),
+(1165518, 1, 63174, 1, 1),
+(1186049, 1, 63174, 1, 1),
+(1317084, 1, 71694, 1, 1),
+(1518825, 2, 71694, 1, 1),
+(1987867, 1, 95557, 1, 1),
+(2431898, 1, 88396, 1, 1),
+(2535022, 1, 88396, 1, 1),
+(2670396, 1, 95557, 1, 1),
+(2670397, 1, 95557, 1, 1),
+(2823706, 1, 95557, 1, 1),
+(2832743, 1, 95557, 1, 1),
+(2832746, 1, 95557, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -60,16 +64,6 @@ CREATE TABLE `peliculas` (
   `peli_quiero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `peliculas`
---
-
-INSERT INTO `peliculas` (`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES
-(412656, 109, '/idQDWn8Yhl4zXLwpyHKlr3NXYO9.jpg', 1, 1, 0),
-(527774, 90, '/yHpNgjEXzZ557YiZ2r3VrKid788.jpg', 1, 0, 1),
-(587807, 101, '/orzPlWUbf0S5HeWmpP3TeHvduwn.jpg', 1, 0, 1),
-(791373, 242, '/rkuvJnamPl3xW9wKJsIS6qkmOCW.jpg', 1, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -80,6 +74,7 @@ CREATE TABLE `serie` (
   `user_id` int(11) NOT NULL,
   `serie_id` int(11) NOT NULL,
   `poster_path` varchar(50) NOT NULL,
+  `proximoEpisodio` date NOT NULL,
   `serie_vista` tinyint(1) NOT NULL,
   `serie_quiero` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -88,10 +83,14 @@ CREATE TABLE `serie` (
 -- Dumping data for table `serie`
 --
 
-INSERT INTO `serie` (`user_id`, `serie_id`, `poster_path`, `serie_vista`, `serie_quiero`) VALUES
-(1, 1, 'AAAA$posterPath', 1, 0),
-(1, 60735, '/nRoiIu64HbX9abKHm9w8FvW6Z99.jpg', 1, 0),
-(1, 71712, '/bdlGjwPWpE45CKbcP4i3A7du9CP.jpg', 1, 0);
+INSERT INTO `serie` (`user_id`, `serie_id`, `poster_path`, `proximoEpisodio`, `serie_vista`, `serie_quiero`) VALUES
+(1, 62286, '/kV2Ebh0sfSHeZLWa2rpJY5q3Vpt.jpg', '0001-01-01', 1, 0),
+(1, 63174, '/mzQf0QAs4jz0fDMrzFlZxQvC9KT.jpg', '2020-01-01', 1, 0),
+(1, 71694, '/orvFrLzqSeW5qTFpfJEbPfHRPWg.jpg', '2021-04-21', 0, 0),
+(1, 71712, '/bdlGjwPWpE45CKbcP4i3A7du9CP.jpg', '2020-01-01', 1, 0),
+(1, 88396, '/ay7XexwbdRn6aP2wPzbXEsNifLV.jpg', '2020-01-01', 1, 0),
+(1, 95557, '/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg', '2021-04-23', 0, 0),
+(1, 120168, 'holabebe', '2020-01-01', 0, 1);
 
 -- --------------------------------------------------------
 

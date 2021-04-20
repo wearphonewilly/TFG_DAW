@@ -22,6 +22,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
 
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/output.css">
+    <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico"/>
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -40,12 +41,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
         b {
             display: none;
         }
-        input:valid > span:before {
-            content: '😃';
-        }
 
-        input:invalid > span:before {
-            content: '🙁';
+        #passwordDiv {
+            margin-top: 30px;
+        }
+        label {
+            font-size: 20px;
         }
     </style>
 
@@ -56,28 +57,25 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
     <div class="container">
         <div class="row">
             <div class="col" style=" margin-top: 5%; margin-bottom: 5%;">
-                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
-                    class="img-fluid" id="imgLogin">
+                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" style="width: 50%" class="img-fluid" id="imgLogin">
             </div>
 
-            <div class="col" style="margin-top: 12%;">
+            <div class="col" style="margin-top: 15%;">
                 <form action="" method="post" id="loginForm">
-                    <div class="form-group">
+                    <div class="form-group" id="usernameDiv">
                         <label for="exampleInputEmail1">Username</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Enter username" name="usuario">
                         <span></span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="passwordDiv">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
                             name="contra">
                         <span></span>
                     </div>
 
-                    <br>
-
-                    <button type="submit" class="btn btn-primary" name="submit" id="submit">Submit</button>
+                    <button type="submit" style="margin-top: 3%; width: 50%;" class="btn btn-primary" name="submit" id="submit">Submit</button>
                 </form>
             </div>
         </div>

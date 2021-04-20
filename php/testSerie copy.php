@@ -13,17 +13,14 @@
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php">Calendario</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+    <ul class="menu-bar">
+        <li><a href="./main.php">Home</a></li>
+        <li> <a href="./main.php">Series</a></li>
+        <li><a href="./mainFilms.php">Peliculas</a></li>
+        <li><a href="./search.php">Buscar</a></li>
+        <li><a href="./miLista.php">Mi Lista</a></li>
+        <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a></li>
+    </ul>
 
     <br>
 
@@ -39,8 +36,7 @@
     print_r($serie['original_name']);
     $poster = $serie['backdrop_path'];
     $posterPath = $serie['poster_path'];
-    $tiempoSerie = $serie['episode_run_time'];
-    $nextEpisode = $serie['next_episode_to_air']['air_date'];
+
     // TODO: Revisar si me gusta así
     // echo "<script> document.querySelector('body').style.backgroundImage = 'url(\"https://image.tmdb.org/t/p/w500$poster\")'; </script>";
 
@@ -51,16 +47,7 @@
         </div>";
 
     $cantidadTemporadas = $serie['number_of_seasons'];
-    var_dump($cantidadTemporadas);
     echo "<br>";
-
-    $temporadas = [];
-    foreach ($serie['seasons'] as $value) {
-        $temporadaID = $value['id'];
-    }
-    var_dump($temporadas);
-    var_dump($nextEpisode);
-
     ?>
 
     <form action="" method="post">
@@ -79,19 +66,19 @@
     $user_id = $_SESSION['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0001-01-01', '1', '0')");
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '1', '0')");
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '$nextEpisode', '0', '1')");
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0', '1')");
     }
-
     ?>
 
     <form action="" method="post">
         <label for="temporada">Temporada</label>
-        <select id="selectTemporada" name="temporada" onchange="this.form.submit">
+        <select id="selectTemporada" name="temporada">
             <?php
             for ($i = 1; $i < $cantidadTemporadas + 1; $i++) {
                 echo "<option value=\"$i\">Temporada $i</option>";
+                // echo "<option value=\"$i\" " . $selected ? 'selected' : '' . ">Temporada $i</option>";
             }
             ?>
         </select>
@@ -99,66 +86,75 @@
     </form>
 
     <?php
-
     if (!empty($_POST['temporada'])) {
         $selected = $_POST['temporada'];
         echo "<br>";
         $temporadaViendo = file_get_contents('https://api.themoviedb.org/3/tv/ ' . $idSerie . ' /season/' . $selected . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
         $temporadaViendo = json_decode($temporadaViendo, true);
+        // print_r($temporadaViendo);
 
-        $episodiosArray = [];
+        $episode = $temporadaViendo['episodes'];
+        print_r(sizeof($episode));
+
+        $authArray = array();
+
 
         foreach ($temporadaViendo['episodes'] as $value) {
             $numeroEpisodio = $value['episode_number']; //Printamos numero de episodio
             $nombreEpisodio = $value['name']; // Printamos resumen episodio
             $idEpisodio = $value['id']; // Printamos id episodio
             $idTemporada = $value['season_number']; // Printamos idTemporada
-
             $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
             array_push($authArray, $pila);
-            $episodiosArray += array($idEpisodio => $nombreEpisodio);
-        }
+            echo "<div> 
+            <li> 
+                <a href=\"episodio.php?idSerie=$idSerie&idTemporada&$selected&idEpisodio=$idEpisodio\"> $numeroEpisodio $nombreEpisodio </a> 
+                <a onclick=\"checked($idEpisodio)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
+            </li> 
+            </div>";
 
-        $sql = "SELECT serie_id FROM serie WHERE serie_id = '$idSerie'";
-        $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $sqlUpdateSerie = "UPDATE `serie` SET `proximoEpisodio`= '$nextEpisode' , `serie_vista`= 0,`serie_quiero`= 0 WHERE `serie_id`='$idSerie'";
-            $result = $conn -> query($sqlUpdateSerie);
-        } else {
-            $sqlInsertSerie = "INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '$nextEpisode', '0', '0')";
-            $result = $conn -> query($sqlInsertSerie);
-        }
+            ?>
 
-        //Descargarnos de la base de datos que episodios hemos visto de esta serie
-        $sql = "SELECT capitulo_id FROM capitulo WHERE `serie_id` = $idSerie AND temporada_id = $idTemporada";
-        $result = $conn->query($sql);
+        <form action="" method="post">
+            <input type="submit" name="btnVistoEpisodio">
+        </form>
+            <?php
+            require_once("./DB.php");
+            require_once('jsphp.php');
+            $conn = DB::getInstance()->getConn();
+            session_start();
+            $user_id = $_SESSION['id'];
+            $idSerie = $_GET['id'];
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $capitulo_id = intval($row['capitulo_id']);
-
-                //Comparamos con los valores del episodeArray
-                if (array_key_exists($capitulo_id, $episodiosArray)) {
-                    unset($episodiosArray[$capitulo_id]);
-                }
+            var_dump(intval($user_id));
+            var_dump($idEpisodio);
+            $query = "INSERT INTO watchme.capitulo (capitulo_id, temporada_id, serie_id, user_id, vista, episode_run_time) VALUES ($idEpisodio, $idTemporada, $idSerie, $user_id, '1', '0')";
+            var_dump($query);
+            var_dump($conn->query($query));
+            var_dump(isset($_POST['btnVistoEpisodio']));
+            if (isset($_POST['btnVistoEpisodio'])) {
+                $result = $conn -> query();
+                var_dump($result);
             }
         }
 
-        // Printamos el array de los restantes en una tabla
-        foreach ($episodiosArray as $key => $value) {
-            // echo "$key is at $value";
-            $idEpisodio = $key;
-            echo "<div> 
-            <li id='$idEpisodio'> 
-                <a href=\"\"> $value </a>
-                <a onclick=\"checked($idEpisodio, $idTemporada, $user_id, $idSerie)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
-            </li> 
-            </div>";
-        }
+        // print_r($authArray);
     }
 
     ?>
+
+    <script type="text/javascript">
+    
+    function checked(id) {
+        console.log('click', id);
+        let hola = 'sad';
+        console.log('hola', hola);
+        var variable1 = id;
+        console.log(variable1);
+    }
+    
+    </script>
 
     <script src="../js/episodeChecked.js"> </script>
     <script src="../js/navbar.js"></script>
