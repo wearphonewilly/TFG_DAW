@@ -60,7 +60,7 @@
     }
     var_dump($temporadas);
     var_dump($nextEpisode);
-
+    // TODO: Mirar como guardar el proximo episodio porque solamente te lee el numero, printar nombre serie?
     ?>
 
     <form action="" method="post">
@@ -155,6 +155,29 @@
                 <a onclick=\"checked($idEpisodio, $idTemporada, $user_id, $idSerie)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
             </li> 
             </div>";
+
+            echo "
+            
+            <div class="wrapper\">
+                <div class=\"notifications\">
+
+                    <div class=\"notifications__item\">
+                    <div class=\"notifications__item__avatar\">
+                </div>
+
+                <div class=\"notifications__item__content\">
+                    <span class=\"notifications__item__title\">Verdieu Steeve</span>
+                    <span class=\"notifications__item__message\">Just started following you</span>
+                </div>
+                <div>
+                <div class=\"notifications__item__option archive js-option\">
+                    <i class=\"fas fa-folder\"></i>
+                </div>
+                <div class=\"notifications__item__option delete js-option\">
+                    <i class=\"fas fa-trash\"></i>
+                </div>
+            </div>
+            ";
         }
     }
 

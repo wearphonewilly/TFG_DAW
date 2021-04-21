@@ -56,8 +56,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
 
     <div class="container">
         <div class="row">
-            <div class="col" style=" margin-top: 5%; margin-bottom: 5%;">
-                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" style="width: 50%" class="img-fluid" id="imgLogin">
+            <div class="col" style=" margin-top: 5%; margin-bottom: 2%;">
+                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" style="width: 47%" class="img-fluid" id="imgLogin">
             </div>
 
             <div class="col" style="margin-top: 15%;">
@@ -93,8 +93,7 @@ $password = $_POST['contra'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($username) || !empty($password)) {
-        /* $sql = "SELECT name FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
-        $sqlID = "SELECT id FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'"; */
+        // $sql = "SELECT nombre, id FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
 
         $sql = "SELECT nombre, id FROM watchme.users WHERE nombre = '$username' AND password = '$password'";
         $result = $conn->query($sql);

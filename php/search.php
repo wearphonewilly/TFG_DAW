@@ -12,7 +12,7 @@
 
     <style>
         img {
-            height: 80px;
+            height: 100px;
         }
     </style>
 </head>
@@ -74,7 +74,7 @@
             $busquedaQuery = str_replace(" ", "%20", $busquedaQuery);
         }
 
-        $busquedaUser = file_get_contents('https://api.themoviedb.org/3/search/multi?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=en-US&query=' . $busquedaQuery . '&page=1&include_adult=false');
+        $busquedaUser = file_get_contents('https://api.themoviedb.org/3/search/multi?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&query=' . $busquedaQuery . '&page=1&include_adult=false');
         $busquedaUser = json_decode($busquedaUser, true);
         if (is_array($busquedaUser) || is_object($busquedaUser)) {
             foreach ($busquedaUser['results'] as $value) {
