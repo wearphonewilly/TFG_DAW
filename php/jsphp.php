@@ -13,10 +13,33 @@ function sweetalert2()
 }
 
 
-function notyf()
+function notyfQuiero()
 {
     echo  "<script> 
-          var notyf = new Notyf();
-          notyf.success('Your changes have been successfully saved!');
+    const notyf = new Notyf();
+    notyf
+      .success({
+        message: 'Guardado en Series que quiero ver!',
+        dismissible: true
+      })
+      .on('dismiss', ({target, event}) => foobar.retry());          
+    
+      </script>";
+}
+
+function notyfVisto()
+{
+    echo  "<script> 
+    const notyf = new Notyf();
+    notyf
+        .success({
+            message: 'Guardado en Series que he visto ver!.',
+            dismissible: true
+        })
+        .on('dismiss', ({
+            target,
+            event
+        }) => foobar.retry());      
+    
           </script>";
 }

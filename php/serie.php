@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="../styles/css/episode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 </head>
 
 <body>
@@ -68,7 +70,7 @@
     </form>
 
     <form action="" method="post">
-        <input type="submit" name="btnQuiero" value="QUIERO" />
+        <input type="submit" name="btnQuiero" value="QUIERO" />        
     </form>
 
     <?php
@@ -80,10 +82,12 @@
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         $result = $conn -> query("INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodio, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '0001-01-01', '0001-01-01', 1, 0)");
+        notyfVisto();
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
         $query = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode', 0, 1)";
         var_dump($query);
         $result = $conn -> query($query);
+        notyfQuiero();
     }
 
     ?>

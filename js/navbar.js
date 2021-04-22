@@ -10,4 +10,4 @@ function myFunction() {
 
 function likeFunction(x) {
     x.classList.toggle("fa-thumbs-down");
-} 
+}
