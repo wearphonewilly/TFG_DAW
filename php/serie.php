@@ -7,7 +7,7 @@
     <title>Series Main</title>
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/apple.css">
-    <link rel="stylesheet" href="episode.css">
+    <!-- <link rel="stylesheet" href="episode.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -79,9 +79,11 @@
     $user_id = $_SESSION['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '0001-01-01', '1', '0')");
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodio, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '0001-01-01', '0001-01-01', 1, 0)");
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '$nextEpisode', '0', '1')");
+        $query = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode', 0, 1)";
+        var_dump($query);
+        $result = $conn -> query($query);
     }
 
     ?>
@@ -126,7 +128,7 @@
             $sqlUpdateSerie = "UPDATE `serie` SET `proximoEpisodio`= '$nextEpisode' , `serie_vista`= 0,`serie_quiero`= 0 WHERE `serie_id`='$idSerie'";
             $result = $conn -> query($sqlUpdateSerie);
         } else {
-            $sqlInsertSerie = "INSERT INTO watchme.serie (user_id, serie_id, poster_path, proximoEpisodio, serie_vista, serie_quiero) VALUES ('$user_id', '$idSerie', '$posterPath', '$nextEpisode', '0', '0')";
+            $sqlInsertSerie = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$user_id', '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode' , '0', '0')";
             $result = $conn -> query($sqlInsertSerie);
         }
 
@@ -145,40 +147,38 @@
             }
         }
 
+        echo "<div id=\"divEpisodes\"> ";
+
         // Printamos el array de los restantes en una tabla
         foreach ($episodiosArray as $key => $value) {
             // echo "$key is at $value";
             $idEpisodio = $key;
-            /*echo "<div> 
-            <li id='$idEpisodio'> 
-                <a href=\"\"> $value </a>
-                <a onclick=\"checked($idEpisodio, $idTemporada, $user_id, $idSerie)\" id=\"removeBtn\" class=\"icon fa fa-trash\"></a> 
-            </li> 
-            </div>"; */
 
             echo "
-            
-            <div class=\"wrapper\">
+            <div class=\"wrapper\" id='$idEpisodio'>
                 <div class=\"notifications\">
-
                     <div class=\"notifications__item\">
-                    <div class=\"notifications__item__avatar\">
-                </div>
 
-                <div class=\"notifications__item__content\">
-                    <span class=\"notifications__item__title\">$value </span>
-                    <span class=\"notifications__item__message\">Just started following you</span>
-                </div>
-                <div>
-                <div class=\"notifications__item__option archive js-option\">
-                    <i class=\"fas fa-folder\"></i>
-                </div>
-                <div class=\"notifications__item__option delete js-option\">
-                    <i class=\"fas fa-trash\"></i>
+                        <div class=\"notifications__item__content \">
+                            <span class=\"notifications__item__title\">$value</span>
+                        </div>
+
+                        <div>
+                            <div class=\"notifications__item__option archive js-option\">
+                                <a onclick=\"checked($idEpisodio, $idTemporada, $user_id, $idSerie)\" id=\"removeBtn\">
+                                    <i class=\"fa fa-check\"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
             ";
         }
+
+        echo "</div>";
     }
 
     ?>

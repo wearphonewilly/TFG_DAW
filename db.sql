@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 18, 2021 at 05:48 PM
+-- Generation Time: Apr 22, 2021 at 10:57 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -33,20 +33,32 @@ CREATE TABLE `capitulo` (
 --
 
 INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `vista`) VALUES
+(64383, 1, 1416, 1, 1),
+(64384, 1, 1416, 1, 1),
+(64385, 1, 1416, 1, 1),
+(64386, 1, 1416, 1, 1),
+(64387, 1, 1416, 1, 1),
+(64389, 1, 1416, 1, 1),
+(64391, 1, 1416, 1, 1),
+(1000956, 11, 1416, 1, 1),
+(1008081, 11, 1416, 1, 1),
+(1009369, 11, 1416, 1, 1),
+(1010859, 11, 1416, 1, 1),
 (1160784, 1, 63174, 1, 1),
 (1160786, 1, 63174, 1, 1),
 (1160787, 1, 63174, 1, 1),
 (1165518, 1, 63174, 1, 1),
 (1186049, 1, 63174, 1, 1),
+(1213352, 13, 1416, 1, 1),
+(1224271, 13, 1416, 1, 1),
+(1226781, 13, 1416, 1, 1),
+(1227004, 13, 1416, 1, 1),
+(1232973, 13, 1416, 1, 1),
 (1317084, 1, 71694, 1, 1),
 (1518825, 2, 71694, 1, 1),
 (1987867, 1, 95557, 1, 1),
 (2431898, 1, 88396, 1, 1),
 (2535022, 1, 88396, 1, 1),
-(2670396, 1, 95557, 1, 1),
-(2670397, 1, 95557, 1, 1),
-(2823706, 1, 95557, 1, 1),
-(2832743, 1, 95557, 1, 1),
 (2832746, 1, 95557, 1, 1);
 
 -- --------------------------------------------------------
@@ -72,9 +84,11 @@ CREATE TABLE `peliculas` (
 
 CREATE TABLE `serie` (
   `user_id` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
   `serie_id` int(11) NOT NULL,
   `poster_path` varchar(50) NOT NULL,
-  `proximoEpisodio` date NOT NULL,
+  `proximoEpisodioStart` date NOT NULL,
+  `proximoEpisodioEnd` date NOT NULL,
   `serie_vista` tinyint(1) NOT NULL,
   `serie_quiero` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -83,14 +97,11 @@ CREATE TABLE `serie` (
 -- Dumping data for table `serie`
 --
 
-INSERT INTO `serie` (`user_id`, `serie_id`, `poster_path`, `proximoEpisodio`, `serie_vista`, `serie_quiero`) VALUES
-(1, 62286, '/kV2Ebh0sfSHeZLWa2rpJY5q3Vpt.jpg', '0001-01-01', 1, 0),
-(1, 63174, '/mzQf0QAs4jz0fDMrzFlZxQvC9KT.jpg', '2020-01-01', 1, 0),
-(1, 71694, '/orvFrLzqSeW5qTFpfJEbPfHRPWg.jpg', '2021-04-21', 0, 0),
-(1, 71712, '/bdlGjwPWpE45CKbcP4i3A7du9CP.jpg', '2020-01-01', 1, 0),
-(1, 88396, '/ay7XexwbdRn6aP2wPzbXEsNifLV.jpg', '2020-01-01', 1, 0),
-(1, 95557, '/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg', '2021-04-23', 0, 0),
-(1, 120168, 'holabebe', '2020-01-01', 0, 1);
+INSERT INTO `serie` (`user_id`, `title`, `serie_id`, `poster_path`, `proximoEpisodioStart`, `proximoEpisodioEnd`, `serie_vista`, `serie_quiero`) VALUES
+(1, 'Anatomía de Grey', 1416, '/7ElKH7Ql2MIMvG0SqsGP6Iiwp5e.jpg', '2021-04-22', '2021-04-22', 0, 1),
+(1, 'The Flash', 60735, '/pvnZrzyKKFYZaL0wUrVI7NK3Ge6.jpg', '2021-05-04', '2021-05-04', 0, 1),
+(1, 'Falcon y el Soldado del Invierno', 88396, '/cYAlkQ1ul2AhAm1YgHgeLv5GHlE.jpg', '2021-04-23', '2021-04-23', 0, 1),
+(1, 'Invencible', 95557, '/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg', '2021-04-23', '2021-04-23', 0, 0);
 
 -- --------------------------------------------------------
 

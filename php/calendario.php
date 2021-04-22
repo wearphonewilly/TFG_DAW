@@ -54,6 +54,9 @@ $events = $req->fetchAll(); */
     </div>
     <!-- /.container -->
 
+    <!-- Navbar responsive -->
+    <script src="../js/navbar.js"></script>
+
     <!-- jQuery Version 1.11.1 -->
     <script src="../js/jquery.js"></script>
 
