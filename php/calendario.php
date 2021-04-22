@@ -1,12 +1,12 @@
 <?php
-/*require_once('bdd.php');
+//require_once('./DB');
+require_once("DBconn.php");
 
-
-$sql = "SELECT title, start, end FROM events ";
+$sql = "SELECT title, proximoEpisodioStart, proximoEpisodioEnd FROM watchme.serie ";
 $req = $bdd->prepare($sql);
 $req->execute();
+$events = $req->fetchAll();
 
-$events = $req->fetchAll(); */
 ?>
 
 <!DOCTYPE html>
@@ -118,17 +118,17 @@ $events = $req->fetchAll(); */
             },
             events: [ <?php foreach ($events as $event) {
 
-                $start = explode(" ", $event['start']);
-                $end = explode(" ", $event['end']);
+                $start = explode(" ", $event['proximoEpisodioStart']);
+                $end = explode(" ", $event['proximoEpisodioEnd']);
                 if ($start[1] == '00:00:00') {
                     $start = $start[0];
                 } else {
-                    $start = $event['start'];
+                    $start = $event['proximoEpisodioStart'];
                 }
                 if ($end[1] == '00:00:00') {
                     $end = $end[0];
                 } else {
-                    $end = $event['end'];
+                    $end = $event['proximoEpisodioEnd'];
                 } ?> {
                     id: '<?php echo $event['id']; ?>',
                     title: '<?php echo $event['title']; ?>',
