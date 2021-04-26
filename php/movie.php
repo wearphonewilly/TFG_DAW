@@ -60,9 +60,24 @@
             <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$posterPath\">
             <br> ";
 
+    echo "<h1> GENEROS </h1>";
+
     foreach ($pelicula['genres'] as $value) {
         $categoria = $value['name'];
         echo "$categoria </div>";
+    }
+
+    echo "<h1> ACTORES </h1>";
+
+    $actores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $actores = json_decode($actores, true);
+
+    var_dump(count($actores['cast']));
+    foreach ($actores['cast'] as $value) {
+        $actor = $value['name'];
+        $actorFoto = $value['profile_path'];
+        echo "$actor";
+        echo "&nbsp; $actorFoto <br/>";
     }
     ?>
 
