@@ -10,15 +10,6 @@
 
 <body>
 
-    <!--<ul class="menu-bar">
-        <a href="./main.php">Home</a><
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
-    </ul> -->
-
     <div class="topnav" id="myTopnav">
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>

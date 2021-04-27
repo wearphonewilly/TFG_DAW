@@ -5,17 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series Main</title>
-    <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="episode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         html {
             background-color: #532e3a;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         .carta {
@@ -92,16 +87,22 @@
 
 <body>
 
-    <ul class="menu-bar">
-        <li><a href="./main.php">Home</a></li>
-        <li> <a href="./main.php">Series</a></li>
-        <li><a href="./mainFilms.php">Peliculas</a></li>
-        <li><a href="./search.php">Buscar</a></li>
-        <li><a href="./miLista.php">Mi Lista</a></li>
-        <li><a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a></li>
-    </ul>
 
-    <?php
+    <div class="topnav" id="myTopnav">
+    <a href="./main.php">Series</a>
+    <a href="./mainFilms.php">Peliculas</a>
+    <a href="./search.php">Buscar</a>
+    <a href="./calendario.php">Calendario</a>
+    <a href="./miLista.php">Mi Lista</a>
+    <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+
+
+<?php
     $idSerie = $_GET['id'];
 
     $serie = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
