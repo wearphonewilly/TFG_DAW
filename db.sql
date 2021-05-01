@@ -2,22 +2,22 @@
 -- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Apr 22, 2021 at 10:57 AM
--- Server version: 5.7.32
--- PHP Version: 7.4.12
+-- Servidor: localhost:8889
+-- Tiempo de generación: 01-05-2021 a las 11:35:12
+-- Versión del servidor: 5.7.32
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `watchme`
+-- Base de datos: `watchme`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `capitulo`
+-- Estructura de tabla para la tabla `capitulo`
 --
 
 CREATE TABLE `capitulo` (
@@ -29,7 +29,7 @@ CREATE TABLE `capitulo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `capitulo`
+-- Volcado de datos para la tabla `capitulo`
 --
 
 INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `vista`) VALUES
@@ -44,7 +44,10 @@ INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `v
 (1008081, 11, 1416, 1, 1),
 (1009369, 11, 1416, 1, 1),
 (1010859, 11, 1416, 1, 1),
+(1130976, 1, 63174, 1, 1),
+(1160783, 1, 63174, 1, 1),
 (1160784, 1, 63174, 1, 1),
+(1160785, 1, 63174, 1, 1),
 (1160786, 1, 63174, 1, 1),
 (1160787, 1, 63174, 1, 1),
 (1165518, 1, 63174, 1, 1),
@@ -64,7 +67,7 @@ INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `v
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peliculas`
+-- Estructura de tabla para la tabla `peliculas`
 --
 
 CREATE TABLE `peliculas` (
@@ -76,10 +79,18 @@ CREATE TABLE `peliculas` (
   `peli_quiero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `peliculas`
+--
+
+INSERT INTO `peliculas` (`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES
+(399566, 113, '/bnuC6hu7AB5dYW26A3o6NNLlIlE.jpg', 1, 1, 0),
+(791373, 242, '/rkuvJnamPl3xW9wKJsIS6qkmOCW.jpg', 1, 0, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `serie`
+-- Estructura de tabla para la tabla `serie`
 --
 
 CREATE TABLE `serie` (
@@ -94,19 +105,21 @@ CREATE TABLE `serie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `serie`
+-- Volcado de datos para la tabla `serie`
 --
 
 INSERT INTO `serie` (`user_id`, `title`, `serie_id`, `poster_path`, `proximoEpisodioStart`, `proximoEpisodioEnd`, `serie_vista`, `serie_quiero`) VALUES
 (1, 'Anatomía de Grey', 1416, '/7ElKH7Ql2MIMvG0SqsGP6Iiwp5e.jpg', '2021-04-22', '2021-04-22', 0, 1),
 (1, 'The Flash', 60735, '/pvnZrzyKKFYZaL0wUrVI7NK3Ge6.jpg', '2021-05-04', '2021-05-04', 0, 1),
+(1, 'Lucifer', 63174, '/mzQf0QAs4jz0fDMrzFlZxQvC9KT.jpg', '2021-05-28', '2021-05-28', 0, 0),
+(1, 'Luis Miguel: La Serie', 79008, '/qR0uCwC6umvJUcmvNsSz2FruGXp.jpg', '2021-05-02', '2021-05-02', 0, 0),
 (1, 'Falcon y el Soldado del Invierno', 88396, '/cYAlkQ1ul2AhAm1YgHgeLv5GHlE.jpg', '2021-04-23', '2021-04-23', 0, 1),
 (1, 'Invencible', 95557, '/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg', '2021-04-23', '2021-04-23', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temporada`
+-- Estructura de tabla para la tabla `temporada`
 --
 
 CREATE TABLE `temporada` (
@@ -118,7 +131,7 @@ CREATE TABLE `temporada` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -129,7 +142,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `nombre`, `mail`, `password`) VALUES
@@ -140,11 +153,11 @@ INSERT INTO `users` (`id`, `nombre`, `mail`, `password`) VALUES
 (14, 'da', 'das@gmail.com', 'jajaj');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `capitulo`
+-- Indices de la tabla `capitulo`
 --
 ALTER TABLE `capitulo`
   ADD PRIMARY KEY (`capitulo_id`),
@@ -152,21 +165,21 @@ ALTER TABLE `capitulo`
   ADD KEY `serie_id` (`serie_id`);
 
 --
--- Indexes for table `peliculas`
+-- Indices de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
   ADD PRIMARY KEY (`pelicula_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `serie`
+-- Indices de la tabla `serie`
 --
 ALTER TABLE `serie`
   ADD PRIMARY KEY (`serie_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `temporada`
+-- Indices de la tabla `temporada`
 --
 ALTER TABLE `temporada`
   ADD PRIMARY KEY (`temporada_id`),
@@ -174,39 +187,39 @@ ALTER TABLE `temporada`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `peliculas`
+-- Filtros para la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
   ADD CONSTRAINT `peliculas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `serie`
+-- Filtros para la tabla `serie`
 --
 ALTER TABLE `serie`
   ADD CONSTRAINT `serie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `temporada`
+-- Filtros para la tabla `temporada`
 --
 ALTER TABLE `temporada`
   ADD CONSTRAINT `temporada_ibfk_1` FOREIGN KEY (`serie_id`) REFERENCES `serie` (`serie_id`),
