@@ -5,46 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Detail</title>
-    <link rel="stylesheet" href="episode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../styles/css/navbar.css">
+    <link rel="stylesheet" href="../styles/css/swiper.min.css">
+
 
     <style>
         html {
             background-color: #532e3a;
         }
 
-        /* Add a black background color to the top navigation */
-        .topnav {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        /* Style the links inside the navigation bar */
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        /* Change the color of links on hover */
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        /* Add an active class to highlight the current page */
-        .topnav a.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        /* Hide the link that should open and close the topnav on small screens */
-        .topnav .icon {
-            display: none;
+        body {
+            margin: 0px;
         }
 
         .carta {
@@ -54,8 +26,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            height: 100vh;
-            margin: 7%;
+            height: 76vh;
+            margin: 3%;
             border-radius: 25px;
         }
 
@@ -97,21 +69,22 @@
             border-radius: 6px;
         }
 
-        .grid-container {
+        /*.grid-container {
             display: grid;
             grid-template-columns: auto;
             padding: 1px;
             margin-right: 29%;
             margin-left: 20%;
-        }
+        }*/
 
         .grid-item {
             margin-bottom: 5%;
         }
 
-        #img-film {
-            height: 400px;
-            margin-left: -100%;
+        #img-main {
+            height: 85%;
+            border-radius: 16px;
+            margin-top: 5%;
         }
     </style>
 
@@ -122,11 +95,11 @@
 
     <div class="topnav" id="myTopnav">
         <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
+        <a href="./mainFilms.php" class="active">Peliculas</a>
         <a href="./search.php">Buscar</a>
         <a href="./calendario.php">Calendario</a>
         <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="./profile.php" style="float:right" > Perfil <i class="fa fa-user"></i> </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -165,7 +138,7 @@
         <div class=\"carta\">
             <div class=\"divEngloba\">
                 <div class=\"img-div-film\">
-                    <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$posterPath\" id=\"img-film\">
+                    <img id=\"img-main\" src=\"https://image.tmdb.org/t/p/w500/$posterPath\">
                 </div>
                 <div class=\"grid-container\">
                     <div class=\"grid-item\">
@@ -184,31 +157,30 @@
                     <div class=\"grid-item\">
                         <p>$sinopsis</p>
                     </div>
+                    <div class=\"grid-item\">
+                        <h1> GENEROS </h1>
+                    ";?>
+
+                    <?php
+                        foreach ($pelicula['genres'] as $value) {
+                            $categoria = $value['name'];
+                            echo "$categoria";
+                        }
+                    echo "
+                    </div>
                 </div>
             </div>
         </div>
         ";
 
-    echo "<h1> GENEROS </h1>";
-
-    foreach ($pelicula['genres'] as $value) {
-        $categoria = $value['name'];
-        echo "$categoria </div>";
-    }
-
-    echo "<h1> ACTORES </h1>";
 
     $actores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $actores = json_decode($actores, true);
-
-    var_dump(count($actores['cast']));
     foreach ($actores['cast'] as $value) {
         $actor = $value['name'];
         $actorFoto = $value['profile_path'];
-        echo "$actor";
-        echo "&nbsp; $actorFoto <br/>";
+        echo "<div class=\"swiper-slide\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$actorFoto\"> <h3 class=\"hometitle\"> $actor </h3> </div>";
     }
-
 
     // Control el vista y quiero de las peliculas
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
@@ -242,6 +214,8 @@
     ?>
 
     <script src="../js/navbar.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/slider.js"></script>
 
 </body>
 

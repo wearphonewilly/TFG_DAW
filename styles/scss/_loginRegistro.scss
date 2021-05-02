@@ -36,6 +36,11 @@ input {
     border-radius: 13px !important;
 }
 
+#imgReg,
+#imgLogin {
+    margin-left: 26% !important;
+}
+
 #registerForm {
     margin-top: 15%;
     margin-left: 35%;
@@ -163,14 +168,4 @@ input {
     .col-12 {
         width: 100%;
     }
-}
-
-#imgReg,
-#imgLogin {
-    margin-left: 26% !important;
-}
-
-.container {
-    margin-top: 5%;
-    border-radius: 13px !important;
 }

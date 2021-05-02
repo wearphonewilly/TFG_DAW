@@ -54,6 +54,7 @@ https://www.flaticon.com/free-icon/video_1179069?term=films&related_id=1179069
 Composer + Packagist
 SEOstats: https://github.com/eyecatchup/SEOstats
 SEO-OnPage: https://packagist.org/packages/melbahja/seo
+FullTags: https://gustavoquinalha.github.io/seotopper/#seo  https://github.com/gustavoquinalha/seotopper
 
 ## SLIDER
 

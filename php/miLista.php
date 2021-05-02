@@ -18,11 +18,11 @@
         <a href="./main.php">Series</a>
         <a href="./mainFilms.php">Peliculas</a>
         <a href="./search.php">Buscar</a>
-        <a href="./miLista.php">Mi Lista</a>
         <a href="./calendario.php">Calendario</a>
-        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        <a href="./miLista.php" class="active">Mi Lista</a>
+        <a href="./profile.php" style="float:right"> Perfil <i class="fa fa-user"></i> </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars"s></i>
         </a>
     </div>
 

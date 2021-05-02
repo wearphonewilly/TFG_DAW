@@ -9,7 +9,7 @@ class DB
 
     private $servername = 'localhost';
     private $username = 'willyRoot';
-    // private $username = 'root';
+    //private $username = 'root';
     private $password = '';
     private $db = 'watchMe';
     private $conn;
