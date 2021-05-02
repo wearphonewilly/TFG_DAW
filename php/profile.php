@@ -12,8 +12,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="../styles/css/output.css">
-    <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../js/navbar.js"></script>
 </head>
 
 <body>
@@ -25,6 +25,7 @@ session_start();
         <a href="./calendario.php">Calendario</a>
         <a href="./miLista.php">Mi Lista</a>
         <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
+        </div>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -59,10 +60,10 @@ session_start();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $id = $row ['serie_id'];
-                $titulo = $row ['titulo'];
-                $poster = $row ['posterPath'];
+                $titulo = $row ['title'];
+                $poster = $row ['poster_path'];
                 echo "<div class=\"carousel__elemento\"> 
-                        <a href=\"movie.php?id=$id\"> 
+                        <a href=\"serie.php?id=$id\"> 
                             <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$poster\">  
                             <p id=\"p-category\"> $titulo </p> 
                         </a>
@@ -107,7 +108,7 @@ session_start();
 
     </div>
 
-    <script src="../js/navbar.js"></script>
 
 </body>
+
 </html>

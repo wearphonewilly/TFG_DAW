@@ -50,9 +50,7 @@ $events = $req->fetchAll();
         <h1>Próximos episodios</h1>
         <div id="calendar" class="col-md-12">
         </div>
-
     </div>
-    <!-- /.container -->
 
     <!-- Navbar responsive -->
     <script src="../js/navbar.js"></script>

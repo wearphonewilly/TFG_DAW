@@ -162,10 +162,10 @@
                     ";?>
 
                     <?php
-                        foreach ($pelicula['genres'] as $value) {
-                            $categoria = $value['name'];
-                            echo "$categoria";
-                        }
+                    foreach ($pelicula['genres'] as $value) {
+                        $categoria = $value['name'];
+                        echo "$categoria";
+                    }
                     echo "
                     </div>
                 </div>

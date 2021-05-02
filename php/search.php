@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busqueda</title>
     <link rel="stylesheet" href="../styles/css/output.css">
-    <link rel="stylesheet" href="../styles/css/apple.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -54,7 +53,10 @@
                     $titulo = $value['name'];
                     $category_id = $value['id'];
                     echo "<div class=\"item\"> 
-                            <h3> <a id=\"a-search\" href=\"categoria.php?id=$category_id\">  $titulo </h3> </div>";
+                            <h3> 
+                                <a id=\"a-search\" href=\"categoria.php?id=$category_id\">  $titulo  </a> 
+                            </h3> 
+                        </div>";
                 }
             }
             ?>
@@ -78,14 +80,24 @@
         $busquedaUser = json_decode($busquedaUser, true);
         if (is_array($busquedaUser) || is_object($busquedaUser)) {
             foreach ($busquedaUser['results'] as $value) {
+                $idBusqueda = $value['id'];
                 $poster = $value['poster_path'];
                 $titulo = $value['original_title'];
-                echo "<div id=\"divBusqueda\"> 
-                        <h3> $titulo </h3> 
-                        <img id=\"'imgPrincipal'\" src=\"https://image.tmdb.org/t/p/w500$poster\"> 
+                $tipoBusqueda = $value['media_type'];
+
+                if ($tipoBusqueda === "movie") {
+                    echo "<div id=\"divBusqueda\"> 
+                        <a id=\"a-search\" href=\"movie.php?id=$idBusqueda\"> <h3> $titulo </h3>
+                        <img id=\"'imgPrincipal'\" src=\"https://image.tmdb.org/t/p/w500$poster\">  </a> 
                     </div>";
+                } elseif ($tipoBusqueda === "tv") {
+                    echo "<div id=\"divBusqueda\"> 
+                        <a id=\"a-search\" href=\"serie.php?id=$idBusqueda\"> <h3> $titulo </h3>
+                        <img id=\"'imgPrincipal'\" src=\"https://image.tmdb.org/t/p/w500$poster\">  </a> 
+                    </div>";
+                }
             }
-            echo "<script> document.getElementById('categorias').style.display = \"none\"; </script>";
+            echo "<script> document.getElementById('categoriasSection').style.display = \"none\"; </script>";
         }
 
         ?>

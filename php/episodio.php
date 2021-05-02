@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series Main</title>
     <link rel="stylesheet" href="../styles/css/output.css">
-    <link rel="stylesheet" href="../styles/css/apple.css">
 </head>
 
 <body>
