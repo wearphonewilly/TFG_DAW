@@ -96,9 +96,11 @@
         if ($result->num_rows > 0) {
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
+            notyfQuieroPeli();
         } else {
             $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
             $result = $conn -> query($queryInsert);
+            notyfQuieroPeli();
         }
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
@@ -107,9 +109,11 @@
         if ($result->num_rows > 0) {
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
+            notyfVistoPeli();
         } else {
             $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
             $result = $conn -> query($queryInsert);
+            notyfVistoPeli();
         }
     }
 

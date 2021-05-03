@@ -1,5 +1,6 @@
 {
     "require": {
-        "melbahja/seo": "^1.0"
+        "melbahja/seo": "^1.0",
+        "silex/silex": "~1.1"
     }
 }

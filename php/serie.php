@@ -81,13 +81,13 @@
     $user_id = $_SESSION['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        $result = $conn -> query("INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodio, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '0001-01-01', '0001-01-01', 1, 0)");
-        notyfVisto();
+        $result = $conn -> query("INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '0001-01-01', '0001-01-01', 1, 0)");
+        notyfVistoSerie();
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
         $query = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode', 0, 1)";
         var_dump($query);
         $result = $conn -> query($query);
-        notyfQuiero();
+        notyfQuieroSerie();
     }
 
     ?>

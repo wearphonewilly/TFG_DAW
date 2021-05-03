@@ -13,7 +13,7 @@ function sweetalert2()
 }
 
 
-function notyfQuiero()
+function notyfQuieroSerie()
 {
     echo  "<script> 
     const notyf = new Notyf();
@@ -27,13 +27,44 @@ function notyfQuiero()
       </script>";
 }
 
-function notyfVisto()
+function notyfVistoSerie()
 {
     echo  "<script> 
     const notyf = new Notyf();
     notyf
         .success({
             message: 'Guardado en Series que he visto ver!.',
+            dismissible: true
+        })
+        .on('dismiss', ({
+            target,
+            event
+        }) => foobar.retry());      
+    
+          </script>";
+}
+
+function notyfQuieroPeli()
+{
+    echo  "<script> 
+    const notyf = new Notyf();
+    notyf
+      .success({
+        message: 'Guardado en Películas para ver!',
+        dismissible: true
+      })
+      .on('dismiss', ({target, event}) => foobar.retry());          
+    
+      </script>";
+}
+
+function notyfVistoPeli()
+{
+    echo  "<script> 
+    const notyf = new Notyf();
+    notyf
+        .success({
+            message: 'Guardado en Películas vistas!.',
             dismissible: true
         })
         .on('dismiss', ({
