@@ -45,6 +45,7 @@
                         <div class="leftdirection top-prev"><img src="../styles/img/left-arrow.svg"> </div>
                         </div>
                     </div>
+                </div>
             </section>
 
             <section class="panel">
