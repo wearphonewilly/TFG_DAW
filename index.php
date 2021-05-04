@@ -1,20 +1,3 @@
-<?php 
-
-/*
-use Melbahja\Seo\Factory;
-
-$metatags = Factory::metaTags(
-[
-	'title' => 'My new article',
-	'description' => 'My new article about how php is awesome',
-	'keywords' => 'php, programming',
-	'robots' => 'index, nofollow',
-	'author' => 'Willy'
-]);
-
-echo $metatags; */
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,26 +11,19 @@ echo $metatags; */
     <meta name="author" content="Willy" />
     <meta name="copyright" content="Propietario del copyright" />
     <meta name="robots" content="index" />
-
     <!-- Google Adsense -->
     <!--<script data-ad-client="ca-pub-8809544288885617" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="PVQ2i5gpT36bP1TWZCLA9-X2PgQaR_XISt0w8Mv4ERA" />
-
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/css/index.css">
-
     <!-- Scripts -->
     <script src="./js/index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- For ^ up-->
 </head>
-
 <body>
-
     <section class="intro">
-
         <div class="custom-shape-divider-top-1614097386">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                 preserveAspectRatio="none">
@@ -62,13 +38,10 @@ echo $metatags; */
             <button id="registerBtn"><a href="./php/register.php" target="_blank"
                     rel="noopener noreferrer">Register</a></button>
         </div>
-
         <div class="content">
             <img src="./styles/img/tvTime.png" class="profile-img" style="width: 40%; margin-left: 29%;">
         </div>
-
         <div class="mouse_scroll">
-
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
@@ -79,7 +52,6 @@ echo $metatags; */
             </div>
         </div>
     </section>
-
     <section>
         <div class="content">
             <h1 id="titulo">Tus películas y series al día</h1>
@@ -88,10 +60,8 @@ echo $metatags; */
         <div class="content">
             <img src="./styles/img/joey.png" alt="Joey de Friends" width="300" height="400" loading="lazy">
         </div>
-
         <button onclick="topFunction()" id="myBtn" title="Go to top"> <i class="fa fa-arrow-up"></i> </button>
     </section>
-
     <section>
         <div class="content">
             <h2 id="titulo2">¿Porqué necesito WatchME?</h2>
@@ -101,9 +71,7 @@ echo $metatags; */
         <div class="content">
             <img src="./styles/img/padrino.png" alt="El Padrino" width="400" height="400" loading="lazy">
         </div>
-
     </section>
-
     <section>
         <div class="content">
             <!-- <h2>¿Tienes problemas para elegir una película para la primera cita?</h2> -->
@@ -115,7 +83,6 @@ echo $metatags; */
             <img src="./styles/img/forrestGump.png" alt="Forrest Gump by Tom Hanks" width="300" height="400" loading="lazy">
         </div>
     </section>
-
     <section>
         <div class="content">
             <h1>STATS </h1>
@@ -128,14 +95,11 @@ echo $metatags; */
         <div class="content">
             <img src="./styles/img/sheldon.png" alt="Sheldon Cooper" width="321" height="379" id="sheldon" style="margin-left: 25%;" loading="lazy">
         </div>
-
     </section>
-
     <footer class="p-b-20 coral-Body--S">
         Made with ❤️ by <a href="https://instagram.com/iwilly_cf" target="_blank" class="coral-Link"
             rel="noopener noreferrer" style="color: white;">Willy</a>
     </footer>
-
     <!-- Hotjar Tracking Code for http://estas-viendo.herokuapp.com 
     <script>
         (function (h, o, t, j, a, r) {
@@ -154,5 +118,4 @@ echo $metatags; */
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script> -->
 </body>
-
 </html>
