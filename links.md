@@ -55,6 +55,7 @@ Composer + Packagist
 SEOstats: https://github.com/eyecatchup/SEOstats
 SEO-OnPage: https://packagist.org/packages/melbahja/seo
 FullTags: https://gustavoquinalha.github.io/seotopper/#seo  https://github.com/gustavoquinalha/seotopper
+Optimizer: https://packagist.org/packages/coffeecode/optimizer #Si que va, probado en ComposerPrueba
 
 ## SLIDER
 

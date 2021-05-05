@@ -1,0 +1,7 @@
+{
+    
+    "require": {
+        "melbahja/seo": "^1.0",
+        "coffeecode/optimizer": "^2.0"
+    }
+}
