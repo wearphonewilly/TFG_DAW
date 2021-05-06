@@ -23,7 +23,6 @@ function notyfQuieroSerie()
         dismissible: true
       })
       .on('dismiss', ({target, event}) => foobar.retry());          
-    
       </script>";
 }
 

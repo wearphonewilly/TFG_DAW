@@ -1,0 +1,82 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  height: 100vh;
+}
+.container .vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY("-50%");
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+.container .vertical .col {
+  box-sizing: border-box;
+  padding: 0 0.75rem;
+}
+@media screen and (max-width: 1000px) {
+  .container .vertical .push-2 {
+    width: 100% !important;
+  }
+}
+.container .vertical .col-3 {
+  width: 33.3333333333%;
+}
+@media screen and (max-width: 1000px) {
+  .container .vertical .col-3 {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container .vertical .col-3 {
+    width: 100%;
+  }
+}
+.container .vertical .col-3 .email2:valid + span:before {
+  content: "✅";
+  color: #8BC34A;
+}
+.container .vertical .col-3 .email2:invalid + span:before {
+  content: "❌";
+  color: #f44336;
+}
+.container .vertical .col-3 .email:valid {
+  border-color: #8BC34A;
+  transition: 0.5s;
+}
+.container .vertical .col-3 .email:valid + span:before {
+  position: relative;
+  left: -2rem;
+}
+.container .vertical .col-3 .email:invalid {
+  border-color: #f44336 !important;
+  transition: 0.5s;
+}
+.container .vertical .col-3 .email:invalid + span:before {
+  position: relative;
+  left: -2rem;
+}
+.container .vertical .col-3 input {
+  text-align: left;
+  border-radius: 6rem;
+  border: 1px solid #a0a0a0;
+  padding: 0.6rem 2rem 0.6rem 1rem;
+  width: 12rem;
+  font-family: roboto;
+  transition: 0.5s;
+  margin-bottom: 1.5rem;
+}
+.container .vertical .col-3 input:focus {
+  outline: none;
+}
+
+/*# sourceMappingURL=email.css.map */

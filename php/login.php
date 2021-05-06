@@ -22,6 +22,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
 
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/output.css">
+    <link rel="stylesheet" href="../styles/css/login.css">
     <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico"/>
 
     <!-- SweetAlert 2 -->
@@ -64,7 +65,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
                 <form action="" method="post" id="loginForm">
                     <div class="form-group" id="usernameDiv">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input type="text" class="form-control email email2" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Enter username" name="usuario">
                         <span></span>
                     </div>

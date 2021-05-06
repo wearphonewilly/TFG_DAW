@@ -1,0 +1,61 @@
+body
+  margin: 0
+  padding: 0
+
+.container
+  max-width: 1200px
+  margin: 0 auto
+  text-align: center
+  height: 100vh
+  .vertical
+    position: relative
+    top: 50%
+    transform: translateY('-50%')
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    margin: 0 auto
+    .col
+      box-sizing: border-box
+      padding: 0 0.75rem
+    .push-2
+      @media screen and (max-width: 1000px)
+        width: 100% !important
+    .col-3
+      width: 33.3333333333%
+      @media screen and (max-width: 1000px)
+        width: 50%
+      @media screen and (max-width: 700px)
+        width: 100%
+      .email2:valid
+        + span:before
+          content: '✅'
+          color: #8BC34A
+      .email2:invalid
+        + span:before
+          content: '❌'
+          color: #f44336        
+      .email:valid
+        border-color: #8BC34A
+        transition: .5s
+        + span:before
+          position: relative
+          left: -2rem
+      .email:invalid
+        border-color: #f44336
+        transition: .5s
+        + span:before
+          position: relative
+          left: -2rem
+      input
+        text-align: left
+        border-radius: 6rem
+        border: 1px solid rgb(160, 160, 160)
+        padding: .6rem 2rem .6rem 1rem
+        width: 12rem
+        font-family: roboto
+        transition: .5s
+        margin-bottom: 1.5rem
+        &:focus
+          outline: none
+      

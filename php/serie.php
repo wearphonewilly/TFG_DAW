@@ -155,7 +155,6 @@
 
         // Printamos el array de los restantes en una tabla
         foreach ($episodiosArray as $key => $value) {
-            // echo "$key is at $value";
             $idEpisodio = $key;
 
             echo "
@@ -178,7 +177,6 @@
                     </div>
                 </div>
             </div>
-
             ";
         }
 

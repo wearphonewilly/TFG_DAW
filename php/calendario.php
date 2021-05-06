@@ -1,5 +1,4 @@
 <?php
-//require_once('./DB');
 require_once("DBconn.php");
 
 $sql = "SELECT title, proximoEpisodioStart, proximoEpisodioEnd FROM watchme.serie ";
