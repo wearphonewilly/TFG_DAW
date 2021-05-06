@@ -4,13 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>WatchME</title>
-    <meta name="description"
-        content="WatchMe es un proyecto para llevar un seguimiento de las series y peliculas que ves en las diferentes plataformas de contenido">
-    <meta name="keywords" content="netflix, series, peliculas, watchMe, estas-viendo, estas-viendo-me" />
-    <meta name="author" content="Willy" />
     <meta name="copyright" content="Propietario del copyright" />
-    <meta name="robots" content="index" />
+    <?php
+
+    require './vendor/autoload.php';
+
+    use Melbahja\Seo\Factory;
+    $metatags = Factory::metaTags(
+        [
+        'title' => 'WatchME',
+        'keywords' => 'netflix, series, peliculas, watchMe, estas-viendo, estas-viendo-me, estas-viendo.herokuapp, estas-viendo.herokuapp.com',
+        'author' => 'Willy'
+        ]
+    );
+
+    $op = new \CoffeeCode\Optimizer\Optimizer();
+    echo $op->optimize(
+        "WatchMe, Estas-viendo",
+        "WatchMe es un proyecto para llevar un seguimiento de las series y peliculas que ves en las diferentes plataformas de contenido",
+        "https://www.estas-viendo.herokuapp.com",
+        "https://www.upinside.com.br/uploads/images/2017/11/curso-de-html5-preparando-ambiente-de-trabalho-aula-02-1511276983.jpg"
+    )->render();
+
+    ?>
+
+    
     <!-- Google Adsense -->
     <!--<script data-ad-client="ca-pub-8809544288885617" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

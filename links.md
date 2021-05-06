@@ -53,9 +53,11 @@ https://www.flaticon.com/free-icon/video_1179069?term=films&related_id=1179069
 ## SEO
 Composer + Packagist
 SEOstats: https://github.com/eyecatchup/SEOstats
-SEO-OnPage: https://packagist.org/packages/melbahja/seo
+SEO-OnPage: https://packagist.org/packages/melbahja/seo // Si que va, quedaba poner la ruta del autoload.php
 FullTags: https://gustavoquinalha.github.io/seotopper/#seo  https://github.com/gustavoquinalha/seotopper
 Optimizer: https://packagist.org/packages/coffeecode/optimizer #Si que va, probado en ComposerPrueba
+Google sitemap XML files: https://packagist.org/packages/osm/sitemap-php
+
 
 ## SLIDER
 
