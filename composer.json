@@ -2,6 +2,6 @@
     "require": {
         "melbahja/seo": "^1.0",
         "silex/silex": "~1.1",
-        "coffeecode/optimizer": "^2.0",
+        "coffeecode/optimizer": "^2.0"
     }
 }
