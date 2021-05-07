@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'e65ab8c2902abffb8e7fc4ba3bdf973aab33ae3a',
+    'reference' => '2e9f3b94d65e28298b0008e1ae93c16089c790f6',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'e65ab8c2902abffb8e7fc4ba3bdf973aab33ae3a',
+      'reference' => '2e9f3b94d65e28298b0008e1ae93c16089c790f6',
     ),
     'coffeecode/optimizer' => 
     array (
@@ -51,6 +51,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '53c00844e3316a74f8f076b0b325ceb140d41b70',
+    ),
+    'icamys/php-sitemap-generator' => 
+    array (
+      'pretty_version' => '4.3.2',
+      'version' => '4.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '06452aee5e5f5c59b9afd79dd6ee1ca9cda74b2d',
     ),
     'melbahja/seo' => 
     array (

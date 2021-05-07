@@ -15,5 +15,6 @@ return array(
     'Silex\\' => array($vendorDir . '/silex/silex/src/Silex'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Melbahja\\Seo\\' => array($vendorDir . '/melbahja/seo/src'),
+    'Icamys\\SitemapGenerator\\' => array($vendorDir . '/icamys/php-sitemap-generator/src'),
     'CoffeeCode\\Optimizer\\' => array($vendorDir . '/coffeecode/optimizer/src'),
 );

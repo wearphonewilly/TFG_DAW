@@ -1,0 +1,3 @@
+http://estas-viendo.herokuapp.com/
+http://estas-viendo.herokuapp.com/php/login.php
+http://estas-viendo.herokuapp.com/php/register.php

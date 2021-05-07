@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cd7ebb175ce176813479c9533757cef",
+    "content-hash": "2576dc5e6bd1d71f95350f3e48f1eeba",
     "packages": [
         {
             "name": "coffeecode/optimizer",

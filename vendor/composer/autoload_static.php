@@ -29,6 +29,10 @@ class ComposerStaticInit03e92823407c4a0af0d534b139afb242
         array (
             'Melbahja\\Seo\\' => 13,
         ),
+        'I' => 
+        array (
+            'Icamys\\SitemapGenerator\\' => 24,
+        ),
         'C' => 
         array (
             'CoffeeCode\\Optimizer\\' => 21,
@@ -71,6 +75,10 @@ class ComposerStaticInit03e92823407c4a0af0d534b139afb242
         'Melbahja\\Seo\\' => 
         array (
             0 => __DIR__ . '/..' . '/melbahja/seo/src',
+        ),
+        'Icamys\\SitemapGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/icamys/php-sitemap-generator/src',
         ),
         'CoffeeCode\\Optimizer\\' => 
         array (
