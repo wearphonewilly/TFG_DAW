@@ -7,6 +7,6 @@ function checked(idEpisodio, idTemporada, user_id, idSerie) {
             console.log(this.responseText);
         }
     };
-    request.open("GET", "episodeChecked.php?ide="+idEpisodio +"&idt="+idTemporada +"&id=" +user_id +"&ids=" +idSerie, true);
+    request.open("GET", "../php/episodeChecked.php?ide="+idEpisodio +"&idt="+idTemporada +"&id=" +user_id +"&ids=" +idSerie, true);
     request.send();
 }

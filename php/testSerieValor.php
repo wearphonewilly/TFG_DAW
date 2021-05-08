@@ -12,10 +12,48 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <style>
-        #serieValorar {
-            display: none;
-        }
-    </style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
@@ -35,8 +73,6 @@
     <br>
 
     <?php
-    require_once("./DB.php");
-    require('./jsphp.php');
 
     $idSerie = $_GET['id'];
 
@@ -69,96 +105,55 @@
         $temporadaID = $value['id'];
     }
     var_dump($temporadas);
-    echo "hol";
     var_dump($nextEpisode);
+
+
+    //TODO: Hacer que se pueda eliminar la serie_id
+    /*if (!($result = $conn -> query("INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '0001-01-01', '0001-01-01', 1, 0)"))) {
+        var_dump('holas');
+        // echo "<script> document.getElementById('btnEliminar').style.display = 'none'; </script>";
+    } */
+
 
     ?>
 
     <form action="" method="post">
-        <input type="submit" name="btnVista" value="VISTA" id="myBtnVista" />
+        <input type="submit" name="btnVista" value="VISTA" id="myBtnVista"/>
     </form>
 
     <form action="" method="post">
-        <input type="submit" name="btnQuiero" value="QUIERO" />
+        <input type="submit" name="btnQuiero" value="QUIERO" />        
     </form>
 
     <form action="" method="post">
-        <input type="submit" id='btnEliminar' name="btnEliminar" value="ELIMINAR" />
+        <input type="submit" id='btnEliminar' name="btnEliminar" value="ELIMINAR" />        
     </form>
 
-    <form action="" method="post">
-        <input type="submit" id='btnValorar' name="btnValorar" value="VALORAR" />
-        <input type="number" name="serieValorar" id="serieValorar" value="<?php echo $idSerie ?>">
-    </form>
 
     <?php
     require_once("./DB.php");
     require_once('jsphp.php');
     $conn = DB::getInstance()->getConn();
-
     session_start();
     $user_id = $_SESSION['id'];
     var_dump($user_id);
-
-    if (is_null($nextEpisode)) {
-        $fecha = "0001-01-01";
-    } else {
-        $fecha = $nextEpisode;
-    }
-
-    $PKCombined = "A$user_id$idSerie";
-    var_dump($PKCombined);
-
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        // require "../html/modal.html";
-        session_start();
-        $user_id = $_SESSION['id'];
-        $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie";
-        var_dump($querySelect);
-        $result = $conn -> query($querySelect);
-        if ($result->num_rows > 0) {
-            $query = "UPDATE `serie` SET `serie_vista` = '1', `serie_quiero` = '0' WHERE `serie`.`PKCombined` = '$PKCombined'";
-            $result = $conn -> query($query);
-            notyfSerieActualizada();
-        } else {
-            $query = "INSERT INTO watchme.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 1, 0)";
-            var_dump($query);
-            $result = $conn -> query($query);
-            notyfQuieroSerie();
-        }
+        require "../html/modal.html";
+        $fecha = "0001-01-01";
+        $query = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 1, 0)";
+        var_dump($query);
+        $result = $conn -> query($query);
+        notyfVistoSerie();
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
-        session_start();
-        $user_id = $_SESSION['id'];
-        $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie";
-        $result = $conn -> query($querySelect);
-        if ($result->num_rows > 0) {
-            $query = "UPDATE `serie` SET `serie_vista` = '0', `serie_quiero` = '1' WHERE `serie`.`PKCombined` = '$PKCombined'";
-            $result = $conn -> query($query);
-            notyfSerieActualizada();
-        } else {
-            $query = "INSERT INTO watchme.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 0, 1)";
-            $result = $conn -> query($query);
-            notyfQuieroSerie();
-        }
+        $query = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ($user_id, '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode', 0, 1)";
+        var_dump($query);
+        $result = $conn -> query($query);
+        notyfQuieroSerie();
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnEliminar'])) {
-        $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie";
-        $result = $conn -> query($querySelect);
-        if ($result->num_rows > 0) {
-            $query = "DELETE FROM `serie` WHERE `serie`.`serie_id` = $idSerie AND user_id = $user_id";
-            $result = $conn -> query($query);
-            notyfEliminadaSerie();
-        } else {
-            notyfErrorEliminarBBDD();
-        }
-    } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnValorar'])) {
-        $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie AND serie_vista = 1";
-        $result = $conn -> query($querySelect);
-        var_dump($result->num_rows);
-        if ($result->num_rows > 0) {
-            header('Location: valoracionEstrellas.php?&serieValorar=' . $idSerie);
-        } else {
-            notyfErrorBBDD();
-        }
+        $query = "DELETE FROM `serie` WHERE `serie`.`serie_id` = $idSerie";
+        var_dump($query);
+        $result = $conn -> query($query);
+        notyfQuieroSerie();
     }
 
 
@@ -262,5 +257,4 @@
     <script src="../js/navbar.js"></script>
 
 </body>
-
 </html>

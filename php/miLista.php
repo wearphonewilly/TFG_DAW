@@ -31,12 +31,12 @@
     <div id="categorias" class="grid-container">
 
         <?php
-        require_once("DB.php");
+        require_once("./DB.php");
         $conn = DB::getInstance()->getConn();
 
         session_start();
         $idUser = $_SESSION['id'];
-
+        // TODO: Arreglar el userID  
         $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser";
         $result = $conn->query($sql);
 
@@ -65,6 +65,7 @@
         require_once("DB.php");
         $conn = DB::getInstance()->getConn();
 
+        // TODO: Arreglar el userID
         session_start();
         $idUser = $_SESSION['id'];
 

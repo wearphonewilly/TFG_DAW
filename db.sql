@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 01-05-2021 a las 11:35:12
+-- Tiempo de generación: 08-05-2021 a las 15:24:01
 -- Versión del servidor: 5.7.32
 -- Versión de PHP: 7.4.12
 
@@ -58,11 +58,28 @@ INSERT INTO `capitulo` (`capitulo_id`, `temporada_id`, `serie_id`, `user_id`, `v
 (1227004, 13, 1416, 1, 1),
 (1232973, 13, 1416, 1, 1),
 (1317084, 1, 71694, 1, 1),
+(1317409, 1, 71712, 1, 1),
+(1476500, 1, 79008, 1, 1),
+(1478417, 1, 79008, 1, 1),
+(1478419, 1, 79008, 1, 1),
+(1478421, 1, 79008, 1, 1),
 (1518825, 2, 71694, 1, 1),
 (1987867, 1, 95557, 1, 1),
 (2431898, 1, 88396, 1, 1),
+(2535021, 1, 88396, 1, 1),
 (2535022, 1, 88396, 1, 1),
-(2832746, 1, 95557, 1, 1);
+(2558741, 1, 88396, 1, 1),
+(2558742, 1, 88396, 1, 1),
+(2558743, 1, 88396, 1, 1),
+(2753384, 2, 79008, 1, 1),
+(2832746, 1, 95557, 1, 1),
+(2887101, 2, 79008, 1, 1),
+(2888214, 2, 79008, 1, 1),
+(2888215, 2, 79008, 1, 1),
+(2888216, 2, 79008, 1, 1),
+(2888218, 2, 79008, 1, 1),
+(2888219, 2, 79008, 1, 1),
+(2888220, 2, 79008, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -85,6 +102,9 @@ CREATE TABLE `peliculas` (
 
 INSERT INTO `peliculas` (`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES
 (399566, 113, '/bnuC6hu7AB5dYW26A3o6NNLlIlE.jpg', 1, 1, 0),
+(587807, 101, '/orzPlWUbf0S5HeWmpP3TeHvduwn.jpg', 1, 1, 0),
+(615678, 107, '/e9r4aLl7OAXdGK49u5oEjlbHKA3.jpg', 1, 0, 1),
+(635302, 117, '/3f4ETSwknZs74lmUYC7ENIMRBMP.jpg', 1, 0, 1),
 (791373, 242, '/rkuvJnamPl3xW9wKJsIS6qkmOCW.jpg', 1, 0, 1);
 
 -- --------------------------------------------------------
@@ -94,6 +114,7 @@ INSERT INTO `peliculas` (`pelicula_id`, `runtime`, `poster_path_film`, `user_id`
 --
 
 CREATE TABLE `serie` (
+  `PKCombined` varchar(20) NOT NULL,
   `user_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `serie_id` int(11) NOT NULL,
@@ -101,20 +122,17 @@ CREATE TABLE `serie` (
   `proximoEpisodioStart` date NOT NULL,
   `proximoEpisodioEnd` date NOT NULL,
   `serie_vista` tinyint(1) NOT NULL,
-  `serie_quiero` tinyint(1) NOT NULL
+  `serie_quiero` tinyint(1) NOT NULL,
+  `valoracion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `serie`
 --
 
-INSERT INTO `serie` (`user_id`, `title`, `serie_id`, `poster_path`, `proximoEpisodioStart`, `proximoEpisodioEnd`, `serie_vista`, `serie_quiero`) VALUES
-(1, 'Anatomía de Grey', 1416, '/7ElKH7Ql2MIMvG0SqsGP6Iiwp5e.jpg', '2021-04-22', '2021-04-22', 0, 1),
-(1, 'The Flash', 60735, '/pvnZrzyKKFYZaL0wUrVI7NK3Ge6.jpg', '2021-05-04', '2021-05-04', 0, 1),
-(1, 'Lucifer', 63174, '/mzQf0QAs4jz0fDMrzFlZxQvC9KT.jpg', '2021-05-28', '2021-05-28', 0, 0),
-(1, 'Luis Miguel: La Serie', 79008, '/qR0uCwC6umvJUcmvNsSz2FruGXp.jpg', '2021-05-02', '2021-05-02', 0, 0),
-(1, 'Falcon y el Soldado del Invierno', 88396, '/cYAlkQ1ul2AhAm1YgHgeLv5GHlE.jpg', '2021-04-23', '2021-04-23', 0, 1),
-(1, 'Invencible', 95557, '/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg', '2021-04-23', '2021-04-23', 0, 0);
+INSERT INTO `serie` (`PKCombined`, `user_id`, `title`, `serie_id`, `poster_path`, `proximoEpisodioStart`, `proximoEpisodioEnd`, `serie_vista`, `serie_quiero`, `valoracion`) VALUES
+('A179008', 1, 'Luis Miguel: La Serie', 79008, '/qR0uCwC6umvJUcmvNsSz2FruGXp.jpg', '2021-05-09', '2021-05-09', 1, 0, NULL),
+('A188396', 1, 'Falcon y el Soldado de Invierno', 88396, '/ay7XexwbdRn6aP2wPzbXEsNifLV.jpg', '0001-01-01', '0001-01-01', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -175,8 +193,7 @@ ALTER TABLE `peliculas`
 -- Indices de la tabla `serie`
 --
 ALTER TABLE `serie`
-  ADD PRIMARY KEY (`serie_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`PKCombined`);
 
 --
 -- Indices de la tabla `temporada`
@@ -211,16 +228,3 @@ ALTER TABLE `users`
 --
 ALTER TABLE `peliculas`
   ADD CONSTRAINT `peliculas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `serie`
---
-ALTER TABLE `serie`
-  ADD CONSTRAINT `serie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `temporada`
---
-ALTER TABLE `temporada`
-  ADD CONSTRAINT `temporada_ibfk_1` FOREIGN KEY (`serie_id`) REFERENCES `serie` (`serie_id`),
-  ADD CONSTRAINT `temporada_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
