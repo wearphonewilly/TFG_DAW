@@ -11,6 +11,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="../styles/css/charts.css">
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../js/navbar.js"></script>
@@ -25,24 +26,15 @@ session_start();
         <a href="./calendario.php">Calendario</a>
         <a href="./miLista.php">Mi Lista</a>
         <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
-        </div>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars" s></i>
         </a>
     </div>
 
-    <img src="../styles/img/marvel.jpg" alt="Valoración de las diferentes series" id="profileImg">
+    <div id="chart-container"></div>
+    <div class="row">Point1</div>
 
-    <div class="profile-stats">
-        <span class="dot"></span>
-    </div>
 
-    <div class="stats">
-        <p>Series Vistas: </p>
-        <p>Peliculas Vistas: </p>
-        <p>Total tiempo viendo Series: </p>
-        <p>Total tiempo viendo Peliculas: </p>
-    </div>
 
     <h2>Series Vistas</h2>
     <div id="categorias" class="grid-container">
@@ -107,7 +99,11 @@ session_start();
         ?>
 
     </div>
-
+    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/jquery-fusioncharts@1.1.0/dist/fusioncharts.jqueryplugin.js"></script>
+    <script src="../js/charts.js"></script>
 
 </body>
 

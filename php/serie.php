@@ -255,7 +255,48 @@
         echo "</div>";
     }
 
+    echo "
+    <div class=\"container\">
+    <div class=\"row\">
+
+    ";
+    $seriesActores = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' /credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $seriesActores = json_decode($seriesActores, true);
+    foreach ($seriesActores['cast'] as $value) {
+        $imagenCara = $value['profile_path'];
+        $nombre = $value['name'];
+        $id = $value['id'];
+        echo "
+        <div class=\"col-sm\">
+
+
+            <div class=\"card\" style=\"width: 18rem;\">
+                <img class=\"card-img-top\" src=\"https://image.tmdb.org/t/p/w500$imagenCara\">
+                <div class=\"card-body\">
+                    <h5 class=\"card-title\">$nombre</h5>
+                </div>
+            </div>
+            </div>
+            ";
+    }
+
+    echo "
+    </div>
+    </div>
+    ";
+
     ?>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
     <script src="../js/episodeChecked.js"> </script>
     <script src="../js/valoracionEstrellas.js"> </script>
