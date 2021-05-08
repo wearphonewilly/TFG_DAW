@@ -69,3 +69,6 @@ https://swiperjs.com/demos#slides-per-view
 ## Calendario
 
 https://obedalvarado.pw/blog/fullcalendar-con-php-y-mysql/
+
+## TRAILERS
+https://www.themoviedb.org/talk/5451ec02c3a3680245005e3c
