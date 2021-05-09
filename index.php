@@ -13,7 +13,7 @@
     $metatags = Factory::metaTags(
         [
         'title' => 'WatchME',
-        'keywords' => 'netflix, series, peliculas, watchMe, estas-viendo, estas-viendo-me, estas-viendo.herokuapp, estas-viendo.herokuapp.com',
+        'keywords' => 'netflix, series, peliculas, watchMe, estas-viendo, estas-viendo-me, estas-viendo.herokuapp, estas-viendo.herokuapp.com, estas-viendo.heroku',
         'author' => 'Willy'
         ]
     );

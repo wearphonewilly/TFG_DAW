@@ -84,6 +84,7 @@
                 $poster = $value['poster_path'];
                 $titulo = $value['original_title'];
                 $tipoBusqueda = $value['media_type'];
+                $nombreSerie = $value['name'];
 
                 if ($tipoBusqueda === "movie") {
                     echo "<div id=\"divBusqueda\"> 
@@ -92,7 +93,7 @@
                     </div>";
                 } elseif ($tipoBusqueda === "tv") {
                     echo "<div id=\"divBusqueda\"> 
-                        <a id=\"a-search\" href=\"serie.php?id=$idBusqueda\"> <h3> $titulo </h3>
+                        <a id=\"a-search\" href=\"serie.php?id=$idBusqueda\"> <h3> $nombreSerie </h3>
                         <img id=\"'imgPrincipal'\" src=\"https://image.tmdb.org/t/p/w500$poster\">  </a> 
                     </div>";
                 }

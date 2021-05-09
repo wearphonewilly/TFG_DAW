@@ -72,3 +72,6 @@ https://obedalvarado.pw/blog/fullcalendar-con-php-y-mysql/
 
 ## TRAILERS
 https://www.themoviedb.org/talk/5451ec02c3a3680245005e3c
+
+https://api.themoviedb.org/3/tv/88396/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es
+https://api.themoviedb.org/3/movies/615457/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es

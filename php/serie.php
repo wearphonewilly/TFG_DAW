@@ -39,7 +39,6 @@
     require('./jsphp.php');
 
     $idSerie = $_GET['id'];
-
     $serie = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $serie = json_decode($serie, true);
     // print_r($serie);
@@ -60,18 +59,23 @@
         </div>";
 
     $cantidadTemporadas = $serie['number_of_seasons'];
-    var_dump($cantidadTemporadas);
     echo "<br>";
 
     $temporadas = [];
-    var_dump($temporadas);
     foreach ($serie['seasons'] as $value) {
         $temporadaID = $value['id'];
     }
-    var_dump($temporadas);
-    echo "hol";
-    var_dump($nextEpisode);
 
+    $serieTrailer = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . '/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $serieTrailer = json_decode($serieTrailer, true);
+    if (is_array($serieTrailer) || is_object($serieTrailer)) {
+        foreach ($serieTrailer['results'] as $value) {
+            $keyYT = $value['key'];
+            echo "
+            <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/$keyYT\" frameborder=\"0\" allowfullscreen picture-in-picture></iframe>
+            ";
+        }
+    }
     ?>
 
     <form action="" method="post">
@@ -107,10 +111,8 @@
     }
 
     $PKCombined = "A$user_id$idSerie";
-    var_dump($PKCombined);
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        // require "../html/modal.html";
         session_start();
         $user_id = $_SESSION['id'];
         $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie";

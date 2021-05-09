@@ -119,38 +119,17 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
         <input type="submit" id="save" class="save" name="btnQuiero" value="QUIERO" />
     </form>
     <?php
-                echo "<h4> GENEROS </h4>
-                ";?>
+    echo "<h4> GENEROS </h4>";
 
-    <?php
-                foreach ($pelicula['genres'] as $value) {
-                    $categoria = $value['name'];
-                    echo "$categoria &nbsp &nbsp";
-                }
-                ?>
+    foreach ($pelicula['genres'] as $value) {
+        $categoria = $value['name'];
+        echo "$categoria &nbsp &nbsp";
+    }
+    ?>
     </div>
     </div>
     </div>
     <?php
-
-    /*
-    
-    $actores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-    $actores = json_decode($actores, true);
-    foreach ($actores['cast'] as $value) {
-        $actor = $value['name'];
-        $actorFoto = $value['profile_path'];
-        echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$actorFoto\"> <h3 class=\"hometitle\"> $actor </h3> </div>";
-    }
-    $seriesPopulares = file_get_contents('https://api.themoviedb.org/3/movie/popular?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-    $seriesPopulares = json_decode($seriesPopulares, true);
-    foreach ($seriesPopulares['results'] as $value) {
-        $poster = $value['poster_path'];
-        $titulo = $value['title'];
-        $id = $value['id'];
-        echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$poster\"> <h3 class=\"hometitle\"> $titulo </h3> </a>  </div>";
-    }
-    */
 
     // Control el vista y quiero de las peliculas
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
@@ -181,6 +160,18 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
         <div class=\"row\">
 
     ";
+
+    $peliTrailer = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $peliTrailer = json_decode($peliTrailer, true);
+    if (is_array($peliTrailer) || is_object($peliTrailer)) {
+        foreach ($peliTrailer['results'] as $value) {
+            $keyYT = $value['key'];
+            echo "
+            <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/$keyYT\" frameborder=\"0\" allowfullscreen picture-in-picture></iframe>
+            ";
+        }
+    }
+
     $peliculaActores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . ' /credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $peliculaActores = json_decode($peliculaActores, true);
     //var_dump($peliculaActores);

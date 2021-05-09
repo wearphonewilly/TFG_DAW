@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../styles/css/swiper.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="../js/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
@@ -31,19 +30,19 @@
 
         <main class="content">
             <section class="panel">
-                <h2>Películas Populares</h2>
-                <div class="mostslider">
+                <h2>Peliculas Populares</h2>
+                <div class="topslider">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
 
-                        <?php
-                        require_once("./api.php");
-                        popularFilms();
-                        ?>
+                            <?php
+                            require_once("./api.php");
+                            popularFilms();
+                            ?>
 
+                        </div>
                         <div class="nextdirection top-next"><img src="../styles/img/right-arrow.svg"> </div>
                         <div class="leftdirection top-prev"><img src="../styles/img/left-arrow.svg"> </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -67,7 +66,11 @@
             </section>
         </main>
 
+        <!-- Navbar -->
         <script src="../js/navbar.js"></script>
+
+        <!-- jQuery JS -->
+        <script src="../js/jquery-3.1.1.min.js"></script>
 
         <!-- Swiper JS -->
         <script src="../js/swiper.min.js"></script>

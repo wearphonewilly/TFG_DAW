@@ -1,8 +1,7 @@
 <?php
 session_start();
-
+var_dump($_SESSION['id']);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +31,6 @@ session_start();
     </div>
 
     <div id="chart-container"></div>
-    <div class="row">Point1</div>
-
 
 
     <h2>Series Vistas</h2>
@@ -61,8 +58,6 @@ session_start();
                         </a>
                     </div>";
             }
-        } else {
-            sweetalert2();
         }
         ?>
     </div>
@@ -93,8 +88,6 @@ session_start();
                         </a>
                     </div>";
             }
-        } else {
-            sweetalert2();
         }
         ?>
 
@@ -106,5 +99,4 @@ session_start();
     <script src="../js/charts.js"></script>
 
 </body>
-
 </html>

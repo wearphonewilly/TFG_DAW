@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+    <style>
+        h3 {
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,10 +48,10 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $id = $row ['serie_id'];
-                $titulo = $row ['titulo'];
+                $titulo = $row ['title'];
                 $poster = $row ['poster_path'];
                 echo "<div class=\"carousel__elemento\"> 
-                        <a href=\"movie.php?id=$id\"> 
+                        <a href=\"serie.php?id=$id\"> 
                             <img id=\"img-category\" src=\"https://image.tmdb.org/t/p/w500$poster\">  
                             <p id=\"p-category\"> $titulo </p> 
                         </a>
