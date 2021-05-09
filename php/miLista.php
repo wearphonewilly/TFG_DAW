@@ -33,11 +33,9 @@
         $conn = DB::getInstance()->getConn();
 
         session_start();
-        var_dump($_SESSION['id']);
         $idUser = $_SESSION['id'];
-        // TODO: Arreglar el userID  
-        $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser";
-        var_dump($sql);
+        // TODO: Arreglar el userID
+        $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser AND serie_quiero = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

@@ -271,8 +271,6 @@
         $id = $value['id'];
         echo "
         <div class=\"col-sm\">
-
-
             <div class=\"card\" style=\"width: 18rem;\">
                 <img class=\"card-img-top\" src=\"https://image.tmdb.org/t/p/w500$imagenCara\">
                 <div class=\"card-body\">
