@@ -133,14 +133,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
     </div>
     ";
 
-    /*$actores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-    $actores = json_decode($actores, true);
-    foreach ($actores['cast'] as $value) {
-        $actor = $value['name'];
-        $actorFoto = $value['profile_path'];
-        echo "<div class=\"swiper-slide\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$actorFoto\"> <h3 class=\"hometitle\"> $actor </h3> </div>";
-    } */
-
     // Control el vista y quiero de las peliculas
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
         $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";

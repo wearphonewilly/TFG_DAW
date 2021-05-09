@@ -166,52 +166,47 @@
                         $categoria = $value['name'];
                         echo "$categoria";
                     }
-                    echo "
-                    </div>
-                </div>
-            </div>
-        </div>
-        ";
+                    echo "</div> </div> </div> </div> ";
 
 
-    $actores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
-    $actores = json_decode($actores, true);
-    foreach ($actores['cast'] as $value) {
-        $actor = $value['name'];
-        $actorFoto = $value['profile_path'];
-        echo "<div class=\"swiper-slide\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$actorFoto\"> <h3 class=\"hometitle\"> $actor </h3> </div>";
-    }
+                    $actores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+                    $actores = json_decode($actores, true);
+                    foreach ($actores['cast'] as $value) {
+                        $actor = $value['name'];
+                        $actorFoto = $value['profile_path'];
+                        echo "<div class=\"swiper-slide\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$actorFoto\"> <h3 class=\"hometitle\"> $actor </h3> </div>";
+                    }
 
-    // Control el vista y quiero de las peliculas
-    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
-        $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
-        var_dump($sql);
-        $result = $conn->query($sql);
+                    // Control el vista y quiero de las peliculas
+                    if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
+                        $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
+                        var_dump($sql);
+                        $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$idPeli'";
-            var_dump($sqlUpdate);
-            $result = $conn -> query($sqlUpdate);
-        } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
-            var_dump($queryInsert);
-            $result = $conn -> query($queryInsert);
-        }
-    } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
-        $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
-        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$idPeli'";
+                            var_dump($sqlUpdate);
+                            $result = $conn -> query($sqlUpdate);
+                        } else {
+                            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
+                            var_dump($queryInsert);
+                            $result = $conn -> query($queryInsert);
+                        }
+                    } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
+                        $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
+                        $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
-            var_dump($sqlUpdate);
-            $result = $conn -> query($sqlUpdate);
-        } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
-            $result = $conn -> query($queryInsert);
-        }
-    }
+                        if ($result->num_rows > 0) {
+                            $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
+                            var_dump($sqlUpdate);
+                            $result = $conn -> query($sqlUpdate);
+                        } else {
+                            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
+                            $result = $conn -> query($queryInsert);
+                        }
+                    }
 
-    ?>
+                    ?>
 
     <script src="../js/swiper.min.js"></script>
     <script src="../js/slider.js"></script>

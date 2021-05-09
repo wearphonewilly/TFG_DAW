@@ -59,8 +59,7 @@
         </main>
 
         <!-- Bootstrap -->
-        <!-- Bootstrap -->
-    <?php include('../html/scripts.html'); ?>
+        <?php include('../html/scripts.html'); ?>
 
         <!-- Swiper JS -->
         <script src="../js/swiper.min.js"></script>
