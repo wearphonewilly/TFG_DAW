@@ -18,7 +18,28 @@
 <body>
     <div class="wrapper">
 
-        <?php include('../html/navbar.html'); ?>
+    <?php
+
+    require '../vendor/autoload.php';
+
+    use Melbahja\Seo\Factory;
+    $metatags = Factory::metaTags(
+        [
+        'title' => 'WatchME',
+        'keywords' => 'netflix, series, peliculas, watchMe, estas-viendo, estas-viendo-me, estas-viendo.herokuapp, estas-viendo.herokuapp.com, estas-viendo.heroku, movies page, estas-viendo movies page',
+        'author' => 'Willy'
+        ]
+    );
+
+    $op = new \CoffeeCode\Optimizer\Optimizer();
+    echo $op->optimize(
+        "WatchMe (Series Page)",
+        "Quieres ver encontrar las mejores películas que hay en las diferentes plataformas como netflix, hbo..., entra en nuestra plataforma para descubrir cuáles son",
+        "https://www.estas-viendo.herokuapp.com",
+        "https://www.upinside.com.br/uploads/images/2017/11/curso-de-html5-preparando-ambiente-de-trabalho-aula-02-1511276983.jpg"
+    )->render();
+
+        include('../html/navbar.html'); ?>
 
         <main class="content">
             <section class="panel">

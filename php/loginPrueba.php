@@ -5,175 +5,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../styles/css/login.css">
+    <title>Login</title>
+
+    <style>
+        .img-fluid {
+            max-width: 60% !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container .vertical {
+            position: relative;
+            top: 50%;
+            transform: translateY("-50%");
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .container .vertical .col {
+            box-sizing: border-box;
+            padding: 0 0.75rem;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .container .vertical .push-2 {
+                width: 100% !important;
+            }
+        }
+
+        .container .vertical .col-3 {
+            width: 33.3333333333%;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .container .vertical .col-3 {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .container .vertical .col-3 {
+                width: 100%;
+            }
+        }
+
+        .email2:valid+span:before {
+            content: "✅";
+            color: #8BC34A;
+        }
+
+        .email2:invalid+span:before {
+            content: "❌";
+            color: #f44336;
+        }
+
+        .col-3 .email:valid {
+            border-color: #8BC34A;
+            transition: 0.5s;
+        }
+
+        .container .vertical .col-3 .email:valid+span:before {
+            position: relative;
+            left: -2rem;
+        }
+
+        .container .vertical .col-3 .email:invalid {
+            border-color: #f44336;
+            transition: 0.5s;
+        }
+
+        .container .vertical .col-3 .email:invalid+span:before {
+            position: relative;
+            left: -2rem;
+        }
+
+        .container .vertical .col-3 input {
+            text-align: left;
+            border-radius: 6rem;
+            border: 1px solid #a0a0a0;
+            padding: 0.6rem 2rem 0.6rem 1rem;
+            width: 12rem;
+            font-family: roboto;
+            transition: 0.5s;
+            margin-bottom: 1.5rem;
+        }
+
+        .container .vertical .col-3 input:focus {
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="cont">
-        <div class="demo">
-            <div class="login">
-                <div class="login__check"></div>
-                <div class="login__form">
-                    <div class="login__row">
-                        <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
-                            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
-                        </svg>
-                        <input type="text" class="login__input name" placeholder="Username" />
-                    </div>
-                    <div class="login__row">
-                        <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
-                            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
-                        </svg>
-                        <input type="password" class="login__input pass" placeholder="Password" />
-                    </div>
-                    <button type="button" class="login__submit">Sign in</button>
-                    <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>
-                </div>
+    <div class="container">
+        <div class="vertical">
+            <div class="col-3 col">
+                <input class="email email2" type="email" placeholder="Enter your email" /><span> </span>
             </div>
-            <div class="app">
-                <div class="app__top">
-                    <div class="app__menu-btn">
-                        <span></span>
-                    </div>
-                    <svg class="app__icon search svg-icon" viewBox="0 0 20 20">
-                        <!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
-                        <path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
-                    </svg>
-                    <p class="app__hello">Good Morning!</p>
-                    <div class="app__user">
-                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt=""
-                            class="app__user-photo" />
-                        <span class="app__user-notif">3</span>
-                    </div>
-                    <div class="app__month">
-                        <span class="app__month-btn left"></span>
-                        <p class="app__month-name">March</p>
-                        <span class="app__month-btn right"></span>
-                    </div>
-                </div>
-                <div class="app__bot">
-                    <div class="app__days">
-                        <div class="app__day weekday">Sun</div>
-                        <div class="app__day weekday">Mon</div>
-                        <div class="app__day weekday">Tue</div>
-                        <div class="app__day weekday">Wed</div>
-                        <div class="app__day weekday">Thu</div>
-                        <div class="app__day weekday">Fri</div>
-                        <div class="app__day weekday">Sad</div>
-                        <div class="app__day date">8</div>
-                        <div class="app__day date">9</div>
-                        <div class="app__day date">10</div>
-                        <div class="app__day date">11</div>
-                        <div class="app__day date">12</div>
-                        <div class="app__day date">13</div>
-                        <div class="app__day date">14</div>
-                    </div>
-                    <div class="app__meetings">
-                        <div class="app__meeting">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-80_5.jpg"
-                                alt="" class="app__meeting-photo" />
-                            <p class="app__meeting-name">Feed the cat</p>
-                            <p class="app__meeting-info">
-                                <span class="app__meeting-time">8 - 10am</span>
-                                <span class="app__meeting-place">Real-life</span>
-                            </p>
-                        </div>
-                        <div class="app__meeting">
-                            <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt=""
-                                class="app__meeting-photo" />
-                            <p class="app__meeting-name">Feed the cat!</p>
-                            <p class="app__meeting-info">
-                                <span class="app__meeting-time">1 - 3pm</span>
-                                <span class="app__meeting-place">Real-life</span>
-                            </p>
-                        </div>
-                        <div class="app__meeting">
-                            <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt=""
-                                class="app__meeting-photo" />
-                            <p class="app__meeting-name">FEED THIS CAT ALREADY!!!</p>
-                            <p class="app__meeting-info">
-                                <span class="app__meeting-time">This button is just for demo ></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="app__logout">
-                    <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
-                        <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12" />
-                    </svg>
-                </div>
-            </div>
+        </div>
+        <div class="form-group" id="usernameDiv">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter password" name="usuario">
+            <span></span>
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
 
-            var animating = false,
-                submitPhase1 = 1100,
-                submitPhase2 = 400,
-                logoutPhase1 = 800,
-                $login = $(".login"),
-                $app = $(".app");
-
-            function ripple(elem, e) {
-                $(".ripple").remove();
-                var elTop = elem.offset().top,
-                    elLeft = elem.offset().left,
-                    x = e.pageX - elLeft,
-                    y = e.pageY - elTop;
-                var $ripple = $("<div class='ripple'></div>");
-                $ripple.css({
-                    top: y,
-                    left: x
-                });
-                elem.append($ripple);
-            };
-
-            $(document).on("click", ".login__submit", function (e) {
-                if (animating) return;
-                animating = true;
-                var that = this;
-                ripple($(that), e);
-                $(that).addClass("processing");
-                setTimeout(function () {
-                    $(that).addClass("success");
-                    setTimeout(function () {
-                        $app.show();
-                        $app.css("top");
-                        $app.addClass("active");
-                    }, submitPhase2 - 70);
-                    setTimeout(function () {
-                        $login.hide();
-                        $login.addClass("inactive");
-                        animating = false;
-                        $(that).removeClass("success processing");
-                    }, submitPhase2);
-                }, submitPhase1);
-            });
-
-            $(document).on("click", ".app__logout", function (e) {
-                if (animating) return;
-                $(".ripple").remove();
-                animating = true;
-                var that = this;
-                $(that).addClass("clicked");
-                setTimeout(function () {
-                    $app.removeClass("active");
-                    $login.show();
-                    $login.css("top");
-                    $login.removeClass("inactive");
-                }, logoutPhase1 - 120);
-                setTimeout(function () {
-                    $app.hide();
-                    animating = false;
-                    $(that).removeClass("clicked");
-                }, logoutPhase1);
-            });
-
-        });
-    </script>
 </body>
 
 </html>

@@ -131,6 +131,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     echo "</ul>";
     echo " </div> </div> </div> ";
     echo "<div class=\"row\" style=\"margin-top: 2%;\">";
+
     $peliTrailer = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $peliTrailer = json_decode($peliTrailer, true);
     if (is_array($peliTrailer) || is_object($peliTrailer)) {

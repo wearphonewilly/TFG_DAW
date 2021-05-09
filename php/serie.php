@@ -154,17 +154,20 @@
 
     echo " </div> </div> </div> ";
 
-
+    echo "<div class=\"row\" style=\"margin-top: 2%;\">";
     $serieTrailer = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . '/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $serieTrailer = json_decode($serieTrailer, true);
     if (is_array($serieTrailer) || is_object($serieTrailer)) {
         foreach ($serieTrailer['results'] as $value) {
             $keyYT = $value['key'];
             echo "
-            <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/$keyYT\" frameborder=\"0\" allowfullscreen picture-in-picture></iframe>
-            ";
+            <div class=\"col\" style=\"text-align: center;\">
+            <iframe width=\"90%\" height=\"315\" src=\"https://www.youtube.com/embed/$keyYT\" frameborder=\"0\" allowfullscreen picture-in-picture></iframe>
+            </div>";
         }
     }
+
+    echo "</div>";
 
     ?>
 

@@ -107,7 +107,6 @@ $events = $req->fetchAll();
 
             },
             events: [ <?php foreach ($events as $event) {
-
                 $start = explode(" ", $event['proximoEpisodioStart']);
                 $end = explode(" ", $event['proximoEpisodioEnd']);
                 if ($start[1] == '00:00:00') {
