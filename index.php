@@ -25,7 +25,6 @@
         "https://www.estas-viendo.herokuapp.com",
         "https://www.upinside.com.br/uploads/images/2017/11/curso-de-html5-preparando-ambiente-de-trabalho-aula-02-1511276983.jpg"
     )->render();
-
     ?>
 
     
@@ -39,6 +38,7 @@
     <!-- Scripts -->
     <script src="./js/index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- For ^ up-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
     <section class="intro">
@@ -135,5 +135,6 @@
             a.appendChild(r);
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script> -->
+    <?php include('../html/scripts.html'); ?>
 </body>
 </html>

@@ -22,6 +22,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
 
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/movie.css">
+    <link rel="stylesheet" href="../styles/css/swiper.min.css">
     <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico" />
 
     <!-- Bootstrap CSS -->
@@ -90,7 +91,11 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
         </div>
 
         <div class="col">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Acabo de ver la nueva película <?php echo $titulo ?> en " data-url="http://estas-viendo.herokuapp.com" data-hashtags="WatchMe EstasViendo" data-lang="es" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-text="Acabo de ver la nueva película <?php echo $titulo ?> en "
+                data-url="http://estas-viendo.herokuapp.com" data-hashtags="WatchMe EstasViendo" data-lang="es"
+                data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
 
@@ -173,9 +178,38 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     }
 
     echo "</section> </div> </div>";
-
     ?>
+
+    <section class="panel">
+        <h2>Peliculas recomendadas</h2>
+        <div class="topslider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    <?php
+                    require_once("./api.php");
+                    $seriesRecomendadas = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . ' /recommendations?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&page=1');
+                    $seriesRecomendadas = json_decode($seriesRecomendadas, true);
+                    foreach ($seriesRecomendadas['results'] as $value) {
+                        $poster = $value['poster_path'];
+                        $titulo = $value['title'];
+                        $id = $value['id'];
+                        echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$poster\"> <h3 class=\"hometitle\"> $titulo </h3> </a>  </div>";
+                    }
+                    ?>
+
+                </div>
+                <div class="nextdirection top-next"><img src="../styles/img/right-arrow.svg"> </div>
+                <div class="leftdirection top-prev"><img src="../styles/img/left-arrow.svg"> </div>
+            </div>
+        </div>
+    </section>
+
     </div>
+    <!-- Swiper JS -->
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/slider.js"></script>
 
 </body>
+
 </html>

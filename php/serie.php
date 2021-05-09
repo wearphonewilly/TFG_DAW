@@ -116,7 +116,7 @@
         } else {
             $query = "INSERT INTO watchme.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 1, 0)";
             $result = $conn -> query($query);
-            notyfQuieroSerie();
+            notyfVistoSerie();
         }
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
         session_start();
@@ -197,8 +197,8 @@
             $idEpisodio = $value['id']; // Printamos id episodio
             $idTemporada = $value['season_number']; // Printamos idTemporada
 
-            $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
-            array_push($authArray, $pila);
+            // $pila = array($value['episode_number'], $value['season'], $value['name'], $value['id']);
+            // array_push($authArray, $pila);
             $episodiosArray += array($idEpisodio => $nombreEpisodio);
         }
 
