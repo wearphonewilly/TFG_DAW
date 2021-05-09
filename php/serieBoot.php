@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series Main</title>
-    <link rel="stylesheet" href="../styles/css/serie.css">
+    <link rel="stylesheet" href="../styles/css/episode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Notyf notifications -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Notyf -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <style>
@@ -26,14 +27,15 @@
 <body>
 
     <?php
-    require_once("./DB.php");
-    require('./jsphp.php');
 
     include('../html/navbar.html');
+    require_once("./DB.php");
+    require('./jsphp.php');
 
     $idSerie = $_GET['id'];
     $serie = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' ?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $serie = json_decode($serie, true);
+    // print_r($serie);
     $titulo = $serie['name'];
     $sinopsis = $serie['overview'];
     $poster = $serie['backdrop_path'];
@@ -47,6 +49,7 @@
     }
     session_start();
     $user_id = $_SESSION['id'];
+    var_dump($user_id);
 
     if (is_null($nextEpisode)) {
         $fecha = "0001-01-01";

@@ -21,7 +21,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
 
 
     <!-- Internal Files -->
-    <!--<link rel="stylesheet" href="../styles/css/output.css"> -->
+    <link rel="stylesheet" href="../styles/css/movie.css">
     <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico" />
 
     <!-- Bootstrap CSS -->
@@ -33,84 +33,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
 
     <!-- Paleta de colores -->
     <!-- https://colorhunt.co/palette/213161 -->
-
-    <style>
-
-.tags {
-            list-style: none;
-            margin: 0;
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .tags li {
-            float: left;
-        }
-
-        .tag {
-            background: #eee;
-            border-radius: 3px 0 0 3px;
-            color: #999;
-            display: inline-block;
-            height: 26px;
-            line-height: 26px;
-            padding: 0 20px 0 23px;
-            position: relative;
-            margin: 0 10px 10px 0;
-            text-decoration: none;
-            -webkit-transition: color 0.2s;
-        }
-
-        .tag::before {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
-            content: '';
-            height: 6px;
-            left: 10px;
-            position: absolute;
-            width: 6px;
-            top: 10px;
-        }
-
-        .tag::after {
-            background: #fff;
-            border-bottom: 13px solid transparent;
-            border-left: 10px solid #eee;
-            border-top: 13px solid transparent;
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-
-        .tag:hover {
-            background-color: blue;
-            color: white;
-        }
-
-        .tag:hover::after {
-            border-left-color: blue;
-        }
-
-        .grid-1 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-            grid-gap: 20px;
-        }
-
-        /* items */
-        .grid-1 div {
-            color: black;
-            font-size: 20px;
-            padding: 20px;
-        }
-
-        .card {
-            width: 14rem !important;
-            background-color: lightgrey;
-        }
-    </style>
 
 </head>
 
@@ -165,6 +87,10 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
             <form action="" method="post">
                 <input type="submit" id="save" class="save" name="btnQuiero" value="QUIERO" />
             </form>
+        </div>
+
+        <div class="col">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Acabo de ver la nueva película <?php echo $titulo ?> en " data-url="http://estas-viendo.herokuapp.com" data-hashtags="WatchMe EstasViendo" data-lang="es" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
         </div>
     </div>
 
