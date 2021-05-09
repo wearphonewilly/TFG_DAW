@@ -24,9 +24,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico" />
 
-    <!-- SweetAlert 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -59,18 +56,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php" class="active">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php">Calendario</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
-
+    <?php include('../html/navbar.html'); ?>
 
     <?php
 
@@ -198,26 +184,9 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     </div>
     ";
 
+    include('../html/scripts.html');
+
     ?>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-
-
-    <script src="../js/navbar.js"></script>
-    <script src="../js/swiper.min.js"></script>
-    <script src="../js/slider.js"></script>
-
 
 </body>
 

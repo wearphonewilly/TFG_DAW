@@ -165,7 +165,6 @@
     ?>
 
     <script src="../js/episodeChecked.js"> </script>
-    <script src="../js/navbar.js"></script>
 
 </body>
 </html>

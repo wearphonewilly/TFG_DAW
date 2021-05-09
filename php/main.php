@@ -10,24 +10,14 @@
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/swiper.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="wrapper">
 
-        <div class="topnav" id="myTopnav">
-            <a href="./main.php" class="active">Series</a>
-            <a href="./mainFilms.php">Peliculas</a>
-            <a href="./search.php">Buscar</a>
-            <a href="./calendario.php">Calendario</a>
-            <a href="./miLista.php">Mi Lista</a>
-            <a href="./profile.php" style="float:right"> Perfil <i class="fa fa-user"></i> </a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+        <?php include('../html/navbar.html'); ?>
 
         <main class="content">
             <section class="panel">
@@ -67,8 +57,9 @@
             </section>
         </main>
 
-        <script src="../js/navbar.js"></script>
-
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <!-- Bootstrap -->
+    <?php include('../html/scripts.html'); ?>
         <!-- Swiper JS -->
         <script src="../js/swiper.min.js"></script>
         <script src="../js/slider.js"></script>

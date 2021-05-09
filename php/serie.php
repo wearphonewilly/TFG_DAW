@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Notyf notifications -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         #serieValorar {
             display: none;
@@ -20,17 +20,7 @@
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php" class="active">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php">Calendario</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+    <?php include('../html/navbar.html'); ?>
 
     <br>
 
@@ -288,7 +278,9 @@
     ";
 
     ?>
-    <!-- Optional JavaScript -->
+    <!-- Notyf -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -302,7 +294,6 @@
 
     <script src="../js/episodeChecked.js"> </script>
     <script src="../js/valoracionEstrellas.js"> </script>
-    <script src="../js/navbar.js"></script>
 
 </body>
 

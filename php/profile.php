@@ -13,22 +13,12 @@ var_dump($_SESSION['id']);
     <link rel="stylesheet" href="../styles/css/charts.css">
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="../js/navbar.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php">Calendario</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right" class="active"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars" s></i>
-        </a>
-    </div>
+    <?php include('../html/navbar.html'); ?>
 
     <div id="chart-container"></div>
 
@@ -92,11 +82,14 @@ var_dump($_SESSION['id']);
         ?>
 
     </div>
+    <!-- Bootstrap -->
+    <?php include('../html/scripts.html'); ?>
+
     <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/jquery-fusioncharts@1.1.0/dist/fusioncharts.jqueryplugin.js"></script>
     <script src="../js/charts.js"></script>
+
 
 </body>
 </html>

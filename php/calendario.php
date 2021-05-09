@@ -30,21 +30,15 @@ $events = $req->fetchAll();
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/css/output.css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php" class="active">Calendario</a>
-        <a href="./miLista.php">Mi Lista</a>
-        <a href="./profile.php" style="float:right"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"s></i>
-        </a>
-    </div>
     
+    <?php include('../html/navbar.html'); ?>
+
     <div class="container" style="background-color: grey !important;">
         <h1>Próximos episodios</h1>
         <div id="calendar" class="col-md-12">
@@ -52,7 +46,6 @@ $events = $req->fetchAll();
     </div>
 
     <!-- Navbar responsive -->
-    <script src="../js/navbar.js"></script>
 
     <!-- jQuery Version 1.11.1 -->
     <script src="../js/jquery.js"></script>
@@ -137,7 +130,6 @@ $events = $req->fetchAll();
         });
     });
     </script>
-    <script src="../js/navbar.js"></script>
 </body>
 
 </html>

@@ -213,7 +213,6 @@
 
     ?>
 
-    <script src="../js/navbar.js"></script>
     <script src="../js/swiper.min.js"></script>
     <script src="../js/slider.js"></script>
 

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <style>
         h3 {
             color: #fff;
@@ -18,17 +21,7 @@
 
 <body>
 
-    <div class="topnav" id="myTopnav">
-        <a href="./main.php">Series</a>
-        <a href="./mainFilms.php">Peliculas</a>
-        <a href="./search.php">Buscar</a>
-        <a href="./calendario.php">Calendario</a>
-        <a href="./miLista.php" class="active">Mi Lista</a>
-        <a href="./profile.php" style="float:right"> Perfil <i class="fa fa-user"></i> </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"s></i>
-        </a>
-    </div>
+    <?php include('../html/navbar.html'); ?>
 
     <h3>Series en progreso</h3>
 
@@ -40,9 +33,11 @@
         $conn = DB::getInstance()->getConn();
 
         session_start();
+        var_dump($_SESSION['id']);
         $idUser = $_SESSION['id'];
         // TODO: Arreglar el userID  
         $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser";
+        var_dump($sql);
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -95,8 +90,8 @@
         }
         ?>
     </div>
-
-    <script src="../js/navbar.js"></script>
+    <!-- Bootstrap -->
+    <?php include('../html/scripts.html'); ?>
 
 </body>
 </html>

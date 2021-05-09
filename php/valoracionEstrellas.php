@@ -12,6 +12,8 @@
 
 <body>
 
+    <?php include('../html/navbar.html'); ?>
+
     <h1>VALORACIÓN</h1>
 
     <div class="star-wrapper">

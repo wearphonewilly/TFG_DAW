@@ -254,7 +254,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
     <script src="../js/episodeChecked.js"> </script>
     <script src="../js/valoracionEstrellas.js"> </script>
-    <script src="../js/navbar.js"></script>
 
 </body>
 </html>
