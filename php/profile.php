@@ -48,6 +48,7 @@ $numEstrellas1 = $result1estrellas[0];
     <style>
         h2 {
             color: #fff;
+            padding: 10px 20px;
         }
     </style>
 </head>

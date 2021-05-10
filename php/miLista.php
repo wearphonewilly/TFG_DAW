@@ -13,9 +13,9 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
-        h3 {
+        h2 {
             color: #fff;
-            padding: 10px;
+            padding: 10px 20px;
         }
     </style>
 </head>
@@ -24,7 +24,7 @@
 
     <?php include('../html/navbar.html'); ?>
 
-    <h3>Series en progreso</h3>
+    <h2>Series en progreso</h2>
 
     <!-- Aquí tendremos la lista de peliculas y series del usuario del usuario -->
     <div id="categorias" class="grid-container">
@@ -93,4 +93,5 @@
     <?php include('../html/scripts.html'); ?>
 
 </body>
+
 </html>
