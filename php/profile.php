@@ -57,8 +57,6 @@ $numEstrellas1 = $result1estrellas[0];
 
     <?php include('../html/navbar.html'); ?>
 
-    <div id="chart-container"></div>
-
     <h2>Series Vistas</h2>
     <div id="categorias" class="grid-container">
 
@@ -118,6 +116,8 @@ $numEstrellas1 = $result1estrellas[0];
         ?>
 
     </div>
+
+    <div id="chart-container"></div>
 
     <!-- Bootstrap -->
     <?php include('../html/scripts.html'); ?>

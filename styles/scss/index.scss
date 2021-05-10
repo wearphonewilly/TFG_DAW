@@ -14,11 +14,11 @@ section {
     display: table;
     margin: 0;
     max-width: none;
-    background-color: #373B44;
+    background-color: #3a3a3a;
     height: 100vh;
 
     &:nth-of-type(2n) {
-        background-color: #FE4B74;
+        background-color: #b36073;
     }
 }
 
@@ -33,6 +33,13 @@ h1 {
     color: white;
     font-weight: 300;
     letter-spacing: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    display: block;
+    color: white !important;
+    font-weight: 300;
 }
 
 h3 {
@@ -50,7 +57,7 @@ p {
 
 a {
     font-weight: 700;
-    color: #373B44;
+    color: #fff;
     position: relative;
 
     &:hover {
@@ -79,7 +86,8 @@ footer {
     font-family: Maven Pro, sans-serif;
     font-weight: 900;
     font-size: 40pt;
-    color: rgb(41, 62, 90);
+    // color: rgb(41, 62, 90);
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -92,7 +100,7 @@ footer {
 }
 
 #descripcion {
-    font-family: Montserrat, sans-serif;
+    font-family: Maven Pro, sans-serif;
     font-weight: 400;
     font-size: 20pt;
     color: #596f83;
@@ -123,21 +131,27 @@ footer {
     fill: #f6f6f6;
 }
 
-a:link {
-    color: black;
-    text-decoration: none;
-}
+a {
+    a:link {
+        color: white !important;
+        text-decoration: none;
+    }
 
-a:visited {
-    color: black;
-}
+    a:visited {
+        color: white !important;
+    }
 
-a:hover {
-    color: black;
-}
+    a:hover {
+        color: white !important;
+    }
 
-a:active {
-    color: black;
+    a:active {
+        color: white !important;
+    }
+
+    a:hover {
+        color: white !important;
+    }
 }
 
 button {
@@ -170,12 +184,13 @@ button {
     font-weight: 500;
     font-size: 16px;
     line-height: 1;
-    color: white;
-    background-color: #275efe;
+    color: white !important;
+    background-color: #004ED4;
     border: none;
     outline: none;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 5px !important;
 }
 
 #registerBtn {
@@ -428,4 +443,55 @@ button {
     100% {
         opacity: 1;
     }
+}
+
+/* On screens that are 589px or less, set the background color to olive */
+@media screen and (max-width: 589px) {
+    #imgJoey {
+        width: 84%;
+    }
+    #imgPadrino {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 370px) {
+    #imgPadrino {
+        width: 319px
+    }
+}
+
+@media only screen and (min-width: 426px) {
+    #imgJoey {
+        width: 319px
+    }
+}
+
+@media only screen and (max-width: 447px) {
+    #imgSheldon {
+        width: 319px
+    }
+}
+
+@media only screen and (min-width: 447px) {
+    #imgSheldon {
+        margin-left: 25%;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    #col2 {
+        margin-left: 20%; 
+        margin-top: 10%;
+    }
+    #imgForrest, #imgPadrino {
+        margin-top: 20%;
+    }
+
+    #imgPadrino {
+        width: 84%;
+    }
+
 }
