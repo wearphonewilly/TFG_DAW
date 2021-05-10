@@ -21,9 +21,6 @@ $events = $req->fetchAll();
 
     <title>Calendario</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- FullCalendar -->
     <link href='../styles/css/fullcalendar.css' rel='stylesheet' />
 
@@ -33,19 +30,21 @@ $events = $req->fetchAll();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+
 </head>
 
 <body>
     
     <?php include('../html/navbar.html'); ?>
 
-    <div class="container" style="background-color: grey !important;">
+    <div class="container" style="background-color: grey !important; color: white;">
         <h1>Próximos episodios</h1>
-        <div id="calendar" class="col-md-12">
+        <div id="calendar" class="col-md-12" style="background-color: grey !important;">
         </div>
     </div>
 
-    <!-- Navbar responsive -->
+
+    <?php include('../html/scripts.html'); ?>
 
     <!-- jQuery Version 1.11.1 -->
     <script src="../js/jquery.js"></script>
