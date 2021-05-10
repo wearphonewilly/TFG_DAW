@@ -15,6 +15,7 @@
     <style>
         h3 {
             color: #fff;
+            padding: 10px;
         }
     </style>
 </head>

@@ -40,7 +40,6 @@
     $user_id = $_SESSION['id'];
     $randomPeli = $_GET['id'];
 
-    echo "<h1>RANDOM FILM</h1>";
     $pelicula = file_get_contents('https://api.themoviedb.org/3/movie/latest?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $pelicula = json_decode($pelicula, true);
 
