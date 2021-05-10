@@ -136,7 +136,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     echo "<ul class=\"tags\">";
     foreach ($pelicula['genres'] as $value) {
         $categoria = $value['name'];
-        echo "<li><a class=\"tag\">$categoria</a></li>";
+        echo "<li><a class=\"tag\" href=\"categoria.php?id=$categoria\">$categoria</a></li>";
     }
     echo "</ul>";
     echo " </div> </div> </div> ";
@@ -185,31 +185,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     echo "</section> </div> </div>";
     ?>
 
-    <section class="panel">
-        <h2>Peliculas recomendadas</h2>
-        <div class="topslider">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-
-                    <?php
-                    $seriesRecomendadas = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . ' /recommendations?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&page=1');
-                    $seriesRecomendadas = json_decode($seriesRecomendadas, true);
-                    foreach ($seriesRecomendadas['results'] as $value) {
-                        $poster = $value['poster_path'];
-                        $titulo = $value['title'];
-                        $id = $value['id'];
-                        echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$poster\"> <h3 class=\"hometitle\"> $titulo </h3> </a>  </div>";
-                    }
-                    ?>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-scrollbar"></div>
-                <div class="swiper-button-next"> </div>
-                <div class="swiper-button-prev"> </div>
-            </div>
-        </div>
-    </section>
-
     </div>
 
     <script src="../js/jquery-3.1.1.min.js"></script>
@@ -218,27 +193,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <!-- Swiper JS -->
     <script src="../js/swiper.min.js"></script>
     <script src="../js/slider.js"></script>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <script>
-        let swiper = new Swiper('.topslider > .swiper-container', {
-            slidesPerView: 8,
-            spaceBetween: 10,
-            slidesPerGroup: 5,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
-        });
-       
-    </script>
 
 </body>
 

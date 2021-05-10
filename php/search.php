@@ -17,6 +17,11 @@
         h3 {
             font-size: 20px !important;
         }
+        #btn {
+            border: none;
+            background: none;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -47,9 +52,7 @@
                     $titulo = $value['name'];
                     $category_id = $value['id'];
                     echo "<div class=\"item\"> 
-                            <h3> 
-                                <a id=\"a-search\" href=\"categoria.php?id=$category_id\">  $titulo  </a> 
-                            </h3> 
+                            <button id=\"btn\" onclick=\"location.href='categoria.php?id=$category_id'\" type=\"button\">$titulo</button>
                         </div>";
                 }
             }

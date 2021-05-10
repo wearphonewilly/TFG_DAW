@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-var_dump($_SESSION['id']);
 $userId = $_SESSION['id'];
 
 require_once("./DB.php");
