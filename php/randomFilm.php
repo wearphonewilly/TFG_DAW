@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
 </head>
+
 <body>
 
     <?php
@@ -57,28 +70,28 @@
                     <h1> $titulo </h1>
                     <p> $sinopsis </p>
                     "; ?>
-        <div class="row" style="text-align: center;">
-            <div class="col">
-                <form action="" method="post">
-                    <input type="submit" id="save\" class="save" name="btnVista" value="VISTA" />
-                </form>
-            </div>
-            <div class="col">
-                <form action="" method="post">
-                    <input type="submit" id="save" class="save" name="btnQuiero" value="QUIERO" />
-                </form>
-            </div>
-    
-            <div class="col">
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
-                    data-text="Acabo de ver la nueva película <?php echo $titulo ?> en "
-                    data-url="http://estas-viendo.herokuapp.com" data-hashtags="WatchMe EstasViendo" data-lang="es"
-                    data-show-count="false">Tweet</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
+    <div class="row" style="text-align: center;">
+        <div class="col">
+            <form action="" method="post">
+                <input type="submit" id="save\" class="save" name="btnVista" value="VISTA" />
+            </form>
         </div>
-    
-        <?php
+        <div class="col">
+            <form action="" method="post">
+                <input type="submit" id="save" class="save" name="btnQuiero" value="QUIERO" />
+            </form>
+        </div>
+
+        <div class="col">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                data-text="Acabo de ver la nueva película <?php echo $titulo ?> en "
+                data-url="http://estas-viendo.herokuapp.com" data-hashtags="WatchMe EstasViendo" data-lang="es"
+                data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+
+    <?php
 
         // Control el vista y quiero de las peliculas
         if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
@@ -123,4 +136,5 @@
 
     <?php include('../html/scripts.html'); ?>
 </body>
+
 </html>

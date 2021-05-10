@@ -136,7 +136,8 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     echo "<ul class=\"tags\">";
     foreach ($pelicula['genres'] as $value) {
         $categoria = $value['name'];
-        echo "<li><a class=\"tag\" href=\"categoria.php?id=$categoria\">$categoria</a></li>";
+        $categoria_id = $value['id'];
+        echo "<li><a class=\"tag\" href=\"categoria.php?id=$categoria_id\">$categoria</a></li>";
     }
     echo "</ul>";
     echo " </div> </div> </div> ";
