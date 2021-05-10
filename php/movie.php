@@ -29,6 +29,11 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <!-- Referencia Diseno -->
     <!-- https://dribbble.com/shots/6286426-Email-Subscription-Webpage-Design/attachments/6286426-Email-Subscription-Webpage-Design?mode=media -->
 
@@ -110,8 +115,9 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
         } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `nombrePeli`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$titulo', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
             $result = $conn -> query($queryInsert);
+            var_dump($result, $queryInsert);
         }
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
@@ -120,7 +126,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
         } else {
-            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
+            $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `nombrePeli`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$idPeli', '$titulo' , '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
             $result = $conn -> query($queryInsert);
         }
     }
@@ -186,7 +192,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
                 <div class="swiper-wrapper">
 
                     <?php
-                    require_once("./api.php");
                     $seriesRecomendadas = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . ' /recommendations?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&page=1');
                     $seriesRecomendadas = json_decode($seriesRecomendadas, true);
                     foreach ($seriesRecomendadas['results'] as $value) {
@@ -196,18 +201,44 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
                         echo "<div class=\"swiper-slide\"> <a href=\"movie.php?id=$id\"> <img id=\"imgPrincipal\" src=\"https://image.tmdb.org/t/p/w500$poster\"> <h3 class=\"hometitle\"> $titulo </h3> </a>  </div>";
                     }
                     ?>
-
                 </div>
-                <div class="nextdirection top-next"><img src="../styles/img/right-arrow.svg"> </div>
-                <div class="leftdirection top-prev"><img src="../styles/img/left-arrow.svg"> </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+                <div class="swiper-button-next"> </div>
+                <div class="swiper-button-prev"> </div>
             </div>
         </div>
     </section>
 
     </div>
+
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap -->
+    <?php include('../html/scripts.html'); ?>
     <!-- Swiper JS -->
     <script src="../js/swiper.min.js"></script>
     <script src="../js/slider.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        let swiper = new Swiper('.topslider > .swiper-container', {
+            slidesPerView: 8,
+            spaceBetween: 10,
+            slidesPerGroup: 5,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+       
+    </script>
 
 </body>
 

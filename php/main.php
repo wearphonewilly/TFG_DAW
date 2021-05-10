@@ -82,10 +82,11 @@
 
         <script src="../js/jquery-3.1.1.min.js"></script>
         <!-- Bootstrap -->
-    <?php include('../html/scripts.html'); ?>
+        <?php include('../html/scripts.html'); ?>
         <!-- Swiper JS -->
         <script src="../js/swiper.min.js"></script>
         <script src="../js/slider.js"></script>
+
     </div>
 </body>
 

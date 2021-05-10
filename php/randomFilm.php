@@ -90,7 +90,7 @@
                 $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 0,`peli_quiero`= 1 WHERE `pelicula_id`='$randomPeli'";
                 $result = $conn -> query($sqlUpdate);
             } else {
-                $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$randomPeli', '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
+                $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `nombrePeli`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$randomPeli', '$titulo',  '$tiempoPeli', '$posterPath','$user_id','0','1') " ;
                 $result = $conn -> query($queryInsert);
             }
         } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
@@ -101,7 +101,7 @@
                 $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$randomPeli'";
                 $result = $conn -> query($sqlUpdate);
             } else {
-                $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$randomPeli', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
+                $queryInsert = "INSERT INTO `peliculas`(`pelicula_id`, `nombrePeli`, `runtime`, `poster_path_film`, `user_id`, `peli_vista`, `peli_quiero`) VALUES ('$randomPeli', '$titulo', '$tiempoPeli', '$posterPath','$user_id','1','0') " ;
                 $result = $conn -> query($queryInsert);
             }
         }
