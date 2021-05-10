@@ -40,10 +40,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
 
     <style>
 
-        body {
-            background-color: #532e3a !important;
-        }
-
         b {
             display: none;
         }
@@ -66,14 +62,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
 </head>
 
 <body>
-
+    
     <div class="container">
         <div class="row">
-            <div class="col" style=" margin-top: 5%; margin-bottom: 2%;">
-                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" style="width: 47%" class="img-fluid" id="imgLogin">
-            </div>
+            <div class="col" style="margin-top: 5%;margin-left: 27%; margin-bottom: 7%;">
 
-            <div class="col" style="margin-top: 15%;">
+                <h1>LOGIN</h1>
+
                 <form action="" method="post" id="loginForm">
                     <div class="form-group" id="usernameDiv">
                         <label for="exampleInputEmail1">Username</label>
@@ -105,15 +100,17 @@ session_start();
 $conn = DB::getInstance()->getConn();
 $username = $_POST['usuario'];
 $password = $_POST['contra'];
+$passHash = password_hash($password, PASSWORD_BCRYPT);
+$contraCorrecta = password_verify($password, $passHash);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($username) || !empty($password)) {
         // $sql = "SELECT nombre, id FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
 
-        $sql = "SELECT nombre, id FROM heroku_a22259b35601486.users WHERE nombre = '$username' AND password = '$password'";
+        $sql = "SELECT nombre, id FROM heroku_a22259b35601486.users WHERE nombre = '$username'";
         $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rows > 0 && $contraCorrecta) {
             // Guardar datos de sesión
             while ($row = $result->fetch_assoc()) {
                 $_SESSION['username'] = $row ['nombre'];

@@ -35,7 +35,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col" style="margin-top: 5%;margin-left: 15%;">
+            <div class="col" style="margin-left: 15%;">
+
+                <h1>REGISTRO</h1>
+
                 <form action="register.php" method="post">
 
                     <div class="form-group">
@@ -66,10 +69,6 @@
                     </div>
                 </form>
             </div>
-            <div class="col" id="imgRegistro">
-                <img src="../styles/img/popcorn.jpg" alt="Imagen Login Palomitas" height="200px" width="200px"
-                    class="img-fluid" id="imgReg">
-            </div>
         </div>
     </div>
 
@@ -82,19 +81,20 @@
     $name = $_POST['nombre'];
     $mail = $_POST['correo'];
     $password = $_POST['contra'];
+    $passHash = password_hash($password, PASSWORD_BCRYPT);
 
     $name = $conn->real_escape_string($name);
     $mail = $conn->real_escape_string($mail);
-    $password = $conn->real_escape_string($password);
+    $passHash = $conn->real_escape_string($passHash);
 
     // TODO: Encriptar contraseña
     // $passwordCrypted = password_hash($password, PASSWORD_BCRYPT, ['salt' => 'abc']);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($name) || !empty($mail) || !empty($password)) {
+        if (!empty($name) || !empty($mail) || !empty($passHash)) {
             // $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
-            $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (nombre, mail, password) VALUES ('$name', '$mail', '$password')");
-            echo "Ir al login";
+            $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (nombre, mail, password) VALUES ('$name', '$mail', '$passHash')");
+            echo "<a href=\"./login.php\">Ir al login</a>";
         } else {
             sweetalert2();
         }
@@ -103,7 +103,6 @@
     include('../html/scripts.html');
 
     ?>
-
 
     <!-- Notyf -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
