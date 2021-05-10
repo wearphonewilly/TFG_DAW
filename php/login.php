@@ -39,6 +39,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
     <!-- https://colorhunt.co/palette/213161 -->
 
     <style>
+
+        body {
+            background-color: #532e3a !important;
+        }
+
         b {
             display: none;
         }
@@ -51,6 +56,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
         }
         .form-control {
             font-size: 2.5rem;
+        }
+
+        a {
+            font-size: 15px;
         }
     </style>
 
@@ -81,6 +90,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
 
                     <button type="submit" style="margin-top: 3%; width: 50%;font-size: 2.5rem;" class="btn btn-primary" name="submit" id="submit">Submit</button>
                 </form>
+                <br>
+                <a href="./register.php">Todavía no estás registrado? Hazlo aquí </a>
             </div>
         </div>
     </div>

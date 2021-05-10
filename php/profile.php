@@ -47,7 +47,7 @@ $numEstrellas1 = $result1estrellas[0];
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         h2 {
-            color: #fff;
+            color: #000;
             padding: 10px 20px;
         }
     </style>

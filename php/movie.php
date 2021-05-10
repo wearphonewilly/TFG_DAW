@@ -179,21 +179,22 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
                     foreach ($peliculaActores['cast'] as $value) {
                         $imagenCara = $value['profile_path'];
                         $nombre = $value['name'];
+                        $id = $value['id'];
 
                         echo "
                         <div class=\"swiper-slide\">
+                        <a href=\"actor.php?id=$id\">
                             <img src=\"https://image.tmdb.org/t/p/w500$imagenCara\" style=\"height: 90%;\">
                             <h3 class=\"hometitle\">$nombre</h3>
+                        </a>
                         </div>";
                     }
 
                     ?>
 
-                    <div class="swiper-slide"><a href="mostwatched.html"><img src="img/others.png"></a></div>
                 </div>
                 <div class="nextdirection most-next"><img src="../styles/img/right-arrow.svg"> </div>
                 <div class="leftdirection most-prev"><img src="../styles/img/left-arrow.svg"> </div>
-                <!-- Add Pagination -->
             </div>
         </div>
     </section>
@@ -210,7 +211,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
                         $poster = $value['poster_path'];
                         $titulo = $value['title'];
                         $id = $value['id'];
-
                         echo "
                         <div class=\"swiper-slide\">
                             <img src=\"https://image.tmdb.org/t/p/w500$poster\" style=\"height: 90%;\">
@@ -220,11 +220,9 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
 
                     ?>
 
-                    <div class="swiper-slide"><a href="mostwatched.html"><img src="img/others.png"></a></div>
                 </div>
                 <div class="nextdirection recent-next"><img src="../styles/img/right-arrow.svg"> </div>
                 <div class="leftdirection recent-prev"><img src="../styles/img/left-arrow.svg"> </div>
-                <!-- Add Pagination -->
             </div>
         </div>
     </section>

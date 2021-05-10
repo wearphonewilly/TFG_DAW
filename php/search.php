@@ -22,9 +22,8 @@
             background: none;
             padding: 10px;
         }
-
         #searchButton {
-            
+            height: 50px;
         }
     </style>
 </head>
@@ -38,7 +37,7 @@
         <form action="./search.php" method="post">
             <input type="text" placeholder="Título de la serie o película" name="busqueda" class="search-input"
                 id="busqueda">
-            <button type="submit" id="searchButton">Buscar <i class="fa fa-search"></i></button>
+            <button type="submit" class="btn btn-secondary" id="searchButton">Buscar <i class="fa fa-search"></i></button>
         </form>
 
     </section>
@@ -56,7 +55,7 @@
                     $titulo = $value['name'];
                     $category_id = $value['id'];
                     echo "<div class=\"item\"> 
-                            <button id=\"btn\" onclick=\"location.href='categoria.php?id=$category_id'\" type=\"button\">$titulo</button>
+                            <button id=\"btn\"  onclick=\"location.href='categoria.php?id=$category_id'\" type=\"button\">$titulo</button>
                         </div>";
                 }
             }

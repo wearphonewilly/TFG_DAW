@@ -56,7 +56,7 @@ input {
 }
 
 .container {
-  background-color: aquamarine !important;
+  background-color: lightskyblue !important;
   margin-top: 5%;
   border-radius: 13px !important;
 }
@@ -338,7 +338,7 @@ a:active {
 
 .grid-container > div,
 .grid-container-busqueda > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #CACACA;
   text-align: center;
   padding: 20px 0;
   border-radius: 5px;
@@ -379,7 +379,7 @@ a:active {
 }
 
 html, body {
-  background-color: #532e3a !important;
+  background-color: #fff !important;
 }
 
 body {

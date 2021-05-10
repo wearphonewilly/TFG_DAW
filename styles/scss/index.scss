@@ -14,7 +14,7 @@ section {
     display: table;
     margin: 0;
     max-width: none;
-    background-color: #3a3a3a;
+    background-color: #373b44;
     height: 100vh;
 
     &:nth-of-type(2n) {
@@ -193,9 +193,6 @@ button {
     border-radius: 5px !important;
 }
 
-#registerBtn {
-    margin-left: 37px;
-}
 
 /* Mouse scroll down button */
 

@@ -14,11 +14,11 @@
 
     <style>
         h2 {
-            color: #fff;
+            color: #000;
             padding: 10px 20px;
         }
         h5 {
-            color: #fff;
+            color: #000;
             margin-left: 5%;
         }
     </style>
