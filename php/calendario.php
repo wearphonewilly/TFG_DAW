@@ -1,7 +1,7 @@
 <?php
 require_once("DBconn.php");
 
-$sql = "SELECT title, proximoEpisodioStart, proximoEpisodioEnd FROM watchme.serie ";
+$sql = "SELECT title, proximoEpisodioStart, proximoEpisodioEnd FROM heroku_a22259b35601486.serie ";
 $req = $bdd->prepare($sql);
 $req->execute();
 $events = $req->fetchAll();

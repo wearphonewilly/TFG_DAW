@@ -8,7 +8,7 @@ $idTemporada = $_REQUEST['idt'];
 $user_id = $_REQUEST['id'];
 $idSerie = $_REQUEST['ids'];
 
-$query = "INSERT INTO watchme.capitulo (capitulo_id, temporada_id, serie_id, user_id, vista) VALUES ($idEpisodio, $idTemporada, $idSerie, $user_id, '1')";
+$query = "INSERT INTO heroku_a22259b35601486.capitulo (capitulo_id, temporada_id, serie_id, user_id, vista) VALUES ($idEpisodio, $idTemporada, $idSerie, $user_id, '1')";
 $result = $conn -> query($query);
 echo $query;
 echo $result;

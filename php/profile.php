@@ -7,27 +7,27 @@ $userId = $_SESSION['id'];
 require_once("./DB.php");
 $conn = DB::getInstance()->getConn();
 
-$estrellas5 = "SELECT COUNT(valoracion) FROM watchme.serie WHERE user_id = '$userId' AND valoracion = 5";
+$estrellas5 = "SELECT COUNT(valoracion) FROM heroku_a22259b35601486.serie WHERE user_id = '$userId' AND valoracion = 5";
 $estrellas5Result = $conn -> query($estrellas5);
 $result5estrellas = mysqli_fetch_row($estrellas5Result);
 $numEstrellas5 = $result5estrellas[0];
 
-$estrellas4 = "SELECT COUNT(valoracion) FROM watchme.serie WHERE user_id = '$userId' AND valoracion = 4";
+$estrellas4 = "SELECT COUNT(valoracion) FROM heroku_a22259b35601486.serie WHERE user_id = '$userId' AND valoracion = 4";
 $estrellas4Result = $conn -> query($estrellas4);
 $result4estrellas = mysqli_fetch_row($estrellas4Result);
 $numEstrellas4 = $result4estrellas[0];
 
-$estrellas3 = "SELECT COUNT(valoracion) FROM watchme.serie WHERE user_id = '$userId' AND valoracion = 3";
+$estrellas3 = "SELECT COUNT(valoracion) FROM heroku_a22259b35601486.serie WHERE user_id = '$userId' AND valoracion = 3";
 $estrellas3Result = $conn -> query($estrellas3);
 $result3estrellas = mysqli_fetch_row($estrellas3Result);
 $numEstrellas3 = $result3estrellas[0];
 
-$estrellas2 = "SELECT COUNT(valoracion) FROM watchme.serie WHERE user_id = '$userId' AND valoracion = 2";
+$estrellas2 = "SELECT COUNT(valoracion) FROM heroku_a22259b35601486.serie WHERE user_id = '$userId' AND valoracion = 2";
 $estrellas2Result = $conn -> query($estrellas2);
 $result2estrellas = mysqli_fetch_row($estrellas2Result);
 $numEstrellas2 = $result2estrellas[0];
 
-$estrellas1 = "SELECT COUNT(valoracion) FROM watchme.serie WHERE user_id = '$userId' AND valoracion = 1";
+$estrellas1 = "SELECT COUNT(valoracion) FROM heroku_a22259b35601486.serie WHERE user_id = '$userId' AND valoracion = 1";
 $estrellas1Result = $conn -> query($estrellas1);
 $result1estrellas = mysqli_fetch_row($estrellas1Result);
 $numEstrellas1 = $result1estrellas[0];
@@ -67,7 +67,7 @@ $numEstrellas1 = $result1estrellas[0];
         session_start();
         $idUser = $_SESSION['id'];
 
-        $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser AND serie_vista = 1";
+        $sql = "SELECT * FROM heroku_a22259b35601486.serie WHERE user_id = $idUser AND serie_vista = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -96,7 +96,7 @@ $numEstrellas1 = $result1estrellas[0];
         session_start();
         $idUser = $_SESSION['id'];
 
-        $sql = "SELECT * FROM watchme.peliculas WHERE user_id = $idUser AND peli_vista = 1";
+        $sql = "SELECT * FROM heroku_a22259b35601486.peliculas WHERE user_id = $idUser AND peli_vista = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

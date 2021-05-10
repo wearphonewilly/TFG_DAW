@@ -23,7 +23,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/output.css">
     <link rel="stylesheet" href="../styles/css/login.css">
-    <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico"/>
+    <link rel="shortcut icon" type="image/png" href="../../styles/img/logoheroku_a22259b35601486.ico"/>
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($username) || !empty($password)) {
         // $sql = "SELECT nombre, id FROM heroku_a22259b35601486.users WHERE name = '$username' AND password = '$password'";
 
-        $sql = "SELECT nombre, id FROM watchme.users WHERE nombre = '$username' AND password = '$password'";
+        $sql = "SELECT nombre, id FROM heroku_a22259b35601486.users WHERE nombre = '$username' AND password = '$password'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

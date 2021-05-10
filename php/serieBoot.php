@@ -117,7 +117,7 @@
             $result = $conn -> query($query);
             notyfSerieActualizada();
         } else {
-            $query = "INSERT INTO watchme.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 1, 0)";
+            $query = "INSERT INTO heroku_a22259b35601486.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 1, 0)";
             $result = $conn -> query($query);
             notyfQuieroSerie();
         }
@@ -131,7 +131,7 @@
             $result = $conn -> query($query);
             notyfSerieActualizada();
         } else {
-            $query = "INSERT INTO watchme.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 0, 1)";
+            $query = "INSERT INTO heroku_a22259b35601486.serie (PKCombined, user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$PKCombined', $user_id, '$titulo', '$idSerie', '$posterPath', '$fecha', '$fecha', 0, 1)";
             $result = $conn -> query($query);
             notyfQuieroSerie();
         }
@@ -209,7 +209,7 @@
             $sqlUpdateSerie = "UPDATE `serie` SET `proximoEpisodio`= '$nextEpisode' , `serie_vista`= 0,`serie_quiero`= 0 WHERE `serie_id`='$idSerie'";
             $result = $conn -> query($sqlUpdateSerie);
         } else {
-            $sqlInsertSerie = "INSERT INTO watchme.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$user_id', '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode' , '0', '0')";
+            $sqlInsertSerie = "INSERT INTO heroku_a22259b35601486.serie (user_id, title, serie_id, poster_path, proximoEpisodioStart, proximoEpisodioEnd, serie_vista, serie_quiero) VALUES ('$user_id', '$titulo', '$idSerie', '$posterPath', '$nextEpisode', '$nextEpisode' , '0', '0')";
             $result = $conn -> query($sqlInsertSerie);
         }
 

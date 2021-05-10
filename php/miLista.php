@@ -35,7 +35,7 @@
         session_start();
         $idUser = $_SESSION['id'];
         // TODO: Arreglar el userID
-        $sql = "SELECT * FROM watchme.serie WHERE user_id = $idUser AND serie_quiero = 1";
+        $sql = "SELECT * FROM heroku_a22259b35601486.serie WHERE user_id = $idUser AND serie_quiero = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -67,7 +67,7 @@
         session_start();
         $idUser = $_SESSION['id'];
 
-        $sql = "SELECT * FROM watchme.peliculas WHERE user_id = $idUser AND peli_quiero = 1";
+        $sql = "SELECT * FROM heroku_a22259b35601486.peliculas WHERE user_id = $idUser AND peli_quiero = 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

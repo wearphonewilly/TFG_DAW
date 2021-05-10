@@ -93,7 +93,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($name) || !empty($mail) || !empty($password)) {
             // $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
-            $result = $conn -> query("INSERT INTO watchme.users (nombre, mail, password) VALUES ('$name', '$mail', '$password')");
+            $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (nombre, mail, password) VALUES ('$name', '$mail', '$password')");
             echo "Ir al login";
         } else {
             sweetalert2();

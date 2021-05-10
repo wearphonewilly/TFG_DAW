@@ -23,7 +23,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <!-- Internal Files -->
     <link rel="stylesheet" href="../styles/css/movie.css">
     <link rel="stylesheet" href="../styles/css/swiper.min.css">
-    <link rel="shortcut icon" type="image/png" href="../../styles/img/logoWatchme.ico" />
+    <link rel="shortcut icon" type="image/png" href="../../styles/img/logoheroku_a22259b35601486.ico" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
