@@ -17,6 +17,10 @@
             color: #fff;
             padding: 10px 20px;
         }
+        h5 {
+            color: #fff;
+            margin-left: 5%;
+        }
     </style>
 </head>
 
@@ -52,19 +56,18 @@
                     </div>";
             }
         } else {
-            sweetalert2();
+            echo "<h5>No has marcado ninguna serie como quiero</h5>";
         }
         ?>
     </div>
 
-    <h3>Peliculas quiero</h3>
+    <h2>Peliculas quiero</h2>
     <div id="categorias" class="grid-container">
 
         <?php
         require_once("DB.php");
         $conn = DB::getInstance()->getConn();
 
-        // TODO: Arreglar el userID
         session_start();
         $idUser = $_SESSION['id'];
 
@@ -85,12 +88,17 @@
                     </div>";
             }
         } else {
-            sweetalert2();
+            echo "<h5>No has marcado ninguna película como quiero</h5>";
         }
         ?>
     </div>
     <!-- Bootstrap -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap -->
     <?php include('../html/scripts.html'); ?>
+    <!-- Swiper JS -->
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/slider.js"></script>
 
 </body>
 

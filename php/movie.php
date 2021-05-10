@@ -44,6 +44,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
         a:hover {
             text-decoration: none;
         }
+
         h2 {
             color: #000 !important;
         }
@@ -197,6 +198,37 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
         </div>
     </section>
 
+    <section class="panel">
+        <h2>Peliculas sugeridas</h2>
+        <div class="recentslider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                    $seriesRecomendadas = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . ' /recommendations?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es&page=1');
+                    $seriesRecomendadas = json_decode($seriesRecomendadas, true);
+                    foreach ($seriesRecomendadas['results'] as $value) {
+                        $poster = $value['poster_path'];
+                        $titulo = $value['title'];
+                        $id = $value['id'];
+
+                        echo "
+                        <div class=\"swiper-slide\">
+                            <img src=\"https://image.tmdb.org/t/p/w500$poster\" style=\"height: 90%;\">
+                            <h3 class=\"hometitle\">$titulo</h3>
+                        </div>";
+                    }
+
+                    ?>
+
+                    <div class="swiper-slide"><a href="mostwatched.html"><img src="img/others.png"></a></div>
+                </div>
+                <div class="nextdirection recent-next"><img src="../styles/img/right-arrow.svg"> </div>
+                <div class="leftdirection recent-prev"><img src="../styles/img/left-arrow.svg"> </div>
+                <!-- Add Pagination -->
+            </div>
+        </div>
+    </section>
+
     <script src="../js/jquery-3.1.1.min.js"></script>
     <!-- Bootstrap -->
     <?php include('../html/scripts.html'); ?>
@@ -204,10 +236,40 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <script src="../js/swiper.min.js"></script>
     <script src="../js/slider.js"></script>
     <script>
-            $(document).ready(function () {
-                var mostswiper = new Swiper('.mostslider > .swiper-container', {
-                    nextButton: '.most-next',
-                    prevButton: '.most-prev',
+        $(document).ready(function () {
+            var mostswiper = new Swiper('.mostslider > .swiper-container', {
+                nextButton: '.most-next',
+                prevButton: '.most-prev',
+                slidesPerView: 8,
+                paginationClickable: true,
+                preventClicks: false,
+                preventClicksPropagation: false,
+                spaceBetween: 10,
+                breakpoints: {
+                    320: {
+                        slidesPerView: 3,
+                        spaceBetween: 5
+                    },
+
+                    480: {
+                        slidesPerView: 3,
+                        spaceBetween: 5
+                    },
+
+                    768: {
+                        slidesPerView: 5,
+                        spaceBetween: 5
+                    },
+                    1024: {
+                        slidesPerView: 6,
+                        spaceBetween: 10
+                    }
+                }
+            });
+
+            var recentswiper = new Swiper('.recentslider > .swiper-container', {
+                    nextButton: '.recent-next',
+                    prevButton: '.recent-prev',
                     slidesPerView: 8,
                     paginationClickable: true,
                     preventClicks: false,
@@ -234,8 +296,9 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
                         }
                     }
                 });
-            });
-        </script>
+
+        });
+    </script>
 
 </body>
 

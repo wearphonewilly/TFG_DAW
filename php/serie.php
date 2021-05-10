@@ -5,13 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series Main</title>
-    <link rel="stylesheet" href="../styles/css/serie.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Notyf notifications -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Notyf -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <!-- Internal Files -->
+    <!-- Internal Files -->
+    <link rel="stylesheet" href="../styles/css/movie.css">
+    <link rel="stylesheet" href="../styles/css/serie.css">
+    <link rel="stylesheet" href="../styles/css/swiper.min.css">
+    <link rel="shortcut icon" type="image/png" href="../../styles/img/logoheroku_a22259b35601486.ico" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <style>
         #serieValorar {
             display: none;
@@ -257,49 +273,80 @@
         echo "</div>";
     }
 
-
-    echo "
-    <div class=\"container\">
-    <div class=\"row\">
-
-    ";
     $seriesActores = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . ' /credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $seriesActores = json_decode($seriesActores, true);
-    foreach ($seriesActores['cast'] as $value) {
-        $imagenCara = $value['profile_path'];
-        $nombre = $value['name'];
-        $id = $value['id'];
-        echo "
-        <div class=\"col-sm\">
-            <div class=\"card\" style=\"width: 18rem;\">
-                <img class=\"card-img-top\" src=\"https://image.tmdb.org/t/p/w500$imagenCara\">
-                <div class=\"card-body\">
-                    <h5 class=\"card-title\">$nombre</h5>
-                </div>
-            </div>
-            </div>
-            ";
-    }
-
-    echo "
-    </div>
-    </div>
-    ";
-
     ?>
+
+    <section class="panel">
+        <h2>Actores y Actrices</h2>
+        <div class="recentslider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                    foreach ($seriesActores['cast'] as $value) {
+                        $imagenCara = $value['profile_path'];
+                        $nombre = $value['name'];
+                        $id = $value['id'];
+
+                        echo "
+                        <div class=\"swiper-slide\">
+                            <img src=\"https://image.tmdb.org/t/p/w500$imagenCara\" style=\"height: 90%;\">
+                            <h3 class=\"hometitle\">$nombre</h3>
+                        </div>";
+                    }
+
+                    ?>
+
+                </div>
+                <div class="nextdirection recent-next"><img src="../styles/img/right-arrow.svg"> </div>
+                <div class="leftdirection recent-prev"><img src="../styles/img/left-arrow.svg"> </div>
+                <!-- Add Pagination -->
+            </div>
+        </div>
+    </section>
 
     <script src="../js/episodeChecked.js"> </script>
     <script src="../js/valoracionEstrellas.js"> </script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap -->
+    <?php include('../html/scripts.html'); ?>
+    <!-- Swiper JS -->
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/slider.js"></script>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script>
+        $(document).ready(function () {
+            var mostswiper = new Swiper('.recentslider > .swiper-container', {
+                nextButton: '.recent-next',
+                prevButton: '.recent-prev',
+                slidesPerView: 8,
+                paginationClickable: true,
+                preventClicks: false,
+                preventClicksPropagation: false,
+                spaceBetween: 10,
+                breakpoints: {
+                    320: {
+                        slidesPerView: 3,
+                        spaceBetween: 5
+                    },
+
+                    480: {
+                        slidesPerView: 3,
+                        spaceBetween: 5
+                    },
+
+                    768: {
+                        slidesPerView: 5,
+                        spaceBetween: 5
+                    },
+                    1024: {
+                        slidesPerView: 6,
+                        spaceBetween: 10
+                    }
+                }
+            });
+
+        });
     </script>
 
 
