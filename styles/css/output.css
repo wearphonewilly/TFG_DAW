@@ -26,7 +26,6 @@
   background-color: #96959b64;
 }
 
-/* On screens that are 992px or less, set the background color to blue */
 @media screen and (min-width: 415px) {
   .row input {
     width: 50% !important;
@@ -192,10 +191,6 @@ input {
   }
 }
 @media screen and (max-width: 800px) {
-  body {
-    padding: 40px 0;
-  }
-
   .contenido-principal {
     flex-direction: column;
   }

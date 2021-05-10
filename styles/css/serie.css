@@ -149,5 +149,20 @@ body {
     opacity: 0;
   }
 }
+@media only screen and (min-width: 1201px) {
+  #imgSerie {
+    height: 65%;
+  }
+}
+@media only screen and (max-width: 765px) {
+  #imgSerie {
+    margin-top: 50%;
+  }
+}
+@media only screen and (max-width: 360px) {
+  #imgSerie {
+    margin-top: 80%;
+  }
+}
 
 /*# sourceMappingURL=serie.css.map */

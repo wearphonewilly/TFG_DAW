@@ -64,8 +64,8 @@
     <div class='container'>
         <div class='row'>
             
-            <div class='col' style=' margin-top: 5%; margin-bottom: 2%;'>
-                <img src='https://image.tmdb.org/t/p/w500/$posterPath' alt='Imagen Login Palomitas' style='width: 47%' class='img-fluid' id='imgLogin'>
+            <div class='col' style=' margin-top: 5%;'>
+                <img id='imgSerie' src='https://image.tmdb.org/t/p/w500/$posterPath' alt='Imagen Login Palomitas' class='img-fluid' id='imgLogin'>
             </div>
 
             <div class='col' style='margin-top: 5%;'>
@@ -154,7 +154,7 @@
 
     echo " </div> </div> </div> ";
 
-    echo "<div class=\"row\" style=\"margin-top: 2%;\">";
+    echo "<div class=\"row\" style=\"margin-top: -5%;\">";
     $serieTrailer = file_get_contents('https://api.themoviedb.org/3/tv/' . $idSerie . '/videos?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $serieTrailer = json_decode($serieTrailer, true);
     if (is_array($serieTrailer) || is_object($serieTrailer)) {
