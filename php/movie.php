@@ -101,7 +101,7 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
 
     <?php
 
-       // Control el vista y quiero de las peliculas
+    // Control el vista y quiero de las peliculas
     if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnQuiero'])) {
         $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
         $result = $conn->query($sql);
@@ -116,7 +116,6 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnVista'])) {
         $sql = "SELECT pelicula_id FROM peliculas WHERE pelicula_id = '$idPeli'";
         $result = $conn->query($sql);
-
         if ($result->num_rows > 0) {
             $sqlUpdate = "UPDATE `peliculas` SET `peli_vista`= 1,`peli_quiero`= 0 WHERE `pelicula_id`='$idPeli'";
             $result = $conn -> query($sqlUpdate);
