@@ -40,6 +40,14 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <!-- Paleta de colores -->
     <!-- https://colorhunt.co/palette/213161 -->
 
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+        h2 {
+            color: #000 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -155,38 +163,39 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
         }
     }
 
-    include('../html/scripts.html');
     echo "</div>";
-
-    echo "<h4>ACTORES Y ACTRICES</h4>";
-
-    echo "<section class=\"grid-1\">";
-    $peliculaActores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . ' /credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
+    $peliculaActores = file_get_contents('https://api.themoviedb.org/3/movie/' . $idPeli . '
+    /credits?api_key=f269df40fe8fe735f1ed701a4bfba1df&language=es');
     $peliculaActores = json_decode($peliculaActores, true);
-    foreach ($peliculaActores['cast'] as $value) {
-        $imagenCara = $value['profile_path'];
-        $nombre = $value['name'];
-        $id = $value['id'];
-        echo "
-        <div>
-        <div class=\"col-sm\">
-
-
-            <div class=\"card\" >
-                <img class=\"card-img-top\" src=\"https://image.tmdb.org/t/p/w500$imagenCara\" style=\"height: 18%;\">
-                <div class=\"card-body\">
-                    <h5 class=\"card-title\">$nombre</h5>
-                </div>
-            </div>
-            </div>
-            </div>
-            ";
-    }
-
-    echo "</section> </div> </div>";
     ?>
 
-    </div>
+    <section class="panel">
+        <h2>Actores y Actrices</h2>
+        <div class="mostslider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                    foreach ($peliculaActores['cast'] as $value) {
+                        $imagenCara = $value['profile_path'];
+                        $nombre = $value['name'];
+
+                        echo "
+                        <div class=\"swiper-slide\">
+                            <img src=\"https://image.tmdb.org/t/p/w500$imagenCara\" style=\"height: 90%;\">
+                            <h3 class=\"hometitle\">$nombre</h3>
+                        </div>";
+                    }
+
+                    ?>
+
+                    <div class="swiper-slide"><a href="mostwatched.html"><img src="img/others.png"></a></div>
+                </div>
+                <div class="nextdirection most-next"><img src="../styles/img/right-arrow.svg"> </div>
+                <div class="leftdirection most-prev"><img src="../styles/img/left-arrow.svg"> </div>
+                <!-- Add Pagination -->
+            </div>
+        </div>
+    </section>
 
     <script src="../js/jquery-3.1.1.min.js"></script>
     <!-- Bootstrap -->
@@ -194,6 +203,39 @@ if ((isset($_SESSION['username'])) && (isset($_SESSION['id']))) {
     <!-- Swiper JS -->
     <script src="../js/swiper.min.js"></script>
     <script src="../js/slider.js"></script>
+    <script>
+            $(document).ready(function () {
+                var mostswiper = new Swiper('.mostslider > .swiper-container', {
+                    nextButton: '.most-next',
+                    prevButton: '.most-prev',
+                    slidesPerView: 8,
+                    paginationClickable: true,
+                    preventClicks: false,
+                    preventClicksPropagation: false,
+                    spaceBetween: 10,
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 3,
+                            spaceBetween: 5
+                        },
+
+                        480: {
+                            slidesPerView: 3,
+                            spaceBetween: 5
+                        },
+
+                        768: {
+                            slidesPerView: 5,
+                            spaceBetween: 5
+                        },
+                        1024: {
+                            slidesPerView: 6,
+                            spaceBetween: 10
+                        }
+                    }
+                });
+            });
+        </script>
 
 </body>
 
