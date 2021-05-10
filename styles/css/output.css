@@ -26,12 +26,6 @@
   background-color: #96959b64;
 }
 
-@media screen and (min-width: 415px) {
-  .row input {
-    width: 50% !important;
-    clear: both !important;
-  }
-}
 .row::after {
   content: "";
   clear: both;

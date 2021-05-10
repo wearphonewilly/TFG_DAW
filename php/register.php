@@ -35,7 +35,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col" style="margin-left: 15%;">
+            <div class="col" style="margin-left: 15%;margin-top:5%;">
 
                 <h1>REGISTRO</h1>
 
@@ -66,6 +66,7 @@
                     </div> <br>
                     <div class="col-lg-7" style="margin-bottom: 5%;">
                         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                        <a href="./login.php" style="margin-left: 17%;">Ya estas registrado? Inicia sesión aquí </a>
                     </div>
                 </form>
             </div>
@@ -87,14 +88,11 @@
     $mail = $conn->real_escape_string($mail);
     $passHash = $conn->real_escape_string($passHash);
 
-    // TODO: Encriptar contraseña
-    // $passwordCrypted = password_hash($password, PASSWORD_BCRYPT, ['salt' => 'abc']);
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($name) || !empty($mail) || !empty($passHash)) {
             // $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (name, mail, password) VALUES ('$name', '$mail', '$password')");
             $result = $conn -> query("INSERT INTO heroku_a22259b35601486.users (nombre, mail, password) VALUES ('$name', '$mail', '$passHash')");
-            echo "<a href=\"./login.php\">Ir al login</a>";
+            echo "<a href=\"login.php\"> IR AL LOGIN </a>";
         } else {
             sweetalert2();
         }
