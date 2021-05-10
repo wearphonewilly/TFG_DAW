@@ -35,7 +35,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col" style="margin-left: 15%;margin-top:5%;">
+            <div class="col" style="margin-left: 32%;margin-top:5%;">
 
                 <h1>REGISTRO</h1>
 
