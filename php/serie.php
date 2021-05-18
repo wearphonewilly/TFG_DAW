@@ -158,15 +158,16 @@
         } else {
             notyfErrorEliminarBBDD();
         }
-    }/* elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnValorar'])) {
+    } elseif ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['btnValorar'])) {
         $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie AND serie_vista = 1";
         $result = $conn -> query($querySelect);
         if ($result->num_rows > 0) {
-            header('Location: valoracionEstrellas.php?&serieValorar=' . $idSerie);
+            $link = "valoracionEstrellas.php?&serieValorar=$idSerie";
+            echo "<script type='text/javascript'>location.href = '$link';</script>";
         } else {
             notyfErrorBBDD();
         }
-    }*/
+    }
 
     echo " </div> </div> </div> ";
 
