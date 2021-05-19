@@ -11,16 +11,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="../styles/css/valoracionEstrellas.css">
     <style>
+
         * {
-            background-color: black;
-        }
-        body {
-            color: #fff !important;
-            background-color: #000 !important;
+            background-color: #353b48;
         }
 
+        body {
+            background-color: #353b48;
+        }
         h1 {
+            justify-content: center;
+            color: white;
             margin-left: 40%;
+            margin-top: 5%;
         }
     </style>
 </head>
