@@ -11,31 +11,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <link rel="stylesheet" href="../styles/css/valoracionEstrellas.css">
     <style>
+        * {
+            background-color: black;
+        }
         body {
             color: #fff !important;
+            background-color: #000 !important;
+        }
+
+        h1 {
+            margin-left: 40%;
         }
     </style>
 </head>
 
 <body>
 
-    <?php include('../html/navbar.html'); 
-    /*require_once("./DB.php");
-    require_once('jsphp.php');
-    $conn = DB::getInstance()->getConn();
-    
-    $querySelect = "SELECT serie_id FROM serie WHERE user_id = $user_id AND serie_id = $idSerie AND serie_vista = 1";
-    var_dump($querySelect);
-    $result = $conn -> query($querySelect);
-    var_dump($result);
-    if ($result->num_rows > 0) {
-        // echo "<script> alert('".$var."'); </script>";
-        // echo "<script> console.log(window.location='valoracionEstrellas.php?serieValorar='".$idSerie."')); </script>";
-        header('Location: valoracionEstrellas.php?&serieValorar=' . $idSerie);
-    } else {
-        notyfErrorBBDD();
-    }*/
-    ?>
+    <?php include('../html/navbar.html'); ?>
 
     <h1>VALORACIÓN</h1>
 
