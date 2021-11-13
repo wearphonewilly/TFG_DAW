@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+  <loc>http://estas-viendo.herokuapp.com/./php/login.php</loc>
+  <lastmod>2021-11-13</lastmod>
+</url>
+<url>
+  <loc>http://estas-viendo.herokuapp.com/./php/register.php</loc>
+  <lastmod>2021-11-13</lastmod>
+</url>
+<url>
+  <loc>http://estas-viendo.herokuapp.com/./register.php</loc>
+  <lastmod>2021-11-13</lastmod>
+</url>
+<url>
+  <loc>http://estas-viendo.herokuapp.com/./login.php</loc>
+  <lastmod>2021-11-13</lastmod>
+</url>
+<url>
+  <loc>http://estas-viendo.herokuapp.com/index.php</loc>
+  <lastmod>2021-11-13</lastmod>
+</url>
+</urlset>
